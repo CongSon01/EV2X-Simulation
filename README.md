@@ -1,4 +1,4 @@
-# EV2X Cyberattack Attack Simulation Dataset
+# EV2X Communication Cyberattack Dataset
 
 A network-level dataset for detecting **Denial-of-Service (DoS) attacks** in **Electric Vehicle (EV) communication networks**, generated using high-fidelity vehicular network simulation. The dataset captures Vehicle-to-Everything (V2X) communication traffic under normal and attack conditions across three distinct communication channels: **EV-to-EV**, **EV-to-Charging Station**, and **EV-to-RSU**.
 
