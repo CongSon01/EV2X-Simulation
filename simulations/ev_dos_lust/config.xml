@@ -1,0 +1,5 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- IPv4 auto-configuration for all nodes -->
+<config>
+    <interface hosts="**" address="10.0.x.x" netmask="255.255.0.0"/>
+</config>

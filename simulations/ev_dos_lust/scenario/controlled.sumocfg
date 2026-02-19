@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- SUMO config for controlled scenario: 2 EVs on LuST network -->
+<configuration>
+    <input>
+        <net-file value="lust.net.xml"/>
+        <route-files value="controlled.rou.xml"/>
+        <additional-files value="controlled.add.xml,vtypes.add.xml,tll.static.xml"/>
+    </input>
+    <time>
+        <begin value="0"/>
+        <end value="600"/>
+        <step-length value="0.1"/>
+    </time>
+    <processing>
+        <max-depart-delay value="300"/>
+        <time-to-teleport value="120"/>
+    </processing>
+    <report>
+        <no-step-log value="true"/>
+    </report>
+</configuration>

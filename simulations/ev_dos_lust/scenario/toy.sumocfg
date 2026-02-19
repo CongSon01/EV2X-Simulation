@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- Toy scenario SUMO config: small 3x3 grid, 2 EVs -->
+<configuration>
+    <input>
+        <net-file value="toy.net.xml"/>
+        <route-files value="toy.rou.xml"/>
+        <additional-files value="toy.add.xml"/>
+    </input>
+    <time>
+        <begin value="0"/>
+        <end value="600"/>
+        <step-length value="0.1"/>
+    </time>
+    <processing>
+        <time-to-teleport value="-1"/>
+    </processing>
+</configuration>

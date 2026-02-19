@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- Toy scenario: 2 EVs on a 3x3 grid (400m x 400m).
+     Grid: A0(0,0) A1(0,200) A2(0,400)
+           B0(200,0) B1(200,200) B2(200,400)
+           C0(400,0) C1(400,200) C2(400,400)
+     CS at B1 (200,200). RSU at (200,300).
+     Both EVs zigzag through grid, passing B1 (CS) multiple times.
+     Routes are ~4000m so SoC drops below 20% and charging triggers. -->
+
+<routes>
+    <!-- EV types (SUMO color overridden by TraCI in VeinsInetEVChargingApp) -->
+    <vType id="evAttacker" vClass="passenger" color="255,0,0"
+           accel="2.6" decel="4.5" sigma="0.5" length="5.0" minGap="1.5"
+           maxSpeed="20.89" speedDev="0.1" guiShape="passenger/sedan"/>
+
+    <vType id="evNormal" vClass="passenger" color="255,255,0"
+           accel="2.6" decel="4.5" sigma="0.5" length="5.0" minGap="1.5"
+           maxSpeed="20.89" speedDev="0.1" guiShape="passenger/hatchback"/>
+
+    <vehicle id="ev_attacker" type="evAttacker" depart="5.00"
+             departPos="0" departSpeed="0.00">
+        <route edges="A0B0 B0B1 B1B2 B2C2 C2C1 C1B1 B1A1 A1A2 A2B2 B2B1 B1B0 B0C0 C0C1 C1C2 C2B2 B2A2 A2A1 A1B1 B1C1 C1C0 C0B0 B0A0"/>
+    </vehicle>
+
+    <vehicle id="ev_normal" type="evNormal" depart="10.00"
+             departPos="0" departSpeed="0.00">
+        <route edges="A0B0 B0B1 B1B2 B2C2 C2C1 C1B1 B1A1 A1A2 A2B2 B2B1 B1B0 B0C0 C0C1 C1C2 C2B2 B2A2 A2A1 A1B1 B1C1 C1C0 C0B0 B0A0"/>
+    </vehicle>
+</routes>

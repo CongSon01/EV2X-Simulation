@@ -1,0 +1,33 @@
+ML FEATURES
+==================================================
+
+  1. activeDuration
+  2. attackDuration
+  3. attackInterval
+  4. attackPacketSize
+  5. avgInterArrivalTime
+  6. avgPacketSize
+  7. burstiness
+  8. bytesRecvRate
+  9. bytesSendRate
+ 10. maxPacketSize
+ 11. minPacketSize
+ 12. packetReceived:count
+ 13. packetReceived:sum(packetBytes)
+ 14. packetRecvRate
+ 15. packetSendRate
+ 16. packetSent:count
+ 17. packetSent:sum(packetBytes)
+ 18. stdInterArrivalTime
+ 19. stdPacketSize
+ 20. throughputEfficiency
+ 21. totalBytesReceived
+ 22. totalBytesSent
+ 23. totalPacketsReceived
+ 24. totalPacketsSent
+ 25. varInterArrivalTime
+ 26. avgPacketSizeSent
+ 27. avgPacketSizeRecv
+ 28. sendRecvRatio
+
+Total: 28 features

@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- Veins launch config for controlled scenario (2 EVs only) -->
+<launch>
+    <copy file="scenario/controlled.sumocfg" type="config" />
+    <copy file="scenario/lust.net.xml" />
+    <copy file="scenario/controlled.rou.xml" />
+    <copy file="scenario/controlled.add.xml" />
+    <copy file="scenario/vtypes.add.xml" />
+    <copy file="scenario/tll.static.xml" />
+</launch>

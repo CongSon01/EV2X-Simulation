@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- Lightweight launch config for LuST -->
+<!-- Fewer files = faster SUMO startup, fewer vehicles -->
+<launch>
+    <copy file="scenario/dua.light.sumocfg" type="config" />
+    <copy file="scenario/lust.net.xml" />
+    <copy file="scenario/DUARoutes/local.0.rou.xml" />
+    <copy file="scenario/vtypes.add.xml" />
+    <copy file="scenario/tll.static.xml" />
+</launch>

@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- SUMO additional file for controlled scenario:
+     - EV vehicle types with colors (red=attacker, yellow=normal)
+     - POI markers so CS and RSU are visible in SUMO-GUI -->
+<additional>
+    <!-- CS marker (blue dot) at position matching omnetpp.ini cs[0] -->
+    <poi id="ChargingStation_0" type="chargingStation" color="0,150,255"
+         x="7350" y="5500" layer="10"/>
+
+    <!-- RSU marker (green dot) at position matching omnetpp.ini rsu[0] -->
+    <poi id="RSU_0" type="rsu" color="0,200,0"
+         x="7400" y="5800" layer="10"/>
+</additional>

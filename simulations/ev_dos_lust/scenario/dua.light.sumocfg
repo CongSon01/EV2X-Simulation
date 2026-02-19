@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--
+Lightweight LuST config for interactive testing.
+Uses only 1/3 of routes, no buses/transit, short duration.
+-->
+<configuration xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xsi:noNamespaceSchemaLocation="http://sumo-sim.org/xsd/sumoConfiguration.xsd">
+
+    <input>
+        <net-file value="lust.net.xml"/>
+        <route-files value="DUARoutes/local.0.rou.xml"/>
+        <additional-files value="vtypes.add.xml,tll.static.xml"/>
+    </input>
+
+    <time>
+        <begin value="0"/>
+        <end value="2100"/>
+        <step-length value="0.1"/>
+    </time>
+
+    <processing>
+        <ignore-junction-blocker value="20"/>
+        <time-to-teleport value="300"/>
+        <max-depart-delay value="300"/>
+        <routing-algorithm value="dijkstra"/>
+    </processing>
+
+    <report>
+        <verbose value="true"/>
+    </report>
+
+</configuration>

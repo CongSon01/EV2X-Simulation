@@ -1,0 +1,27 @@
+V2V COMMUNICATION DATASET SUMMARY
+============================================================
+
+Total communications: 599
+ATTACK communications: 599
+NORMAL communications: 0
+
+Columns:
+  - timestamp
+  - sender_node_id
+  - receiver_node_id
+  - packet_size
+  - inter_arrival_time
+  - packet_type
+  - is_sender_attacker
+  - label
+
+Statistics:
+        timestamp  sender_node_id  receiver_node_id  packet_size  inter_arrival_time  is_sender_attacker
+count  599.000000           599.0        599.000000        599.0          599.000000               599.0
+mean    14.966611             0.0          0.998331        512.0            0.099499                 1.0
+std      5.768721             0.0          0.816836          0.0            0.007065                 0.0
+min      5.000000             0.0          0.000000        512.0            0.000000                 1.0
+25%     10.000000             0.0          0.000000        512.0            0.100000                 1.0
+50%     15.000000             0.0          1.000000        512.0            0.100000                 1.0
+75%     19.950000             0.0          2.000000        512.0            0.100000                 1.0
+max     24.900000             0.0          2.000000        512.0            0.100000                 1.0

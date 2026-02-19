@@ -1,0 +1,3 @@
+package evattack;
+
+@license(LGPL);

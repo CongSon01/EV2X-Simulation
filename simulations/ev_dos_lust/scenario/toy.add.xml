@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- Toy scenario POI markers: CS and RSU visible in SUMO-GUI -->
+<additional>
+    <!-- CS marker at grid center B1 (200,200) -->
+    <poi id="ChargingStation_0" type="chargingStation" color="0,150,255"
+         x="200" y="200" layer="10"/>
+
+    <!-- RSU marker between B1 and B2 (200,300) -->
+    <poi id="RSU_0" type="rsu" color="0,200,0"
+         x="200" y="300" layer="10"/>
+</additional>
