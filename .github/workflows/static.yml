@@ -1,53 +1,54 @@
-# Workflow triển khai nội dung từ README.md lên GitHub Pages
 name: Deploy README to Pages
 
 on:
-  # Chạy workflow khi có code push lên nhánh main
   push:
     branches: ["main"]
-
-  # Cho phép kích hoạt thủ công từ tab Actions
   workflow_dispatch:
 
-# Cấp quyền cho GITHUB_TOKEN để có thể deploy lên GitHub Pages
 permissions:
   contents: read
   pages: write
   id-token: write
 
-# Chỉ cho phép một luồng deploy chạy cùng lúc
 concurrency:
   group: "pages"
   cancel-in-progress: false
 
 jobs:
+  # Công đoạn 1: Build (Biên dịch Markdown sang HTML)
+  build:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+      
+      - name: Prepare file
+        run: |
+          # Copy file README.md thành index.md để làm trang chủ
+          cp README.md index.md
+          
+      - name: Setup Pages
+        uses: actions/configure-pages@v5
+        
+      - name: Build with Jekyll
+        uses: actions/jekyll-build-pages@v1
+        with:
+          source: ./
+          destination: ./_site
+          
+      - name: Upload artifact
+        uses: actions/upload-pages-artifact@v3
+        with:
+          path: ./_site
+
+  # Công đoạn 2: Deploy lên server
   deploy:
     environment:
       name: github-pages
       url: ${{ steps.deployment.outputs.page_url }}
     runs-on: ubuntu-latest
+    needs: build
     steps:
-      - name: Checkout
-        uses: actions/checkout@v4
-        
-      - name: Prepare README for Pages
-        run: |
-          # Tạo thư mục tạm và copy README.md thành index.md làm trang chủ
-          mkdir public
-          cp README.md public/index.md
-          
-          # (Tùy chọn) Nếu file README có dùng ảnh trong folder 'images', hãy bỏ comment dòng dưới:
-          # cp -r images/ public/images/
-
-      - name: Setup Pages
-        uses: actions/configure-pages@v5
-        
-      - name: Upload artifact
-        uses: actions/upload-pages-artifact@v3
-        with:
-          # Chỉ upload thư mục public chứa file index.md thay vì toàn bộ repo ('.')
-          path: './public'
-          
       - name: Deploy to GitHub Pages
         id: deployment
         uses: actions/deploy-pages@v4
