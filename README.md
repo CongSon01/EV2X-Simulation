@@ -41,46 +41,6 @@ This dataset was generated using a co-simulation framework that couples a vehicu
 
 ---
 
-## 2. Simulation Architecture
-
-### How the Simulation Was Built in OMNeT++
-
-The simulation follows a layered architecture combining all four tools:
-
-```
-┌─────────────────────────────────────────────────────────────┐
-│                    OMNeT++ 5.6.2 (Core Engine)              │
-│                                                             │
-│  ┌──────────────────────────────────────────────────────┐   │
-│  │              EVDoSScenario (Network)                  │   │
-│  │                                                      │   │
-│  │  ┌─────────────┐  ┌─────────────┐  ┌─────────────┐  │   │
-│  │  │  EV[0..1]   │  │   CS[0]     │  │   RSU[0]    │  │   │
-│  │  │ (Dynamic)   │  │ (Static)    │  │ (Static)    │  │   │
-│  │  │ DoSApp      │  │ ReceiverApp │  │ ReceiverApp │  │   │
-│  │  │ 802.11p     │  │ 802.11p     │  │ 802.11p     │  │   │
-│  │  │ IPv4/UDP    │  │ IPv4/UDP    │  │ IPv4/UDP    │  │   │
-│  │  └──────┬──────┘  └──────┬──────┘  └──────┬──────┘  │   │
-│  │         │                │                │          │   │
-│  │  ┌──────┴────────────────┴────────────────┴──────┐   │   │
-│  │  │     Ieee80211ScalarRadioMedium (5.9 GHz)      │   │   │
-│  │  └───────────────────────────────────────────────┘   │   │
-│  │                                                      │   │
-│  │  ┌──────────────────┐  ┌──────────────────────────┐  │   │
-│  │  │ VeinsInetManager │  │ Ipv4NetworkConfigurator  │  │   │
-│  │  │  (TraCI Bridge)  │  │  10.0.x.x/16 subnet     │  │   │
-│  │  └────────┬─────────┘  └──────────────────────────┘  │   │
-│  └───────────┼──────────────────────────────────────────┘   │
-│              │ TCP (port 9999)                               │
-│              ▼                                               │
-│  ┌──────────────────┐                                       │
-│  │  SUMO 1.12.0     │  ← Vehicle mobility (positions,      │
-│  │  (Traffic Sim)   │     speeds, routes) updated every     │
-│  │                  │     100ms via TraCI protocol           │
-│  └──────────────────┘                                       │
-└─────────────────────────────────────────────────────────────┘
-```
-
 ## 2. Network Topology & Configuration
 
 ### Node Placement
