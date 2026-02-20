@@ -1,0 +1,813 @@
+file 985519 1771584469                                          
+version 2
+run Toy_DoS-0-20260220-11:47:38-10516
+attr configname Toy_DoS
+attr datetime 20260220-11:47:38
+attr experiment Toy_DoS
+attr inifile omnetpp.ini
+attr iterationvars ""
+attr iterationvarsf ""
+attr measurement ""
+attr network ToyEVDoSScenario
+attr processid 10516
+attr repetition 0
+attr replication #0
+attr resultdir results
+attr runnumber 0
+attr seedset 0
+param *.ev[*].app[0].energyPerMeter 0.1Wh
+param *.cs[*].app[0].maxPktPerSecond 50
+param *.rsu[*].app[0].maxPktPerSecond 50
+param *.ev[0].app[0].isAttacker true
+param *.ev[0].app[0].targetType "\"CS\""
+param *.ev[0].app[0].targetAddress "\"cs[0]\""
+param *.ev[0].app[0].attackStartTime 15s
+param *.ev[0].app[0].attackDuration 60s
+param *.ev[0].app[0].packetInterval 0.01s
+param *.ev[0].app[0].packetSize 1024B
+param *.ev[0].app[0].sumoColor "\"red\""
+param *.radioMedium.neighborCache.typename "\"GridNeighborCache\""
+param *.radioMedium.neighborCache.cellSizeX 300m
+param *.radioMedium.neighborCache.cellSizeY 300m
+param *.radioMedium.neighborCache.cellSizeZ 100m
+param *.radioMedium.pathLoss.typename "\"FreeSpacePathLoss\""
+param *.veinsManager.firstStepAt 0s
+param *.veinsManager.roiRects "\"\""
+param *.veinsManager.moduleType "\"evattack.veins_inet.VeinsInetEVChargingCar\""
+param *.veinsManager.moduleName "\"ev\""
+param *.ev[*].numApps 1
+param *.ev[*].app[0].typename "\"VeinsInetEVChargingApp\""
+param *.ev[*].app[0].interface "\"wlan0\""
+param *.ev[*].app[0].interfaceTableModule "\"^.interfaceTable\""
+param *.ev[*].mobility.typename "\"VeinsInetMobility\""
+param *.ev[*].ipv4.configurator.typename "\"HostAutoConfigurator\""
+param *.ev[*].ipv4.configurator.interfaces "\"wlan0\""
+param *.ev[*].wlan[0].typename "\"Ieee80211Interface\""
+param *.ev[*].wlan[0].radio.typename "\"Ieee80211ScalarRadio\""
+param *.ev[*].wlan[0].radio.bandName "\"5.9 GHz\""
+param *.ev[*].wlan[0].radio.channelNumber 3
+param *.ev[*].wlan[0].radio.transmitter.power 20mW
+param *.ev[*].wlan[0].radio.receiver.sensitivity -89dBm
+param *.ev[*].wlan[0].radio.receiver.snirThreshold 4dB
+param *.ev[*].wlan[0].mgmt.typename "\"Ieee80211MgmtAdhoc\""
+param *.ev[*].wlan[0].mac.dcf.channelAccess.cwMin 15
+param *.ev[*].wlan[0].mac.dcf.channelAccess.cwMax 1023
+param *.ev[*].wlan[0].radio.displayCommunicationRange true
+param *.ev[*].app[0].batteryCapacity 200Wh
+param *.ev[*].app[0].initialSoC 0.8
+param *.ev[*].app[0].energyPerMeter 0.05Wh
+param *.ev[*].app[0].chargingPowerW 7200W
+param *.ev[*].app[0].socThreshold 0.2
+param *.ev[*].app[0].chargingRange 300m
+param *.ev[*].app[0].physicalChargingRange 15m
+param *.ev[*].app[0].csEdgeId "\"B1B2\""
+param *.ev[*].app[0].destinations "\"\""
+param *.ev[*].app[0].isAttacker false
+param *.ev[*].app[0].maxPktPerSecond 0
+param *.cs[*].app[0].maxPktPerSecond 0
+param *.rsu[*].app[0].maxPktPerSecond 0
+param *.ev[*].app[0].sumoColor "\"yellow\""
+param *.cs[*].numApps 1
+param *.cs[*].app[0].typename "\"VeinsInetCSChargingApp\""
+param *.cs[*].app[0].interfaceTableModule "\"^.interfaceTable\""
+param *.cs[*].app[0].maxSlots 1
+param *.cs[*].app[0].csBatteryCapacity 50000Wh
+param *.cs[*].app[0].initialCSSoC 1.0
+param *.cs[*].app[0].chargingPowerW 7200W
+param *.cs[*].app[0].gridRechargePowerW 10000W
+param *.cs[*].ipv4.configurator.typename "\"HostAutoConfigurator\""
+param *.cs[*].ipv4.configurator.interfaces "\"wlan0\""
+param *.cs[*].mobility.initFromDisplayString false
+param *.cs[*].numWlanInterfaces 1
+param *.cs[*].wlan[0].typename "\"Ieee80211Interface\""
+param *.cs[*].wlan[0].radio.typename "\"Ieee80211ScalarRadio\""
+param *.cs[*].wlan[0].radio.bandName "\"5.9 GHz\""
+param *.cs[*].wlan[0].radio.channelNumber 3
+param *.cs[*].wlan[0].radio.transmitter.power 20mW
+param *.cs[*].wlan[0].radio.receiver.sensitivity -89dBm
+param *.cs[*].wlan[0].mgmt.typename "\"Ieee80211MgmtAdhoc\""
+param *.cs[*].wlan[0].mac.dcf.channelAccess.cwMin 15
+param *.cs[*].wlan[0].mac.dcf.channelAccess.cwMax 1023
+param *.cs[*].wlan[0].radio.displayCommunicationRange true
+param *.rsu[*].numApps 1
+param *.rsu[*].app[0].typename "\"VeinsInetReceiverApp\""
+param *.rsu[*].ipv4.configurator.typename "\"HostAutoConfigurator\""
+param *.rsu[*].ipv4.configurator.interfaces "\"wlan0\""
+param *.rsu[*].mobility.initFromDisplayString false
+param *.rsu[*].numWlanInterfaces 1
+param *.rsu[*].wlan[0].typename "\"Ieee80211Interface\""
+param *.rsu[*].wlan[0].radio.typename "\"Ieee80211ScalarRadio\""
+param *.rsu[*].wlan[0].radio.bandName "\"5.9 GHz\""
+param *.rsu[*].wlan[0].radio.channelNumber 3
+param *.rsu[*].wlan[0].radio.transmitter.power 200mW
+param *.rsu[*].wlan[0].radio.receiver.sensitivity -89dBm
+param *.rsu[*].wlan[0].mgmt.typename "\"Ieee80211MgmtAdhoc\""
+param *.rsu[*].wlan[0].mac.dcf.channelAccess.cwMin 15
+param *.rsu[*].wlan[0].mac.dcf.channelAccess.cwMax 1023
+param *.rsu[*].wlan[0].radio.displayCommunicationRange true
+param **.constraintAreaMinX -10m
+param **.constraintAreaMinY -10m
+param **.constraintAreaMinZ 0m
+param **.constraintAreaMaxX 500m
+param **.constraintAreaMaxY 500m
+param **.constraintAreaMaxZ 100m
+param *.veinsManager.launchConfig "xmldoc(\"toy.launchd.xml\")"
+param *.ev[*].app[0].destinations "\"C2C1 A2B2 C0B0 A0B0\""
+param *.cs[0].mobility.typename "\"StationaryMobility\""
+param *.cs[0].mobility.initialX 200m
+param *.cs[0].mobility.initialY 200m
+param *.cs[0].mobility.initialZ 0m
+param *.rsu[0].mobility.typename "\"StationaryMobility\""
+param *.rsu[0].mobility.initialX 200m
+param *.rsu[0].mobility.initialY 300m
+param *.rsu[0].mobility.initialZ 10m
+param *.visualizer.typename "\"IntegratedCanvasVisualizer\""
+param *.visualizer.*.displayDefaults false
+param *.veinsManager.seed 0
+param **.constraintAreaMinX 0m
+param **.constraintAreaMinY 0m
+param **.constraintAreaMinZ 0m
+param **.constraintAreaMaxX 13640m
+param **.constraintAreaMaxY 11500m
+param **.constraintAreaMaxZ 50m
+param *.visualizer.*.mobilityVisualizer.displayMobility false
+param *.visualizer.*.mobilityVisualizer.displayPositions false
+param *.visualizer.*.mediumVisualizer.displaySignals false
+param *.visualizer.*.mediumVisualizer.displayTransmissions false
+param *.visualizer.*.mediumVisualizer.displayReceptions false
+param *.visualizer.*.dataLinkVisualizer.displayLinks false
+param *.visualizer.*.networkRouteVisualizer.displayRoutes false
+param *.visualizer.*.interfaceTableVisualizer.displayInterfaceTables false
+param *.visualizer.*.packetDropVisualizer.displayPacketDrops false
+param *.veinsManager.updateInterval 0.1s
+param *.veinsManager.host "\"localhost\""
+param *.veinsManager.port 9999
+param *.veinsManager.autoShutdown true
+param *.veinsManager.launchConfig "xmldoc(\"luxembourg.launchd.xml\")"
+param *.veinsManager.moduleType "\"evattack.veins_inet.VeinsInetEVCar\""
+param *.veinsManager.moduleName "\"ev\""
+param *.veinsManager.roiRects "\"2300,5400-6300,6300\""
+param *.veinsManager.firstStepAt 7h
+param *.configurator.config "xmldoc(\"config.xml\")"
+param *.configurator.addStaticRoutes false
+param *.configurator.addDefaultRoutes false
+param *.configurator.addSubnetRoutes false
+param *.configurator.addDirectRoutes false
+param *.configurator.optimizeRoutes false
+param *.radioMedium.mediumLimitCache.carrierFrequency 5.9GHz
+param *.radioMedium.pathLoss.typename "\"TwoRayInterference\""
+param *.radioMedium.mediumLimitCache.maxCommunicationRange 500m
+param *.radioMedium.mediumLimitCache.maxInterferenceRange 750m
+param *.ev[*].numApps 1
+param *.ev[*].app[0].typename "\"VeinsInetEVDoSApplication\""
+param *.ev[*].app[0].interfaceTableModule "\"^.interfaceTable\""
+param *.ev[*].app[0].interface "\"wlan0\""
+param *.ev[*].mobility.typename "\"VeinsInetMobility\""
+param *.ev[*].ipv4.configurator.typename "\"HostAutoConfigurator\""
+param *.ev[*].ipv4.configurator.interfaces "\"wlan0\""
+param *.ev[*].wlan[0].typename "\"Ieee80211Interface\""
+param *.ev[*].wlan[0].radio.typename "\"Ieee80211ScalarRadio\""
+param *.ev[*].wlan[0].radio.bandName "\"5.9 GHz\""
+param *.ev[*].wlan[0].radio.channelNumber 3
+param *.ev[*].wlan[0].radio.transmitter.power 20mW
+param *.ev[*].wlan[0].radio.receiver.sensitivity -89dBm
+param *.ev[*].wlan[0].radio.receiver.snirThreshold 4dB
+param *.ev[*].wlan[0].mgmt.typename "\"Ieee80211MgmtAdhoc\""
+param *.ev[*].wlan[0].mac.dcf.channelAccess.cwMin 15
+param *.ev[*].wlan[0].mac.dcf.channelAccess.cwMax 1023
+param *.ev[*].wlan[0].radio.displayCommunicationRange false
+param *.ev[*].app[0].isAttacker false
+param *.cs[*].numApps 1
+param *.cs[*].app[0].typename "\"VeinsInetReceiverApp\""
+param *.cs[*].ipv4.configurator.typename "\"HostAutoConfigurator\""
+param *.cs[*].ipv4.configurator.interfaces "\"wlan0\""
+param *.cs[*].mobility.initFromDisplayString false
+param *.cs[0].mobility.typename "\"StationaryMobility\""
+param *.cs[0].mobility.initialX 3200m
+param *.cs[0].mobility.initialY 5700m
+param *.cs[0].mobility.initialZ 0m
+param *.cs[1].mobility.typename "\"StationaryMobility\""
+param *.cs[1].mobility.initialX 4500m
+param *.cs[1].mobility.initialY 5900m
+param *.cs[1].mobility.initialZ 0m
+param *.cs[2].mobility.typename "\"StationaryMobility\""
+param *.cs[2].mobility.initialX 5800m
+param *.cs[2].mobility.initialY 5600m
+param *.cs[2].mobility.initialZ 0m
+param *.cs[*].numWlanInterfaces 1
+param *.cs[*].wlan[0].typename "\"Ieee80211Interface\""
+param *.cs[*].wlan[0].radio.typename "\"Ieee80211ScalarRadio\""
+param *.cs[*].wlan[0].radio.bandName "\"5.9 GHz\""
+param *.cs[*].wlan[0].radio.channelNumber 3
+param *.cs[*].wlan[0].radio.transmitter.power 20mW
+param *.cs[*].wlan[0].radio.receiver.sensitivity -89dBm
+param *.cs[*].wlan[0].mgmt.typename "\"Ieee80211MgmtAdhoc\""
+param *.cs[*].wlan[0].mac.dcf.channelAccess.cwMin 15
+param *.cs[*].wlan[0].mac.dcf.channelAccess.cwMax 1023
+param *.cs[*].wlan[0].radio.displayCommunicationRange false
+param *.rsu[*].numApps 1
+param *.rsu[*].app[0].typename "\"VeinsInetReceiverApp\""
+param *.rsu[*].ipv4.configurator.typename "\"HostAutoConfigurator\""
+param *.rsu[*].ipv4.configurator.interfaces "\"wlan0\""
+param *.rsu[*].mobility.initFromDisplayString false
+param *.rsu[0].mobility.typename "\"StationaryMobility\""
+param *.rsu[0].mobility.initialX 2800m
+param *.rsu[0].mobility.initialY 5500m
+param *.rsu[0].mobility.initialZ 10m
+param *.rsu[1].mobility.typename "\"StationaryMobility\""
+param *.rsu[1].mobility.initialX 3800m
+param *.rsu[1].mobility.initialY 5800m
+param *.rsu[1].mobility.initialZ 10m
+param *.rsu[2].mobility.typename "\"StationaryMobility\""
+param *.rsu[2].mobility.initialX 4800m
+param *.rsu[2].mobility.initialY 6000m
+param *.rsu[2].mobility.initialZ 10m
+param *.rsu[3].mobility.typename "\"StationaryMobility\""
+param *.rsu[3].mobility.initialX 5500m
+param *.rsu[3].mobility.initialY 5800m
+param *.rsu[3].mobility.initialZ 10m
+param *.rsu[4].mobility.typename "\"StationaryMobility\""
+param *.rsu[4].mobility.initialX 6000m
+param *.rsu[4].mobility.initialY 6100m
+param *.rsu[4].mobility.initialZ 10m
+param *.rsu[*].numWlanInterfaces 1
+param *.rsu[*].wlan[0].typename "\"Ieee80211Interface\""
+param *.rsu[*].wlan[0].radio.typename "\"Ieee80211ScalarRadio\""
+param *.rsu[*].wlan[0].radio.bandName "\"5.9 GHz\""
+param *.rsu[*].wlan[0].radio.channelNumber 3
+param *.rsu[*].wlan[0].radio.transmitter.power 200mW
+param *.rsu[*].wlan[0].radio.receiver.sensitivity -89dBm
+param *.rsu[*].wlan[0].mgmt.typename "\"Ieee80211MgmtAdhoc\""
+param *.rsu[*].wlan[0].mac.dcf.channelAccess.cwMin 15
+param *.rsu[*].wlan[0].mac.dcf.channelAccess.cwMax 1023
+param *.rsu[*].wlan[0].radio.displayCommunicationRange false
+
+vector 0 ToyEVDoSScenario.cs[0].wlan[0].radio radioMode:vector ETV
+attr interpolationmode sample-hold
+attr source radioModeChanged
+attr title "Radio mode, vector"
+vector 1 ToyEVDoSScenario.cs[0].wlan[0].radio radioChannel:vector ETV
+attr interpolationmode sample-hold
+attr source radioChannelChanged
+attr title "Radio channel, vector"
+vector 2 ToyEVDoSScenario.rsu[0].wlan[0].radio radioMode:vector ETV
+attr interpolationmode sample-hold
+attr source radioModeChanged
+attr title "Radio mode, vector"
+vector 3 ToyEVDoSScenario.rsu[0].wlan[0].radio radioChannel:vector ETV
+attr interpolationmode sample-hold
+attr source radioChannelChanged
+attr title "Radio channel, vector"
+vector 4 ToyEVDoSScenario.cs[0].wlan[0].radio receptionState:vector ETV
+attr interpolationmode sample-hold
+attr source receptionStateChanged
+attr title "Radio reception state, vector"
+vector 5 ToyEVDoSScenario.rsu[0].wlan[0].radio receptionState:vector ETV
+attr interpolationmode sample-hold
+attr source receptionStateChanged
+attr title "Radio reception state, vector"
+vector 6 ToyEVDoSScenario.cs[0].wlan[0].mac.dcf.recoveryProcedure contentionWindowChanged:vector ETV
+attr interpolationmode sample-hold
+attr title "contention window, vector"
+vector 7 ToyEVDoSScenario.rsu[0].wlan[0].mac.dcf.recoveryProcedure contentionWindowChanged:vector ETV
+attr interpolationmode sample-hold
+attr title "contention window, vector"
+vector 8 ToyEVDoSScenario.ev[0].wlan[0].radio radioMode:vector ETV
+attr interpolationmode sample-hold
+attr source radioModeChanged
+attr title "Radio mode, vector"
+vector 9 ToyEVDoSScenario.ev[0].wlan[0].radio radioChannel:vector ETV
+attr interpolationmode sample-hold
+attr source radioChannelChanged
+attr title "Radio channel, vector"
+vector 10 ToyEVDoSScenario.ev[0].wlan[0].radio receptionState:vector ETV
+attr interpolationmode sample-hold
+attr source receptionStateChanged
+attr title "Radio reception state, vector"
+vector 11 ToyEVDoSScenario.ev[0].wlan[0].mac.dcf.recoveryProcedure contentionWindowChanged:vector ETV
+attr interpolationmode sample-hold
+attr title "contention window, vector"
+vector 12 ToyEVDoSScenario.ev[0].app[0] batteryLevel:vector ETV
+vector 13 ToyEVDoSScenario.ev[0].app[0] soc:vector ETV
+attr title "State of Charge, vector"
+vector 14 ToyEVDoSScenario.ev[0].app[0] isCharging:vector ETV
+vector 15 ToyEVDoSScenario.ev[0].app[0] packetSize:vector ETV
+vector 16 ToyEVDoSScenario.ev[0].app[0] interArrivalTime:vector ETV
+vector 17 ToyEVDoSScenario.ev[0].app[0] energyConsumption:vector ETV
+vector 18 ToyEVDoSScenario.ev[0].app[0] packetSent:vector ETV
+attr interpolationmode none
+attr source packetSent
+attr title "packets sent, vector"
+vector 19 ToyEVDoSScenario.ev[0].udp packetSent:vector(packetBytes) ETV
+attr interpolationmode none
+attr source packetSent
+attr title "packets sent, vector(packetBytes)"
+vector 20 ToyEVDoSScenario.ev[0].lo[0].lo rcvdPkFromHl:vector(packetBytes) ETV
+attr interpolationmode none
+attr source packetReceivedFromUpper
+attr title "packets received from higher layer, vector(packetBytes)"
+vector 21 ToyEVDoSScenario.ev[0].lo[0].lo passedUpPk:vector(packetBytes) ETV
+attr interpolationmode none
+attr source packetSentToUpper
+attr title "packets passed to higher layer, vector(packetBytes)"
+vector 22 ToyEVDoSScenario.ev[0].wlan[0].mac packetReceivedFromUpper:vector(packetBytes) ETV
+attr interpolationmode none
+attr title "packets received from upper layer, vector(packetBytes)"
+vector 23 ToyEVDoSScenario.ev[0].wlan[0].mac.dcf.channelAccess.pendingQueue packetPushed:vector(packetBytes) ETV
+attr interpolationmode none
+attr title "packet pushed, vector(packetBytes)"
+vector 24 ToyEVDoSScenario.ev[0].wlan[0].mac.dcf.channelAccess.pendingQueue queueLength:vector ETV
+attr interpolationmode sample-hold
+attr source "count(packetPushed) - count(packetPopped) - count(packetRemoved) - count(packetDropped)"
+attr title "queue length, vector"
+vector 25 ToyEVDoSScenario.ev[0].wlan[0].mac.dcf.channelAccess.contention backoffPeriodGenerated:vector ETV
+attr interpolationmode none
+attr title "backoff periods, vector"
+vector 26 ToyEVDoSScenario.ev[0].wlan[0].mac.dcf.channelAccess.contention backoffActive:vector ETV
+attr interpolationmode sample-hold
+attr source count(backoffStarted)-count(backoffStopped)
+attr title "backoff active, vector"
+vector 27 ToyEVDoSScenario.ev[0].udp packetReceived:vector(packetBytes) ETV
+attr interpolationmode none
+attr source packetReceived
+attr title "packets received, vector(packetBytes)"
+vector 28 ToyEVDoSScenario.ev[0].udp passedUpPk:vector(count) ETV
+attr interpolationmode none
+attr source packetSentToUpper
+attr title "packets passed up, vector(count)"
+vector 29 ToyEVDoSScenario.ev[0].wlan[0].mac.dcf.channelAccess.pendingQueue packetPopped:vector(packetBytes) ETV
+attr interpolationmode none
+attr title "packet popped, vector(packetBytes)"
+vector 30 ToyEVDoSScenario.ev[0].wlan[0].mac.dcf.channelAccess.pendingQueue queueingTime:vector ETV
+attr interpolationmode none
+attr source queueingTime(packetPopped)
+attr title "queueing times, vector"
+attr unit s
+vector 31 ToyEVDoSScenario.ev[0].wlan[0].mac.dcf.channelAccess.inProgressFrames queueLength:vector ETV
+attr interpolationmode sample-hold
+attr source "count(packetEnqueued) - count(packetDequeued)"
+attr title "queue length, vector"
+vector 32 ToyEVDoSScenario.ev[0].wlan[0].mac.dcf datarateSelected:vector ETV
+attr interpolationmode none
+attr title "datarates selected, vector"
+vector 33 ToyEVDoSScenario.ev[0].wlan[0].mac packetSentToLower:vector(packetBytes) ETV
+attr interpolationmode none
+attr title "packets sent to lower layer, vector(packetBytes)"
+vector 34 ToyEVDoSScenario.ev[0].wlan[0].mac.dcf frameSequenceActive:vector ETV
+attr interpolationmode sample-hold
+attr source count(frameSequenceStarted)-count(frameSequenceFinished)
+attr title "frame sequence active, vector"
+vector 35 ToyEVDoSScenario.ev[0].wlan[0].radio transmissionState:vector ETV
+attr interpolationmode sample-hold
+attr source transmissionStateChanged
+attr title "Radio transmission state, vector"
+vector 36 ToyEVDoSScenario.ev[0].wlan[0].mac.dcf packetSentToPeer:vector(packetBytes) ETV
+attr interpolationmode none
+attr title "packets sent, vector(packetBytes)"
+vector 37 ToyEVDoSScenario.ev[0].wlan[0].mac.dcf packetSentToPeerMulticast:vector(packetBytes) ETV
+attr interpolationmode none
+attr source ieee80211Multicast(packetSentToPeer)
+attr title "packets sent: multicast, vector(packetBytes)"
+vector 38 ToyEVDoSScenario.ev[0].wlan[0].mac.dcf packetSentToPeerWithoutRetry:vector(packetBytes) ETV
+attr interpolationmode none
+attr source ieee80211NotRetry(packetSentToPeer)
+attr title "packets sent: without retry, vector(packetBytes)"
+vector 39 ToyEVDoSScenario.ev[0].wlan[0].mac.dcf.channelAccess.inProgressFrames queueingTime:vector ETV
+attr interpolationmode none
+attr source queueingTime(packetDequeued)
+attr title "queueing times, vector"
+vector 40 ToyEVDoSScenario.rsu[0].wlan[0].mac packetReceivedFromLower:vector(packetBytes) ETV
+attr interpolationmode none
+attr title "packets received from lower layer, vector(packetBytes)"
+vector 41 ToyEVDoSScenario.rsu[0].wlan[0].mac.dcf packetReceivedFromPeer:vector(packetBytes) ETV
+attr interpolationmode none
+attr title "packets received, vector(packetBytes)"
+vector 42 ToyEVDoSScenario.rsu[0].wlan[0].mac.dcf packetReceivedFromPeerMulticast:vector(packetBytes) ETV
+attr interpolationmode none
+attr source ieee80211Multicast(packetReceivedFromPeer)
+attr title "packets received: multicast, vector(packetBytes)"
+vector 43 ToyEVDoSScenario.rsu[0].wlan[0].mac.dcf packetReceivedFromPeerWithoutRetry:vector(packetBytes) ETV
+attr interpolationmode none
+attr source ieee80211NotRetry(packetReceivedFromPeer)
+attr title "packets received: without retry, vector(packetBytes)"
+vector 44 ToyEVDoSScenario.rsu[0].wlan[0].mac packetSentToUpper:vector(packetBytes) ETV
+attr interpolationmode none
+attr title "packets sent to upper layer, vector(packetBytes)"
+vector 45 ToyEVDoSScenario.rsu[0].udp packetReceived:vector(packetBytes) ETV
+attr interpolationmode none
+attr source packetReceived
+attr title "packets received, vector(packetBytes)"
+vector 46 ToyEVDoSScenario.rsu[0].udp passedUpPk:vector(count) ETV
+attr interpolationmode none
+attr source packetSentToUpper
+attr title "packets passed up, vector(count)"
+vector 47 ToyEVDoSScenario.rsu[0].app[0] packetReceived:vector ETV
+attr interpolationmode none
+attr title "packets received, vector"
+vector 48 ToyEVDoSScenario.rsu[0].app[0] packetSize:vector ETV
+attr interpolationmode none
+attr title "packet size, vector"
+attr unit B
+vector 49 ToyEVDoSScenario.rsu[0].app[0] interArrivalTime:vector ETV
+attr interpolationmode none
+attr title "inter arrival time, vector"
+attr unit s
+vector 50 ToyEVDoSScenario.rsu[0].app[0] energyConsumption:vector ETV
+attr interpolationmode none
+attr title "energy consumption, vector"
+attr unit J
+vector 51 ToyEVDoSScenario.rsu[0].app[0] txDuration:vector ETV
+attr interpolationmode none
+attr title "tx duration estimate, vector"
+attr unit s
+vector 52 ToyEVDoSScenario.cs[0].wlan[0].mac packetReceivedFromLower:vector(packetBytes) ETV
+attr interpolationmode none
+attr title "packets received from lower layer, vector(packetBytes)"
+vector 53 ToyEVDoSScenario.cs[0].wlan[0].mac.dcf packetReceivedFromPeer:vector(packetBytes) ETV
+attr interpolationmode none
+attr title "packets received, vector(packetBytes)"
+vector 54 ToyEVDoSScenario.cs[0].wlan[0].mac.dcf packetReceivedFromPeerMulticast:vector(packetBytes) ETV
+attr interpolationmode none
+attr source ieee80211Multicast(packetReceivedFromPeer)
+attr title "packets received: multicast, vector(packetBytes)"
+vector 55 ToyEVDoSScenario.cs[0].wlan[0].mac.dcf packetReceivedFromPeerWithoutRetry:vector(packetBytes) ETV
+attr interpolationmode none
+attr source ieee80211NotRetry(packetReceivedFromPeer)
+attr title "packets received: without retry, vector(packetBytes)"
+vector 56 ToyEVDoSScenario.cs[0].wlan[0].mac packetSentToUpper:vector(packetBytes) ETV
+attr interpolationmode none
+attr title "packets sent to upper layer, vector(packetBytes)"
+vector 57 ToyEVDoSScenario.cs[0].udp packetReceived:vector(packetBytes) ETV
+attr interpolationmode none
+attr source packetReceived
+attr title "packets received, vector(packetBytes)"
+vector 58 ToyEVDoSScenario.cs[0].udp passedUpPk:vector(count) ETV
+attr interpolationmode none
+attr source packetSentToUpper
+attr title "packets passed up, vector(count)"
+vector 59 ToyEVDoSScenario.cs[0].app[0] packetReceived:vector ETV
+vector 60 ToyEVDoSScenario.cs[0].app[0] packetSize:vector ETV
+vector 61 ToyEVDoSScenario.cs[0].app[0] interArrivalTime:vector ETV
+vector 62 ToyEVDoSScenario.cs[0].app[0] energyConsumption:vector ETV
+vector 63 ToyEVDoSScenario.cs[0].app[0] txDuration:vector ETV
+vector 64 ToyEVDoSScenario.ev[1].wlan[0].radio radioMode:vector ETV
+attr interpolationmode sample-hold
+attr source radioModeChanged
+attr title "Radio mode, vector"
+vector 65 ToyEVDoSScenario.ev[1].wlan[0].radio radioChannel:vector ETV
+attr interpolationmode sample-hold
+attr source radioChannelChanged
+attr title "Radio channel, vector"
+vector 66 ToyEVDoSScenario.ev[1].wlan[0].radio receptionState:vector ETV
+attr interpolationmode sample-hold
+attr source receptionStateChanged
+attr title "Radio reception state, vector"
+vector 67 ToyEVDoSScenario.ev[1].wlan[0].mac.dcf.recoveryProcedure contentionWindowChanged:vector ETV
+attr interpolationmode sample-hold
+attr title "contention window, vector"
+vector 68 ToyEVDoSScenario.ev[1].wlan[0].mac packetReceivedFromLower:vector(packetBytes) ETV
+attr interpolationmode none
+attr title "packets received from lower layer, vector(packetBytes)"
+vector 69 ToyEVDoSScenario.ev[1].wlan[0].mac.dcf packetReceivedFromPeer:vector(packetBytes) ETV
+attr interpolationmode none
+attr title "packets received, vector(packetBytes)"
+vector 70 ToyEVDoSScenario.ev[1].wlan[0].mac.dcf packetReceivedFromPeerMulticast:vector(packetBytes) ETV
+attr interpolationmode none
+attr source ieee80211Multicast(packetReceivedFromPeer)
+attr title "packets received: multicast, vector(packetBytes)"
+vector 71 ToyEVDoSScenario.ev[1].wlan[0].mac.dcf packetReceivedFromPeerWithoutRetry:vector(packetBytes) ETV
+attr interpolationmode none
+attr source ieee80211NotRetry(packetReceivedFromPeer)
+attr title "packets received: without retry, vector(packetBytes)"
+vector 72 ToyEVDoSScenario.ev[1].wlan[0].mac packetSentToUpper:vector(packetBytes) ETV
+attr interpolationmode none
+attr title "packets sent to upper layer, vector(packetBytes)"
+vector 73 ToyEVDoSScenario.ev[1].udp packetReceived:vector(packetBytes) ETV
+attr interpolationmode none
+attr source packetReceived
+attr title "packets received, vector(packetBytes)"
+vector 74 ToyEVDoSScenario.ev[1].udp passedUpPk:vector(count) ETV
+attr interpolationmode none
+attr source packetSentToUpper
+attr title "packets passed up, vector(count)"
+vector 75 ToyEVDoSScenario.ev[1].app[0] packetReceived:vector ETV
+attr interpolationmode none
+attr source packetReceived
+attr title "packets received, vector"
+vector 76 ToyEVDoSScenario.ev[1].app[0] packetSize:vector ETV
+vector 77 ToyEVDoSScenario.ev[1].app[0] interArrivalTime:vector ETV
+vector 78 ToyEVDoSScenario.ev[1].app[0] batteryLevel:vector ETV
+vector 79 ToyEVDoSScenario.ev[1].app[0] soc:vector ETV
+attr title "State of Charge, vector"
+vector 80 ToyEVDoSScenario.ev[1].app[0] energyConsumption:vector ETV
+vector 81 ToyEVDoSScenario.ev[1].app[0] txDuration:vector ETV
+vector 82 ToyEVDoSScenario.ev[1].app[0] senderSpeed:vector ETV
+vector 83 ToyEVDoSScenario.ev[1].app[0] isCharging:vector ETV
+vector 84 ToyEVDoSScenario.ev[1].app[0] packetSent:vector ETV
+attr interpolationmode none
+attr source packetSent
+attr title "packets sent, vector"
+vector 85 ToyEVDoSScenario.ev[1].udp packetSent:vector(packetBytes) ETV
+attr interpolationmode none
+attr source packetSent
+attr title "packets sent, vector(packetBytes)"
+vector 86 ToyEVDoSScenario.ev[1].lo[0].lo rcvdPkFromHl:vector(packetBytes) ETV
+attr interpolationmode none
+attr source packetReceivedFromUpper
+attr title "packets received from higher layer, vector(packetBytes)"
+vector 87 ToyEVDoSScenario.ev[1].lo[0].lo passedUpPk:vector(packetBytes) ETV
+attr interpolationmode none
+attr source packetSentToUpper
+attr title "packets passed to higher layer, vector(packetBytes)"
+vector 88 ToyEVDoSScenario.ev[1].wlan[0].mac packetReceivedFromUpper:vector(packetBytes) ETV
+attr interpolationmode none
+attr title "packets received from upper layer, vector(packetBytes)"
+vector 89 ToyEVDoSScenario.ev[1].wlan[0].mac.dcf.channelAccess.pendingQueue packetPushed:vector(packetBytes) ETV
+attr interpolationmode none
+attr title "packet pushed, vector(packetBytes)"
+vector 90 ToyEVDoSScenario.ev[1].wlan[0].mac.dcf.channelAccess.pendingQueue queueLength:vector ETV
+attr interpolationmode sample-hold
+attr source "count(packetPushed) - count(packetPopped) - count(packetRemoved) - count(packetDropped)"
+attr title "queue length, vector"
+vector 91 ToyEVDoSScenario.ev[1].wlan[0].mac.dcf.channelAccess.contention backoffPeriodGenerated:vector ETV
+attr interpolationmode none
+attr title "backoff periods, vector"
+vector 92 ToyEVDoSScenario.ev[1].wlan[0].mac.dcf.channelAccess.contention backoffActive:vector ETV
+attr interpolationmode sample-hold
+attr source count(backoffStarted)-count(backoffStopped)
+attr title "backoff active, vector"
+vector 93 ToyEVDoSScenario.ev[1].wlan[0].mac.dcf.channelAccess.pendingQueue packetPopped:vector(packetBytes) ETV
+attr interpolationmode none
+attr title "packet popped, vector(packetBytes)"
+vector 94 ToyEVDoSScenario.ev[1].wlan[0].mac.dcf.channelAccess.pendingQueue queueingTime:vector ETV
+attr interpolationmode none
+attr source queueingTime(packetPopped)
+attr title "queueing times, vector"
+attr unit s
+vector 95 ToyEVDoSScenario.ev[1].wlan[0].mac.dcf.channelAccess.inProgressFrames queueLength:vector ETV
+attr interpolationmode sample-hold
+attr source "count(packetEnqueued) - count(packetDequeued)"
+attr title "queue length, vector"
+vector 96 ToyEVDoSScenario.ev[1].wlan[0].mac.dcf datarateSelected:vector ETV
+attr interpolationmode none
+attr title "datarates selected, vector"
+vector 97 ToyEVDoSScenario.ev[1].wlan[0].mac packetSentToLower:vector(packetBytes) ETV
+attr interpolationmode none
+attr title "packets sent to lower layer, vector(packetBytes)"
+vector 98 ToyEVDoSScenario.ev[1].wlan[0].mac.dcf frameSequenceActive:vector ETV
+attr interpolationmode sample-hold
+attr source count(frameSequenceStarted)-count(frameSequenceFinished)
+attr title "frame sequence active, vector"
+vector 99 ToyEVDoSScenario.ev[1].wlan[0].radio transmissionState:vector ETV
+attr interpolationmode sample-hold
+attr source transmissionStateChanged
+attr title "Radio transmission state, vector"
+vector 100 ToyEVDoSScenario.ev[1].wlan[0].mac.dcf packetSentToPeer:vector(packetBytes) ETV
+attr interpolationmode none
+attr title "packets sent, vector(packetBytes)"
+vector 101 ToyEVDoSScenario.ev[1].wlan[0].mac.dcf packetSentToPeerMulticast:vector(packetBytes) ETV
+attr interpolationmode none
+attr source ieee80211Multicast(packetSentToPeer)
+attr title "packets sent: multicast, vector(packetBytes)"
+vector 102 ToyEVDoSScenario.ev[1].wlan[0].mac.dcf packetSentToPeerWithoutRetry:vector(packetBytes) ETV
+attr interpolationmode none
+attr source ieee80211NotRetry(packetSentToPeer)
+attr title "packets sent: without retry, vector(packetBytes)"
+vector 103 ToyEVDoSScenario.ev[1].wlan[0].mac.dcf.channelAccess.inProgressFrames queueingTime:vector ETV
+attr interpolationmode none
+attr source queueingTime(packetDequeued)
+attr title "queueing times, vector"
+vector 104 ToyEVDoSScenario.ev[0].wlan[0].mac packetReceivedFromLower:vector(packetBytes) ETV
+attr interpolationmode none
+attr title "packets received from lower layer, vector(packetBytes)"
+vector 105 ToyEVDoSScenario.ev[0].wlan[0].mac.dcf packetReceivedFromPeer:vector(packetBytes) ETV
+attr interpolationmode none
+attr title "packets received, vector(packetBytes)"
+vector 106 ToyEVDoSScenario.ev[0].wlan[0].mac.dcf packetReceivedFromPeerMulticast:vector(packetBytes) ETV
+attr interpolationmode none
+attr source ieee80211Multicast(packetReceivedFromPeer)
+attr title "packets received: multicast, vector(packetBytes)"
+vector 107 ToyEVDoSScenario.ev[0].wlan[0].mac.dcf packetReceivedFromPeerWithoutRetry:vector(packetBytes) ETV
+attr interpolationmode none
+attr source ieee80211NotRetry(packetReceivedFromPeer)
+attr title "packets received: without retry, vector(packetBytes)"
+vector 108 ToyEVDoSScenario.ev[0].wlan[0].mac packetSentToUpper:vector(packetBytes) ETV
+attr interpolationmode none
+attr title "packets sent to upper layer, vector(packetBytes)"
+vector 109 ToyEVDoSScenario.ev[0].app[0] packetReceived:vector ETV
+attr interpolationmode none
+attr source packetReceived
+attr title "packets received, vector"
+vector 110 ToyEVDoSScenario.ev[0].app[0] txDuration:vector ETV
+vector 111 ToyEVDoSScenario.ev[0].app[0] senderSpeed:vector ETV
+vector 112 ToyEVDoSScenario.rsu[0].udp droppedPkWrongPort:vector(count) ETV
+attr interpolationmode none
+attr source packetDropReasonIsNoPortFound(packetDropped)
+attr title "packets dropped (wrong port), vector(count)"
+20	31062 6588 106 9340 6.374406751152 22.090958934721 226 234 1524 188480 195658260
+21	37650 6588 106 9340 6.374406751152 22.090958934721 226 234 1524 188480 195658260
+104	44238 533 463 7790 11.499745414531 21.704891617259 18 267 448 6337 2285229
+33	44771 6952 113 9347 6.374406751152 22.090958934721 239 29 1500 196980 208189444
+22	51723 6588 109 9343 6.374406751152 22.090958934721 226 242 1532 190288 198688404
+108	58311 533 463 7790 11.499745414531 21.704891617259 18 239 420 5833 1944469
+107	58844 533 463 7790 11.499745414531 21.704891617259 18 267 448 6337 2285229
+106	59377 533 463 7790 11.499745414531 21.704891617259 18 267 448 6337 2285229
+105	59910 533 463 7790 11.499745414531 21.704891617259 18 267 448 6337 2285229
+38	60443 6956 118 9353 6.374540751152 22.091228934721 239 29 1500 196980 208189444
+37	67399 6956 118 9353 6.374540751152 22.091228934721 239 29 1500 196980 208189444
+36	74355 6956 118 9353 6.374540751152 22.091228934721 239 29 1500 196980 208189444
+34	81311 12796 113 9353 6.374406751152 22.091228934721 478 0 1 239 239
+32	94107 8069 113 9347 6.374406751152 22.090958934721 239 24000000 24000000 5736000000 1.37664e+017
+30	102176 6058 113 9347 6.374406751152 22.090958934721 226 0 0.000111322434 0.000111322434 1.2392684311684e-008
+29	108234 6588 113 9347 6.374406751152 22.090958934721 226 270 1560 196616 209521716
+23	114822 6588 109 9343 6.374406751152 22.090958934721 226 270 1560 196616 209521716
+24	121410 12090 109 9347 6.374406751152 22.090958934721 452 0 1 226 226
+39	133500 8008 118 9353 6.374540751152 22.091228934721 239 0.000118 0.000918 0.082414 3.5683612e-005
+31	141508 12796 113 9353 6.374406751152 22.091228934721 478 0 2 265 291
+26	154304 12792 109 9346 6.374406751152 22.090958934721 478 0 1 239 239
+25	167096 6482 109 9343 6.374406751152 22.090958934721 239 0 15 1706 17218
+11	173578 14 80 80 5.1 5.1 1 15 15 15 225
+35	173592 25592 114 9354 6.374406751152 22.091228934721 956 0 2 956 1434
+10	199184 13767 80 9354 5.1 22.091228934721 515 0 3 312 420
+8	212951 12354 80 9354 5.1 22.091228934721 481 0 3 1197 3111
+9	225305 12 80 80 5.1 5.1 1 3 3 3 9
+27	225317 7103 110 9344 6.374406751152 22.090958934721 244 211 1504 189289 189841393
+19	232420 6587 104 9338 6.374406751152 22.090958934721 226 214 1504 183960 188209460
+28	239007 6904 110 9344 6.374406751152 22.090958934721 244 1 244 29890 4872070
+111	245911 747 467 7794 11.499745414531 21.704891617259 18 12.866063536496 13.865531172005 247.57602149311 3406.0914866688
+14	246658 257 98 9373 6.1 22.1 17 0 0 0 0
+13	246915 10658 98 9373 6.1 22.1 261 0.70641639190226 0.8 189.46703719937 137.66206214888
+12	257573 10397 98 9373 6.1 22.1 261 141.28327838045 160 37893.407439874 5506482.4859551
+110	267970 729 467 7794 11.499745414531 21.704891617259 18 0.00027066666666667 0.000512 0.0069133333333333 2.7516817777778e-006
+17	268699 11128 103 9337 6.374406751152 22.090958934721 244 7.3913913606287e-010 6.4145673210684e-008 6.8161347975931e-006 2.6202206396226e-013
+16	279827 9678 103 9337 6.374406751152 22.090958934721 244 0.000809218027 11.499745414531 44.076900790982 189.68959941181
+15	289505 7102 103 9337 6.374406751152 22.090958934721 244 203 1496 187337 186828385
+109	296607 497 467 7794 11.499745414531 21.704891617259 18 1 1 18 18
+18	297104 6388 103 9337 6.374406751152 22.090958934721 226 1 226 25651 3873301
+vector 113 ToyEVDoSScenario.cs[0].app[0] chargeRequestReceived:vector ETV
+vector 114 ToyEVDoSScenario.cs[0].app[0] slotsInUse:vector ETV
+vector 115 ToyEVDoSScenario.cs[0].udp packetSent:vector(packetBytes) ETV
+attr interpolationmode none
+attr source packetSent
+attr title "packets sent, vector(packetBytes)"
+vector 116 ToyEVDoSScenario.cs[0].lo[0].lo rcvdPkFromHl:vector(packetBytes) ETV
+attr interpolationmode none
+attr source packetReceivedFromUpper
+attr title "packets received from higher layer, vector(packetBytes)"
+vector 117 ToyEVDoSScenario.cs[0].lo[0].lo passedUpPk:vector(packetBytes) ETV
+attr interpolationmode none
+attr source packetSentToUpper
+attr title "packets passed to higher layer, vector(packetBytes)"
+vector 118 ToyEVDoSScenario.cs[0].wlan[0].mac packetReceivedFromUpper:vector(packetBytes) ETV
+attr interpolationmode none
+attr title "packets received from upper layer, vector(packetBytes)"
+vector 119 ToyEVDoSScenario.cs[0].wlan[0].mac.dcf.channelAccess.pendingQueue packetPushed:vector(packetBytes) ETV
+attr interpolationmode none
+attr title "packet pushed, vector(packetBytes)"
+vector 120 ToyEVDoSScenario.cs[0].wlan[0].mac.dcf.channelAccess.pendingQueue queueLength:vector ETV
+attr interpolationmode sample-hold
+attr source "count(packetPushed) - count(packetPopped) - count(packetRemoved) - count(packetDropped)"
+attr title "queue length, vector"
+vector 121 ToyEVDoSScenario.cs[0].wlan[0].mac.dcf.channelAccess.contention backoffPeriodGenerated:vector ETV
+attr interpolationmode none
+attr title "backoff periods, vector"
+vector 122 ToyEVDoSScenario.cs[0].wlan[0].mac.dcf.channelAccess.contention backoffActive:vector ETV
+attr interpolationmode sample-hold
+attr source count(backoffStarted)-count(backoffStopped)
+attr title "backoff active, vector"
+vector 123 ToyEVDoSScenario.cs[0].wlan[0].mac.dcf.channelAccess.pendingQueue packetPopped:vector(packetBytes) ETV
+attr interpolationmode none
+attr title "packet popped, vector(packetBytes)"
+vector 124 ToyEVDoSScenario.cs[0].wlan[0].mac.dcf.channelAccess.pendingQueue queueingTime:vector ETV
+attr interpolationmode none
+attr source queueingTime(packetPopped)
+attr title "queueing times, vector"
+attr unit s
+vector 125 ToyEVDoSScenario.cs[0].wlan[0].mac.dcf.channelAccess.inProgressFrames queueLength:vector ETV
+attr interpolationmode sample-hold
+attr source "count(packetEnqueued) - count(packetDequeued)"
+attr title "queue length, vector"
+vector 126 ToyEVDoSScenario.cs[0].wlan[0].mac.dcf datarateSelected:vector ETV
+attr interpolationmode none
+attr title "datarates selected, vector"
+vector 127 ToyEVDoSScenario.cs[0].wlan[0].mac packetSentToLower:vector(packetBytes) ETV
+attr interpolationmode none
+attr title "packets sent to lower layer, vector(packetBytes)"
+vector 128 ToyEVDoSScenario.cs[0].wlan[0].mac.dcf frameSequenceActive:vector ETV
+attr interpolationmode sample-hold
+attr source count(frameSequenceStarted)-count(frameSequenceFinished)
+attr title "frame sequence active, vector"
+vector 129 ToyEVDoSScenario.cs[0].wlan[0].radio transmissionState:vector ETV
+attr interpolationmode sample-hold
+attr source transmissionStateChanged
+attr title "Radio transmission state, vector"
+vector 130 ToyEVDoSScenario.cs[0].wlan[0].mac.dcf packetSentToPeer:vector(packetBytes) ETV
+attr interpolationmode none
+attr title "packets sent, vector(packetBytes)"
+vector 131 ToyEVDoSScenario.cs[0].wlan[0].mac.dcf packetSentToPeerMulticast:vector(packetBytes) ETV
+attr interpolationmode none
+attr source ieee80211Multicast(packetSentToPeer)
+attr title "packets sent: multicast, vector(packetBytes)"
+vector 132 ToyEVDoSScenario.cs[0].wlan[0].mac.dcf packetSentToPeerWithoutRetry:vector(packetBytes) ETV
+attr interpolationmode none
+attr source ieee80211NotRetry(packetSentToPeer)
+attr title "packets sent: without retry, vector(packetBytes)"
+vector 133 ToyEVDoSScenario.cs[0].wlan[0].mac.dcf.channelAccess.inProgressFrames queueingTime:vector ETV
+attr interpolationmode none
+attr source queueingTime(packetDequeued)
+attr title "queueing times, vector"
+0	307576 83 0 15241 0 112.100474083359 5 0 3 7 17
+1	307659 9 0 0 0 0 1 3 3 3 9
+2	307668 27 0 0 0 0 3 0 2 2 4
+3	307695 9 0 0 0 0 1 3 3 3 9
+4	307704 24171 0 17231 0 144.386023079585 917 0 3 1830 4572
+5	331875 24207 0 17225 0 144.386022840198 917 1 3 1833 4581
+6	356082 10 0 0 0 0 1 15 15 15 225
+7	356092 10 0 0 0 0 1 15 15 15 225
+40	356102 13551 121 17226 6.374541459011 144.386022840198 458 29 1500 275177 236829853
+41	369653 13551 121 17226 6.374541459011 144.386022840198 458 29 1500 275177 236829853
+42	383204 13551 121 17226 6.374541459011 144.386022840198 458 29 1500 275177 236829853
+43	396755 13551 121 17226 6.374541459011 144.386022840198 458 29 1500 275177 236829853
+44	410306 13187 121 17226 6.374541459011 144.386022840198 445 136 1532 262353 223121477
+45	423493 13187 124 17229 6.374541459011 144.386022840198 445 108 1504 249893 208778589
+46	436680 7143 124 17229 6.374541459011 144.386022840198 243 1 243 29646 4812534
+47	443823 7143 125 17230 6.374541459011 144.386022840198 243 1 243 29646 4812534
+48	450966 7251 125 17230 6.374541459011 144.386022840198 243 100 400 71753 21977087
+49	458217 9890 125 17230 6.374541459011 144.386022840198 243 0.007367912084 6.374541459011 144.3860228402 135.70921349728
+50	468107 11354 125 17230 6.374541459011 144.386022840198 243 7.4389026892992e-006 3.0298545711258e-005 0.0047915836262999 9.897418638042e-008
+51	479461 10149 125 17230 6.374541459011 144.386022840198 243 0.00013333333333333 0.00053333333333333 0.095670666666667 3.9070376888889e-005
+52	489610 13503 127 17232 6.374541696107 144.386023079585 457 29 1500 275013 236802957
+53	503113 13503 127 17232 6.374541696107 144.386023079585 457 29 1500 275013 236802957
+54	516616 13503 127 17232 6.374541696107 144.386023079585 457 29 1500 275013 236802957
+55	530119 13503 127 17232 6.374541696107 144.386023079585 457 29 1500 275013 236802957
+56	543622 13139 127 17232 6.374541696107 144.386023079585 444 136 1532 262217 223102981
+57	556761 13170 130 17235 6.374541696107 144.386023079585 445 108 1504 249893 208778589
+58	569931 12971 130 17235 6.374541696107 144.386023079585 445 1 445 99235 29472795
+59	582902 10137 131 17236 6.374541696107 144.386023079585 347 1 347 60378 13987570
+60	593039 10289 131 17236 6.374541696107 144.386023079585 347 100 1496 161153 114861911
+61	603328 14007 131 17236 6.374541696107 144.386023079585 347 0 6.374541696107 144.38602307958 135.15584993175
+62	617335 16105 131 17236 6.374541696107 144.386023079585 347 1.8651821174987e-009 3.1705424862679e-008 2.9775677773371e-006 3.9605855147326e-014
+63	633440 14373 131 17236 6.374541696107 144.386023079585 347 0.00013333333333333 0.0019946666666667 0.21487066666667 0.00020419895288889
+64	647813 12248 344 17224 10.1 144.386022141394 439 0 3 1092 2838
+65	660061 15 344 344 10.1 10.1 1 3 3 3 9
+66	660076 24782 344 17224 10.1 144.386022141394 905 0 3 1155 2559
+67	684858 16 344 344 10.1 10.1 1 15 15 15 225
+68	684874 6828 374 15243 10.757787763673 112.100474166718 234 29 1500 195027 207452763
+69	691702 6828 374 15243 10.757787763673 112.100474166718 234 29 1500 195027 207452763
+70	698530 6828 374 15243 10.757787763673 112.100474166718 234 29 1500 195027 207452763
+71	705358 6828 374 15243 10.757787763673 112.100474166718 234 29 1500 195027 207452763
+72	712186 6468 374 15243 10.757787763673 112.100474166718 221 136 1532 188475 198057171
+73	718654 13003 377 17215 10.757787763673 144.385864141394 439 108 1504 248112 208233300
+74	731657 12804 377 17215 10.757787763673 144.385864141394 439 1 439 96580 28297940
+75	744461 532 378 15247 10.757787763673 112.100474166718 20 1 1 20 20
+76	744993 7087 378 17208 10.757787763673 144.385864141394 237 100 400 70020 21459910
+77	752080 9673 378 17208 10.757787763673 144.385864141394 237 0.200892946497 90.11436207693 256.48633830811 8470.2683766027
+78	761753 14062 378 17208 10.757787763673 144.385864141394 371 0.10627599941351 159.9999999985 31418.033775531 3530921.7176069
+79	775815 14485 378 17208 10.757787763673 144.385864141394 371 0.00053137999706753 0.79999999999252 157.09016887765 88.273042940172
+80	790300 11091 378 17208 10.757787763673 144.385864141394 237 3.7679298380735e-010 1.6960573041777e-008 2.3672455721959e-006 2.6559866674706e-014
+81	801391 848 378 15247 10.757787763673 112.100474166718 20 0.00013333333333333 0.00052266666666667 0.008052 3.4696764444444e-006
+82	802239 812 378 15247 10.757787763673 112.100474166718 20 1.3795628935919 13.879857265593 203.7048648238 2422.5751740264
+83	803051 2297 401 17203 11.1 144.1 134 0 0 0 0
+84	805348 6407 444 17208 11.499579281919 144.385864141394 217 1 218 23703 3448985
+85	811755 6535 445 17209 11.499579281919 144.385864141394 218 108 408 65825 20557465
+86	818290 6535 447 17211 11.499579281919 144.385864141394 218 128 428 70185 23277665
+87	824825 6535 447 17211 11.499579281919 144.385864141394 218 128 428 70185 23277665
+88	831360 6535 450 17214 11.499579281919 144.385864141394 218 136 436 71929 24414577
+89	837895 6535 450 17214 11.499579281919 144.385864141394 218 164 464 78033 28613513
+90	844430 12198 450 17218 11.499579281919 144.385864141394 436 0 1 218 218
+91	856628 6192 450 17214 11.499579281919 144.385864141394 218 0 15 1715 18567
+92	862820 12198 450 17217 11.499579281919 144.385864141394 436 0 1 218 218
+93	875018 6535 454 17218 11.499579281919 144.385864141394 218 164 464 78033 28613513
+94	881553 6099 454 17218 11.499579281919 144.385864141394 218 0 0 0 0
+95	887652 12203 454 17223 11.499579281919 144.386022141394 436 0 1 218 218
+96	899855 7625 454 17218 11.499579281919 144.385864141394 218 24000000 24000000 5232000000 1.25568e+017
+97	907480 6535 454 17218 11.499579281919 144.385864141394 218 164 464 78033 28613513
+98	914015 12203 454 17223 11.499579281919 144.386022141394 436 0 1 218 218
+99	926218 24406 455 17224 11.499579281919 144.386022141394 872 0 2 872 1308
+100	950624 6758 460 17223 11.499745281919 144.386022141394 218 164 464 78033 28613513
+101	957382 6758 460 17223 11.499745281919 144.386022141394 218 164 464 78033 28613513
+102	964140 6758 460 17223 11.499745281919 144.386022141394 218 164 464 78033 28613513
+103	970898 7799 460 17223 11.499745281919 144.386022141394 218 8.2e-005 0.000182 0.032304 4.86228e-006
+112	978697 5939 1668 15233 20.110158424876 112.100082259334 202 1 202 20503 2767905
+113	984636 30 15220 15220 112.100082083359 112.100082083359 1 1 1 1 1
+114	984666 30 15220 15220 112.100082083359 112.100082083359 1 1 1 1 1
+115	984696 32 15221 15221 112.100082083359 112.100082083359 1 108 108 108 11664
+116	984728 32 15223 15223 112.100082083359 112.100082083359 1 128 128 128 16384
+117	984760 32 15223 15223 112.100082083359 112.100082083359 1 128 128 128 16384
+118	984792 32 15226 15226 112.100082083359 112.100082083359 1 136 136 136 18496
+119	984824 32 15226 15226 112.100082083359 112.100082083359 1 164 164 164 26896
+120	984856 60 15226 15235 112.100082083359 112.100392083359 2 0 1 1 1
+121	984916 31 15226 15226 112.100082083359 112.100082083359 1 13 13 13 169
+122	984947 60 15226 15234 112.100082083359 112.100392083359 2 0 1 1 1
+123	985007 32 15235 15235 112.100392083359 112.100392083359 1 164 164 164 26896
+124	985039 36 15235 15235 112.100392083359 112.100392083359 1 0.00031 0.00031 0.00031 9.61e-008
+125	985075 60 15235 15240 112.100392083359 112.100474083359 2 0 1 1 1
+126	985135 37 15235 15235 112.100392083359 112.100392083359 1 24000000 24000000 24000000 5.76e+014
+127	985172 32 15235 15235 112.100392083359 112.100392083359 1 164 164 164 26896
+128	985204 60 15235 15240 112.100392083359 112.100474083359 2 0 1 1 1
+129	985264 120 15236 15241 112.100392083359 112.100474083359 4 0 2 4 6
+130	985384 32 15240 15240 112.100474083359 112.100474083359 1 164 164 164 26896
+131	985416 32 15240 15240 112.100474083359 112.100474083359 1 164 164 164 26896
+132	985448 32 15240 15240 112.100474083359 112.100474083359 1 164 164 164 26896
+133	985480 37 15240 15240 112.100474083359 112.100474083359 1 8.2e-005 8.2e-005 8.2e-005 6.724e-009
+

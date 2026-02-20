@@ -1,0 +1,3827 @@
+version 2
+run Toy_DoS-0-20260220-11:47:38-10516
+attr configname Toy_DoS
+attr datetime 20260220-11:47:38
+attr experiment Toy_DoS
+attr inifile omnetpp.ini
+attr iterationvars ""
+attr iterationvarsf ""
+attr measurement ""
+attr network ToyEVDoSScenario
+attr processid 10516
+attr repetition 0
+attr replication #0
+attr resultdir results
+attr runnumber 0
+attr seedset 0
+param *.ev[*].app[0].energyPerMeter 0.1Wh
+param *.cs[*].app[0].maxPktPerSecond 50
+param *.rsu[*].app[0].maxPktPerSecond 50
+param *.ev[0].app[0].isAttacker true
+param *.ev[0].app[0].targetType "\"CS\""
+param *.ev[0].app[0].targetAddress "\"cs[0]\""
+param *.ev[0].app[0].attackStartTime 15s
+param *.ev[0].app[0].attackDuration 60s
+param *.ev[0].app[0].packetInterval 0.01s
+param *.ev[0].app[0].packetSize 1024B
+param *.ev[0].app[0].sumoColor "\"red\""
+param *.radioMedium.neighborCache.typename "\"GridNeighborCache\""
+param *.radioMedium.neighborCache.cellSizeX 300m
+param *.radioMedium.neighborCache.cellSizeY 300m
+param *.radioMedium.neighborCache.cellSizeZ 100m
+param *.radioMedium.pathLoss.typename "\"FreeSpacePathLoss\""
+param *.veinsManager.firstStepAt 0s
+param *.veinsManager.roiRects "\"\""
+param *.veinsManager.moduleType "\"evattack.veins_inet.VeinsInetEVChargingCar\""
+param *.veinsManager.moduleName "\"ev\""
+param *.ev[*].numApps 1
+param *.ev[*].app[0].typename "\"VeinsInetEVChargingApp\""
+param *.ev[*].app[0].interface "\"wlan0\""
+param *.ev[*].app[0].interfaceTableModule "\"^.interfaceTable\""
+param *.ev[*].mobility.typename "\"VeinsInetMobility\""
+param *.ev[*].ipv4.configurator.typename "\"HostAutoConfigurator\""
+param *.ev[*].ipv4.configurator.interfaces "\"wlan0\""
+param *.ev[*].wlan[0].typename "\"Ieee80211Interface\""
+param *.ev[*].wlan[0].radio.typename "\"Ieee80211ScalarRadio\""
+param *.ev[*].wlan[0].radio.bandName "\"5.9 GHz\""
+param *.ev[*].wlan[0].radio.channelNumber 3
+param *.ev[*].wlan[0].radio.transmitter.power 20mW
+param *.ev[*].wlan[0].radio.receiver.sensitivity -89dBm
+param *.ev[*].wlan[0].radio.receiver.snirThreshold 4dB
+param *.ev[*].wlan[0].mgmt.typename "\"Ieee80211MgmtAdhoc\""
+param *.ev[*].wlan[0].mac.dcf.channelAccess.cwMin 15
+param *.ev[*].wlan[0].mac.dcf.channelAccess.cwMax 1023
+param *.ev[*].wlan[0].radio.displayCommunicationRange true
+param *.ev[*].app[0].batteryCapacity 200Wh
+param *.ev[*].app[0].initialSoC 0.8
+param *.ev[*].app[0].energyPerMeter 0.05Wh
+param *.ev[*].app[0].chargingPowerW 7200W
+param *.ev[*].app[0].socThreshold 0.2
+param *.ev[*].app[0].chargingRange 300m
+param *.ev[*].app[0].physicalChargingRange 15m
+param *.ev[*].app[0].csEdgeId "\"B1B2\""
+param *.ev[*].app[0].destinations "\"\""
+param *.ev[*].app[0].isAttacker false
+param *.ev[*].app[0].maxPktPerSecond 0
+param *.cs[*].app[0].maxPktPerSecond 0
+param *.rsu[*].app[0].maxPktPerSecond 0
+param *.ev[*].app[0].sumoColor "\"yellow\""
+param *.cs[*].numApps 1
+param *.cs[*].app[0].typename "\"VeinsInetCSChargingApp\""
+param *.cs[*].app[0].interfaceTableModule "\"^.interfaceTable\""
+param *.cs[*].app[0].maxSlots 1
+param *.cs[*].app[0].csBatteryCapacity 50000Wh
+param *.cs[*].app[0].initialCSSoC 1.0
+param *.cs[*].app[0].chargingPowerW 7200W
+param *.cs[*].app[0].gridRechargePowerW 10000W
+param *.cs[*].ipv4.configurator.typename "\"HostAutoConfigurator\""
+param *.cs[*].ipv4.configurator.interfaces "\"wlan0\""
+param *.cs[*].mobility.initFromDisplayString false
+param *.cs[*].numWlanInterfaces 1
+param *.cs[*].wlan[0].typename "\"Ieee80211Interface\""
+param *.cs[*].wlan[0].radio.typename "\"Ieee80211ScalarRadio\""
+param *.cs[*].wlan[0].radio.bandName "\"5.9 GHz\""
+param *.cs[*].wlan[0].radio.channelNumber 3
+param *.cs[*].wlan[0].radio.transmitter.power 20mW
+param *.cs[*].wlan[0].radio.receiver.sensitivity -89dBm
+param *.cs[*].wlan[0].mgmt.typename "\"Ieee80211MgmtAdhoc\""
+param *.cs[*].wlan[0].mac.dcf.channelAccess.cwMin 15
+param *.cs[*].wlan[0].mac.dcf.channelAccess.cwMax 1023
+param *.cs[*].wlan[0].radio.displayCommunicationRange true
+param *.rsu[*].numApps 1
+param *.rsu[*].app[0].typename "\"VeinsInetReceiverApp\""
+param *.rsu[*].ipv4.configurator.typename "\"HostAutoConfigurator\""
+param *.rsu[*].ipv4.configurator.interfaces "\"wlan0\""
+param *.rsu[*].mobility.initFromDisplayString false
+param *.rsu[*].numWlanInterfaces 1
+param *.rsu[*].wlan[0].typename "\"Ieee80211Interface\""
+param *.rsu[*].wlan[0].radio.typename "\"Ieee80211ScalarRadio\""
+param *.rsu[*].wlan[0].radio.bandName "\"5.9 GHz\""
+param *.rsu[*].wlan[0].radio.channelNumber 3
+param *.rsu[*].wlan[0].radio.transmitter.power 200mW
+param *.rsu[*].wlan[0].radio.receiver.sensitivity -89dBm
+param *.rsu[*].wlan[0].mgmt.typename "\"Ieee80211MgmtAdhoc\""
+param *.rsu[*].wlan[0].mac.dcf.channelAccess.cwMin 15
+param *.rsu[*].wlan[0].mac.dcf.channelAccess.cwMax 1023
+param *.rsu[*].wlan[0].radio.displayCommunicationRange true
+param **.constraintAreaMinX -10m
+param **.constraintAreaMinY -10m
+param **.constraintAreaMinZ 0m
+param **.constraintAreaMaxX 500m
+param **.constraintAreaMaxY 500m
+param **.constraintAreaMaxZ 100m
+param *.veinsManager.launchConfig "xmldoc(\"toy.launchd.xml\")"
+param *.ev[*].app[0].destinations "\"C2C1 A2B2 C0B0 A0B0\""
+param *.cs[0].mobility.typename "\"StationaryMobility\""
+param *.cs[0].mobility.initialX 200m
+param *.cs[0].mobility.initialY 200m
+param *.cs[0].mobility.initialZ 0m
+param *.rsu[0].mobility.typename "\"StationaryMobility\""
+param *.rsu[0].mobility.initialX 200m
+param *.rsu[0].mobility.initialY 300m
+param *.rsu[0].mobility.initialZ 10m
+param *.visualizer.typename "\"IntegratedCanvasVisualizer\""
+param *.visualizer.*.displayDefaults false
+param *.veinsManager.seed 0
+param **.constraintAreaMinX 0m
+param **.constraintAreaMinY 0m
+param **.constraintAreaMinZ 0m
+param **.constraintAreaMaxX 13640m
+param **.constraintAreaMaxY 11500m
+param **.constraintAreaMaxZ 50m
+param *.visualizer.*.mobilityVisualizer.displayMobility false
+param *.visualizer.*.mobilityVisualizer.displayPositions false
+param *.visualizer.*.mediumVisualizer.displaySignals false
+param *.visualizer.*.mediumVisualizer.displayTransmissions false
+param *.visualizer.*.mediumVisualizer.displayReceptions false
+param *.visualizer.*.dataLinkVisualizer.displayLinks false
+param *.visualizer.*.networkRouteVisualizer.displayRoutes false
+param *.visualizer.*.interfaceTableVisualizer.displayInterfaceTables false
+param *.visualizer.*.packetDropVisualizer.displayPacketDrops false
+param *.veinsManager.updateInterval 0.1s
+param *.veinsManager.host "\"localhost\""
+param *.veinsManager.port 9999
+param *.veinsManager.autoShutdown true
+param *.veinsManager.launchConfig "xmldoc(\"luxembourg.launchd.xml\")"
+param *.veinsManager.moduleType "\"evattack.veins_inet.VeinsInetEVCar\""
+param *.veinsManager.moduleName "\"ev\""
+param *.veinsManager.roiRects "\"2300,5400-6300,6300\""
+param *.veinsManager.firstStepAt 7h
+param *.configurator.config "xmldoc(\"config.xml\")"
+param *.configurator.addStaticRoutes false
+param *.configurator.addDefaultRoutes false
+param *.configurator.addSubnetRoutes false
+param *.configurator.addDirectRoutes false
+param *.configurator.optimizeRoutes false
+param *.radioMedium.mediumLimitCache.carrierFrequency 5.9GHz
+param *.radioMedium.pathLoss.typename "\"TwoRayInterference\""
+param *.radioMedium.mediumLimitCache.maxCommunicationRange 500m
+param *.radioMedium.mediumLimitCache.maxInterferenceRange 750m
+param *.ev[*].numApps 1
+param *.ev[*].app[0].typename "\"VeinsInetEVDoSApplication\""
+param *.ev[*].app[0].interfaceTableModule "\"^.interfaceTable\""
+param *.ev[*].app[0].interface "\"wlan0\""
+param *.ev[*].mobility.typename "\"VeinsInetMobility\""
+param *.ev[*].ipv4.configurator.typename "\"HostAutoConfigurator\""
+param *.ev[*].ipv4.configurator.interfaces "\"wlan0\""
+param *.ev[*].wlan[0].typename "\"Ieee80211Interface\""
+param *.ev[*].wlan[0].radio.typename "\"Ieee80211ScalarRadio\""
+param *.ev[*].wlan[0].radio.bandName "\"5.9 GHz\""
+param *.ev[*].wlan[0].radio.channelNumber 3
+param *.ev[*].wlan[0].radio.transmitter.power 20mW
+param *.ev[*].wlan[0].radio.receiver.sensitivity -89dBm
+param *.ev[*].wlan[0].radio.receiver.snirThreshold 4dB
+param *.ev[*].wlan[0].mgmt.typename "\"Ieee80211MgmtAdhoc\""
+param *.ev[*].wlan[0].mac.dcf.channelAccess.cwMin 15
+param *.ev[*].wlan[0].mac.dcf.channelAccess.cwMax 1023
+param *.ev[*].wlan[0].radio.displayCommunicationRange false
+param *.ev[*].app[0].isAttacker false
+param *.cs[*].numApps 1
+param *.cs[*].app[0].typename "\"VeinsInetReceiverApp\""
+param *.cs[*].ipv4.configurator.typename "\"HostAutoConfigurator\""
+param *.cs[*].ipv4.configurator.interfaces "\"wlan0\""
+param *.cs[*].mobility.initFromDisplayString false
+param *.cs[0].mobility.typename "\"StationaryMobility\""
+param *.cs[0].mobility.initialX 3200m
+param *.cs[0].mobility.initialY 5700m
+param *.cs[0].mobility.initialZ 0m
+param *.cs[1].mobility.typename "\"StationaryMobility\""
+param *.cs[1].mobility.initialX 4500m
+param *.cs[1].mobility.initialY 5900m
+param *.cs[1].mobility.initialZ 0m
+param *.cs[2].mobility.typename "\"StationaryMobility\""
+param *.cs[2].mobility.initialX 5800m
+param *.cs[2].mobility.initialY 5600m
+param *.cs[2].mobility.initialZ 0m
+param *.cs[*].numWlanInterfaces 1
+param *.cs[*].wlan[0].typename "\"Ieee80211Interface\""
+param *.cs[*].wlan[0].radio.typename "\"Ieee80211ScalarRadio\""
+param *.cs[*].wlan[0].radio.bandName "\"5.9 GHz\""
+param *.cs[*].wlan[0].radio.channelNumber 3
+param *.cs[*].wlan[0].radio.transmitter.power 20mW
+param *.cs[*].wlan[0].radio.receiver.sensitivity -89dBm
+param *.cs[*].wlan[0].mgmt.typename "\"Ieee80211MgmtAdhoc\""
+param *.cs[*].wlan[0].mac.dcf.channelAccess.cwMin 15
+param *.cs[*].wlan[0].mac.dcf.channelAccess.cwMax 1023
+param *.cs[*].wlan[0].radio.displayCommunicationRange false
+param *.rsu[*].numApps 1
+param *.rsu[*].app[0].typename "\"VeinsInetReceiverApp\""
+param *.rsu[*].ipv4.configurator.typename "\"HostAutoConfigurator\""
+param *.rsu[*].ipv4.configurator.interfaces "\"wlan0\""
+param *.rsu[*].mobility.initFromDisplayString false
+param *.rsu[0].mobility.typename "\"StationaryMobility\""
+param *.rsu[0].mobility.initialX 2800m
+param *.rsu[0].mobility.initialY 5500m
+param *.rsu[0].mobility.initialZ 10m
+param *.rsu[1].mobility.typename "\"StationaryMobility\""
+param *.rsu[1].mobility.initialX 3800m
+param *.rsu[1].mobility.initialY 5800m
+param *.rsu[1].mobility.initialZ 10m
+param *.rsu[2].mobility.typename "\"StationaryMobility\""
+param *.rsu[2].mobility.initialX 4800m
+param *.rsu[2].mobility.initialY 6000m
+param *.rsu[2].mobility.initialZ 10m
+param *.rsu[3].mobility.typename "\"StationaryMobility\""
+param *.rsu[3].mobility.initialX 5500m
+param *.rsu[3].mobility.initialY 5800m
+param *.rsu[3].mobility.initialZ 10m
+param *.rsu[4].mobility.typename "\"StationaryMobility\""
+param *.rsu[4].mobility.initialX 6000m
+param *.rsu[4].mobility.initialY 6100m
+param *.rsu[4].mobility.initialZ 10m
+param *.rsu[*].numWlanInterfaces 1
+param *.rsu[*].wlan[0].typename "\"Ieee80211Interface\""
+param *.rsu[*].wlan[0].radio.typename "\"Ieee80211ScalarRadio\""
+param *.rsu[*].wlan[0].radio.bandName "\"5.9 GHz\""
+param *.rsu[*].wlan[0].radio.channelNumber 3
+param *.rsu[*].wlan[0].radio.transmitter.power 200mW
+param *.rsu[*].wlan[0].radio.receiver.sensitivity -89dBm
+param *.rsu[*].wlan[0].mgmt.typename "\"Ieee80211MgmtAdhoc\""
+param *.rsu[*].wlan[0].mac.dcf.channelAccess.cwMin 15
+param *.rsu[*].wlan[0].mac.dcf.channelAccess.cwMax 1023
+param *.rsu[*].wlan[0].radio.displayCommunicationRange false
+
+scalar ToyEVDoSScenario.ev[0].lo[0].lo rcvdPkFromHl:count 226
+attr interpolationmode none
+attr source packetReceivedFromUpper
+attr title "packets received from higher layer, count"
+scalar ToyEVDoSScenario.ev[0].lo[0].lo rcvdPkFromHl:sum(packetBytes) 188480
+attr interpolationmode none
+attr source packetReceivedFromUpper
+attr title "packets received from higher layer, sum(packetBytes)"
+scalar ToyEVDoSScenario.ev[0].lo[0].lo passedUpPk:count 226
+attr interpolationmode none
+attr source packetSentToUpper
+attr title "packets passed to higher layer, count"
+scalar ToyEVDoSScenario.ev[0].lo[0].lo passedUpPk:sum(packetBytes) 188480
+attr interpolationmode none
+attr source packetSentToUpper
+attr title "packets passed to higher layer, sum(packetBytes)"
+scalar ToyEVDoSScenario.ev[0].wlan[0].mac.dcf.channelAccess.pendingQueue packetPopped:count 226
+attr interpolationmode none
+attr title "packet popped, count"
+scalar ToyEVDoSScenario.ev[0].wlan[0].mac.dcf.channelAccess.pendingQueue packetPopped:sum(packetBytes) 196616
+attr interpolationmode none
+attr title "packet popped, sum(packetBytes)"
+statistic ToyEVDoSScenario.ev[0].wlan[0].mac.dcf.channelAccess.pendingQueue queueingTime:histogram
+field count 226
+field mean 4.9257714159292e-007
+field stddev 7.4050581587781e-006
+field min 0
+field max 0.000111322434
+field sum 0.000111322434
+field sqrsum 1.2392684311684e-008
+attr interpolationmode none
+attr source queueingTime(packetPopped)
+attr title "queueing times, histogram"
+attr unit s
+bin	-inf	0
+bin	-0.5	0
+bin	-0.48	0
+bin	-0.46	0
+bin	-0.44	0
+bin	-0.42	0
+bin	-0.4	0
+bin	-0.38	0
+bin	-0.36	0
+bin	-0.34	0
+bin	-0.32	0
+bin	-0.3	0
+bin	-0.28	0
+bin	-0.26	0
+bin	-0.24	0
+bin	-0.22	0
+bin	-0.2	0
+bin	-0.18	0
+bin	-0.16	0
+bin	-0.14	0
+bin	-0.12	0
+bin	-0.1	0
+bin	-0.08	0
+bin	-0.06	0
+bin	-0.04	0
+bin	-0.02	0
+bin	0	226
+bin	0.02	0
+bin	0.04	0
+bin	0.06	0
+bin	0.08	0
+bin	0.1	0
+bin	0.12	0
+bin	0.14	0
+bin	0.16	0
+bin	0.18	0
+bin	0.2	0
+bin	0.22	0
+bin	0.24	0
+bin	0.26	0
+bin	0.28	0
+bin	0.3	0
+bin	0.32	0
+bin	0.34	0
+bin	0.36	0
+bin	0.38	0
+bin	0.4	0
+bin	0.42	0
+bin	0.44	0
+bin	0.46	0
+bin	0.48	0
+bin	0.5	0
+scalar ToyEVDoSScenario.ev[0].wlan[0].mac.dcf.channelAccess.pendingQueue queueLength:max 1
+attr interpolationmode sample-hold
+attr source "count(packetPushed) - count(packetPopped) - count(packetRemoved) - count(packetDropped)"
+attr title "queue length, max"
+scalar ToyEVDoSScenario.ev[0].wlan[0].mac.dcf.channelAccess.pendingQueue queueLength:timeavg 7.0790610082806e-006
+attr interpolationmode sample-hold
+attr source "count(packetPushed) - count(packetPopped) - count(packetRemoved) - count(packetDropped)"
+attr title "queue length, timeavg"
+scalar ToyEVDoSScenario.ev[0].wlan[0].mac.dcf.channelAccess.pendingQueue packetPushed:count 226
+attr interpolationmode none
+attr title "packet pushed, count"
+scalar ToyEVDoSScenario.ev[0].wlan[0].mac.dcf.channelAccess.pendingQueue packetPushed:sum(packetBytes) 196616
+attr interpolationmode none
+attr title "packet pushed, sum(packetBytes)"
+scalar ToyEVDoSScenario.ev[0].wlan[0].mac.dcf.channelAccess.pendingQueue packetDropQueueOverflow:count 0
+attr interpolationmode none
+attr source packetDropReasonIsQueueOverflow(packetDropped)
+attr title "packet drops: queue overflow, count"
+scalar ToyEVDoSScenario.ev[0].wlan[0].mac.dcf.channelAccess.pendingQueue packetDropQueueOverflow:sum(packetBytes) 0
+attr interpolationmode none
+attr source packetDropReasonIsQueueOverflow(packetDropped)
+attr title "packet drops: queue overflow, sum(packetBytes)"
+scalar ToyEVDoSScenario.ev[0].wlan[0].mac.dcf.channelAccess.pendingQueue packetRemoved:count 0
+attr interpolationmode none
+attr title "packets removed, count"
+scalar ToyEVDoSScenario.ev[0].wlan[0].mac.dcf.channelAccess.pendingQueue packetRemoved:sum(packetBytes) 0
+attr interpolationmode none
+attr title "packets removed, sum(packetBytes)"
+statistic ToyEVDoSScenario.ev[0].wlan[0].mac.dcf.channelAccess.inProgressFrames queueingTime:histogram
+field count 239
+field mean 0.00034482845188285
+field stddev 0.0001747136909602
+field min 0.000118
+field max 0.000918
+field sum 0.082414
+field sqrsum 3.5683612e-005
+attr interpolationmode none
+attr source queueingTime(packetDequeued)
+attr title "queueing times, histogram"
+bin	-inf	0
+bin	0	0
+bin	2e-005	0
+bin	4e-005	0
+bin	6e-005	0
+bin	8e-005	0
+bin	0.0001	1
+bin	0.00012	24
+bin	0.00014	16
+bin	0.00016	20
+bin	0.00018	6
+bin	0.0002	3
+bin	0.00022	6
+bin	0.00024	14
+bin	0.00026	5
+bin	0.00028	10
+bin	0.0003	10
+bin	0.00032	16
+bin	0.00034	4
+bin	0.00036	0
+bin	0.00038	6
+bin	0.0004	13
+bin	0.00042	16
+bin	0.00044	15
+bin	0.00046	5
+bin	0.00048	8
+bin	0.0005	9
+bin	0.00052	19
+bin	0.00054	0
+bin	0.00056	0
+bin	0.00058	0
+bin	0.0006	0
+bin	0.00062	1
+bin	0.00064	0
+bin	0.00066	0
+bin	0.00068	1
+bin	0.0007	2
+bin	0.00072	0
+bin	0.00074	1
+bin	0.00076	0
+bin	0.00078	0
+bin	0.0008	0
+bin	0.00082	3
+bin	0.00084	1
+bin	0.00086	0
+bin	0.00088	0
+bin	0.0009	4
+bin	0.00092	0
+scalar ToyEVDoSScenario.ev[0].wlan[0].mac.dcf.channelAccess.inProgressFrames queueLength:max 2
+attr interpolationmode sample-hold
+attr source "count(packetEnqueued) - count(packetDequeued)"
+attr title "queue length, max"
+scalar ToyEVDoSScenario.ev[0].wlan[0].mac.dcf.channelAccess.inProgressFrames queueLength:timeavg 0.005240756179805
+attr interpolationmode sample-hold
+attr source "count(packetEnqueued) - count(packetDequeued)"
+attr title "queue length, timeavg"
+scalar ToyEVDoSScenario.ev[0].wlan[0].mac.dcf.channelAccess.contention stateChanged:count 1986
+attr interpolationmode none
+attr title "contention state changed, count"
+scalar ToyEVDoSScenario.ev[0].wlan[0].mac.dcf.channelAccess.contention channelAccessGranted:count 239
+attr title "channel access granted, count"
+scalar ToyEVDoSScenario.ev[0].wlan[0].mac.dcf.channelAccess channelOwnershipChanged:count 478
+attr interpolationmode sample-hold
+attr title "channel ownership, count"
+scalar ToyEVDoSScenario.ev[0].wlan[0].mac.dcf.originatorMacDataService packetAggregated:count 0
+attr title "packets aggregated, count"
+scalar ToyEVDoSScenario.ev[0].wlan[0].mac.dcf.originatorMacDataService packetFragmented:count 13
+attr title "packets fragmented, count"
+scalar ToyEVDoSScenario.ev[0].wlan[0].mac.dcf.recipientMacDataService packetDropDuplicateDetected:count 0
+attr interpolationmode none
+attr source packetDropReasonIsDuplicateDetected(packetDropped)
+attr title "packet drops: duplicate detected, count"
+scalar ToyEVDoSScenario.ev[0].wlan[0].mac.dcf.recipientMacDataService packetDropDuplicateDetected:sum(packetBytes) 0
+attr interpolationmode none
+attr source packetDropReasonIsDuplicateDetected(packetDropped)
+attr title "packet drops: duplicate detected, sum(packetBytes)"
+scalar ToyEVDoSScenario.ev[0].wlan[0].mac.dcf.recipientMacDataService packetDeaggregated:count 0
+attr title "packets deaggregated, count"
+scalar ToyEVDoSScenario.ev[0].wlan[0].mac.dcf.recipientMacDataService packetDefragmented:count 18
+attr title "packets defragmented, count"
+scalar ToyEVDoSScenario.ev[0].wlan[0].mac.dcf.recoveryProcedure retryLimitReached:count 0
+attr title "retry limit reached, count"
+scalar ToyEVDoSScenario.ev[0].wlan[0].mac.dcf packetReceivedFromPeer:count 18
+attr interpolationmode none
+attr title "packets received, count"
+scalar ToyEVDoSScenario.ev[0].wlan[0].mac.dcf packetReceivedFromPeer:sum(packetBytes) 6337
+attr interpolationmode none
+attr title "packets received, sum(packetBytes)"
+scalar ToyEVDoSScenario.ev[0].wlan[0].mac.dcf packetReceivedFromPeerUnicast:count 0
+attr interpolationmode none
+attr source ieee80211Unicast(packetReceivedFromPeer)
+attr title "packets received: unicast, count"
+scalar ToyEVDoSScenario.ev[0].wlan[0].mac.dcf packetReceivedFromPeerUnicast:sum(packetBytes) 0
+attr interpolationmode none
+attr source ieee80211Unicast(packetReceivedFromPeer)
+attr title "packets received: unicast, sum(packetBytes)"
+scalar ToyEVDoSScenario.ev[0].wlan[0].mac.dcf packetReceivedFromPeerMulticast:count 18
+attr interpolationmode none
+attr source ieee80211Multicast(packetReceivedFromPeer)
+attr title "packets received: multicast, count"
+scalar ToyEVDoSScenario.ev[0].wlan[0].mac.dcf packetReceivedFromPeerMulticast:sum(packetBytes) 6337
+attr interpolationmode none
+attr source ieee80211Multicast(packetReceivedFromPeer)
+attr title "packets received: multicast, sum(packetBytes)"
+scalar ToyEVDoSScenario.ev[0].wlan[0].mac.dcf packetReceivedFromPeerBroadcast:count 0
+attr interpolationmode none
+attr source ieee80211Broadcast(packetReceivedFromPeer)
+attr title "packets received: broadcast, count"
+scalar ToyEVDoSScenario.ev[0].wlan[0].mac.dcf packetReceivedFromPeerBroadcast:sum(packetBytes) 0
+attr interpolationmode none
+attr source ieee80211Broadcast(packetReceivedFromPeer)
+attr title "packets received: broadcast, sum(packetBytes)"
+scalar ToyEVDoSScenario.ev[0].wlan[0].mac.dcf packetReceivedFromPeerWithRetry:count 0
+attr interpolationmode none
+attr source ieee80211Retry(packetReceivedFromPeer)
+attr title "packets received: with retry, count"
+scalar ToyEVDoSScenario.ev[0].wlan[0].mac.dcf packetReceivedFromPeerWithRetry:sum(packetBytes) 0
+attr interpolationmode none
+attr source ieee80211Retry(packetReceivedFromPeer)
+attr title "packets received: with retry, sum(packetBytes)"
+scalar ToyEVDoSScenario.ev[0].wlan[0].mac.dcf packetReceivedFromPeerWithoutRetry:count 18
+attr interpolationmode none
+attr source ieee80211NotRetry(packetReceivedFromPeer)
+attr title "packets received: without retry, count"
+scalar ToyEVDoSScenario.ev[0].wlan[0].mac.dcf packetReceivedFromPeerWithoutRetry:sum(packetBytes) 6337
+attr interpolationmode none
+attr source ieee80211NotRetry(packetReceivedFromPeer)
+attr title "packets received: without retry, sum(packetBytes)"
+scalar ToyEVDoSScenario.ev[0].wlan[0].mac.dcf packetSentToPeer:count 239
+attr interpolationmode none
+attr title "packets sent, count"
+scalar ToyEVDoSScenario.ev[0].wlan[0].mac.dcf packetSentToPeer:sum(packetBytes) 196980
+attr interpolationmode none
+attr title "packets sent, sum(packetBytes)"
+scalar ToyEVDoSScenario.ev[0].wlan[0].mac.dcf packetSentToPeerUnicast:count 0
+attr interpolationmode none
+attr source ieee80211Unicast(packetSentToPeer)
+attr title "packets sent: unicast, count"
+scalar ToyEVDoSScenario.ev[0].wlan[0].mac.dcf packetSentToPeerUnicast:sum(packetBytes) 0
+attr interpolationmode none
+attr source ieee80211Unicast(packetSentToPeer)
+attr title "packets sent: unicast, sum(packetBytes)"
+scalar ToyEVDoSScenario.ev[0].wlan[0].mac.dcf packetSentToPeerMulticast:count 239
+attr interpolationmode none
+attr source ieee80211Multicast(packetSentToPeer)
+attr title "packets sent: multicast, count"
+scalar ToyEVDoSScenario.ev[0].wlan[0].mac.dcf packetSentToPeerMulticast:sum(packetBytes) 196980
+attr interpolationmode none
+attr source ieee80211Multicast(packetSentToPeer)
+attr title "packets sent: multicast, sum(packetBytes)"
+scalar ToyEVDoSScenario.ev[0].wlan[0].mac.dcf packetSentToPeerBroadcast:count 0
+attr interpolationmode none
+attr source ieee80211Broadcast(packetSentToPeer)
+attr title "packets sent: broadcast , count"
+scalar ToyEVDoSScenario.ev[0].wlan[0].mac.dcf packetSentToPeerBroadcast:sum(packetBytes) 0
+attr interpolationmode none
+attr source ieee80211Broadcast(packetSentToPeer)
+attr title "packets sent: broadcast , sum(packetBytes)"
+scalar ToyEVDoSScenario.ev[0].wlan[0].mac.dcf packetSentToPeerWithRetry:count 0
+attr interpolationmode none
+attr source ieee80211Retry(packetSentToPeer)
+attr title "packets sent: with retry, count"
+scalar ToyEVDoSScenario.ev[0].wlan[0].mac.dcf packetSentToPeerWithRetry:sum(packetBytes) 0
+attr interpolationmode none
+attr source ieee80211Retry(packetSentToPeer)
+attr title "packets sent: with retry, sum(packetBytes)"
+scalar ToyEVDoSScenario.ev[0].wlan[0].mac.dcf packetSentToPeerWithoutRetry:count 239
+attr interpolationmode none
+attr source ieee80211NotRetry(packetSentToPeer)
+attr title "packets sent: without retry, count"
+scalar ToyEVDoSScenario.ev[0].wlan[0].mac.dcf packetSentToPeerWithoutRetry:sum(packetBytes) 196980
+attr interpolationmode none
+attr source ieee80211NotRetry(packetSentToPeer)
+attr title "packets sent: without retry, sum(packetBytes)"
+scalar ToyEVDoSScenario.ev[0].wlan[0].mac.dcf packetDrop:count 0
+attr interpolationmode none
+attr source packetDropped
+attr title "packet drops, count"
+scalar ToyEVDoSScenario.ev[0].wlan[0].mac.dcf packetDrop:sum(packetBytes) 0
+attr interpolationmode none
+attr source packetDropped
+attr title "packet drops, sum(packetBytes)"
+scalar ToyEVDoSScenario.ev[0].wlan[0].mac.dcf packetDropNotAddressedToUs:count 0
+attr interpolationmode none
+attr source packetDropReasonIsNotAddressedToUs(packetDropped)
+attr title "packet drops: not addressed to us, count"
+scalar ToyEVDoSScenario.ev[0].wlan[0].mac.dcf packetDropNotAddressedToUs:sum(packetBytes) 0
+attr interpolationmode none
+attr source packetDropReasonIsNotAddressedToUs(packetDropped)
+attr title "packet drops: not addressed to us, sum(packetBytes)"
+scalar ToyEVDoSScenario.ev[0].wlan[0].mac.dcf packetDropQueueOverflow:count 0
+attr interpolationmode none
+attr source packetDropReasonIsQueueOverflow(packetDropped)
+attr title "packet drops: queue overflow, count"
+scalar ToyEVDoSScenario.ev[0].wlan[0].mac.dcf packetDropQueueOverflow:sum(packetBytes) 0
+attr interpolationmode none
+attr source packetDropReasonIsQueueOverflow(packetDropped)
+attr title "packet drops: queue overflow, sum(packetBytes)"
+scalar ToyEVDoSScenario.ev[0].wlan[0].mac.dcf packetDropRetryLimitReached:count 0
+attr interpolationmode none
+attr source packetDropReasonIsRetryLimitReached(packetDropped)
+attr title "packet drops: retry limit reached, count"
+scalar ToyEVDoSScenario.ev[0].wlan[0].mac.dcf packetDropRetryLimitReached:sum(packetBytes) 0
+attr interpolationmode none
+attr source packetDropReasonIsRetryLimitReached(packetDropped)
+attr title "packet drops: retry limit reached, sum(packetBytes)"
+scalar ToyEVDoSScenario.ev[0].wlan[0].mac.dcf linkBroken:count 0
+attr interpolationmode none
+attr title "link breaks, count"
+scalar ToyEVDoSScenario.ev[0].wlan[0].mac.dcf frameSequenceFinished:count 239
+attr title "finished frame sequences, count"
+statistic ToyEVDoSScenario.ev[0].wlan[0].mac.dcf frameSequenceDuration:histogram
+field count 239
+field mean 0.00030365690376569
+field stddev 0.00014644607614731
+field min 3.8e-005
+field max 0.00053
+field sum 0.072574
+field sqrsum 2.7141852e-005
+attr source frameSequenceDuration(frameSequenceFinished)
+attr title "frame sequence durations, histogram"
+bin	-inf	0
+bin	0	0
+bin	1e-005	0
+bin	2e-005	0
+bin	3e-005	1
+bin	4e-005	9
+bin	5e-005	3
+bin	6e-005	0
+bin	7e-005	0
+bin	8e-005	0
+bin	9e-005	0
+bin	0.0001	0
+bin	0.00011	1
+bin	0.00012	16
+bin	0.00013	8
+bin	0.00014	11
+bin	0.00015	5
+bin	0.00016	11
+bin	0.00017	9
+bin	0.00018	6
+bin	0.00019	0
+bin	0.0002	0
+bin	0.00021	3
+bin	0.00022	1
+bin	0.00023	5
+bin	0.00024	6
+bin	0.00025	8
+bin	0.00026	2
+bin	0.00027	3
+bin	0.00028	5
+bin	0.00029	5
+bin	0.0003	3
+bin	0.00031	7
+bin	0.00032	8
+bin	0.00033	8
+bin	0.00034	4
+bin	0.00035	0
+bin	0.00036	0
+bin	0.00037	0
+bin	0.00038	4
+bin	0.00039	2
+bin	0.0004	6
+bin	0.00041	7
+bin	0.00042	8
+bin	0.00043	8
+bin	0.00044	10
+bin	0.00045	5
+bin	0.00046	1
+bin	0.00047	4
+bin	0.00048	2
+bin	0.00049	6
+bin	0.0005	2
+bin	0.00051	7
+bin	0.00052	19
+bin	0.00053	0
+bin	0.00054	0
+bin	0.00055	0
+bin	0.00056	0
+bin	0.00057	0
+bin	0.00058	0
+bin	0.00059	0
+bin	0.0006	0
+bin	0.00061	0
+bin	0.00062	0
+bin	0.00063	0
+bin	0.00064	0
+bin	0.00065	0
+statistic ToyEVDoSScenario.ev[0].wlan[0].mac.dcf frameSequenceNumPackets:histogram
+field count 239
+field mean 1
+field stddev 0
+field min 1
+field max 1
+field sum 239
+field sqrsum 239
+attr source frameSequenceNumPackets(frameSequenceFinished)
+attr title "frame sequences: number of packets, histogram"
+bin	-inf	0
+bin	0	0
+bin	1	239
+bin	2	0
+scalar ToyEVDoSScenario.ev[0].wlan[0].mac packetReceivedFromLower:count 18
+attr interpolationmode none
+attr title "packets received from lower layer, count"
+scalar ToyEVDoSScenario.ev[0].wlan[0].mac packetReceivedFromLower:sum(packetBytes) 6337
+attr interpolationmode none
+attr title "packets received from lower layer, sum(packetBytes)"
+scalar ToyEVDoSScenario.ev[0].wlan[0].mac packetSentToLower:count 239
+attr interpolationmode none
+attr title "packets sent to lower layer, count"
+scalar ToyEVDoSScenario.ev[0].wlan[0].mac packetSentToLower:sum(packetBytes) 196980
+attr interpolationmode none
+attr title "packets sent to lower layer, sum(packetBytes)"
+scalar ToyEVDoSScenario.ev[0].wlan[0].mac packetReceivedFromUpper:count 226
+attr interpolationmode none
+attr title "packets received from upper layer, count"
+scalar ToyEVDoSScenario.ev[0].wlan[0].mac packetReceivedFromUpper:sum(packetBytes) 190288
+attr interpolationmode none
+attr title "packets received from upper layer, sum(packetBytes)"
+scalar ToyEVDoSScenario.ev[0].wlan[0].mac packetSentToUpper:count 18
+attr interpolationmode none
+attr title "packets sent to upper layer, count"
+scalar ToyEVDoSScenario.ev[0].wlan[0].mac packetSentToUpper:sum(packetBytes) 5833
+attr interpolationmode none
+attr title "packets sent to upper layer, sum(packetBytes)"
+scalar ToyEVDoSScenario.ev[0].wlan[0].mac packetDrop:count 0
+attr interpolationmode none
+attr source packetDropped
+attr title "packet drops, count"
+scalar ToyEVDoSScenario.ev[0].wlan[0].mac packetDrop:sum(packetBytes) 0
+attr interpolationmode none
+attr source packetDropped
+attr title "packet drops, sum(packetBytes)"
+scalar ToyEVDoSScenario.ev[0].wlan[0].mac packetDropIncorrectlyReceived:count 0
+attr interpolationmode none
+attr source packetDropReasonIsIncorrectlyReceived(packetDropped)
+attr title "packet drops: incorrectly received, count"
+scalar ToyEVDoSScenario.ev[0].wlan[0].mac packetDropIncorrectlyReceived:sum(packetBytes) 0
+attr interpolationmode none
+attr source packetDropReasonIsIncorrectlyReceived(packetDropped)
+attr title "packet drops: incorrectly received, sum(packetBytes)"
+scalar ToyEVDoSScenario.ev[0].wlan[0].mac packetDropNotAddressedToUs:count 0
+attr interpolationmode none
+attr source packetDropReasonIsNotAddressedToUs(packetDropped)
+attr title "packet drops: not addressed to us, count"
+scalar ToyEVDoSScenario.ev[0].wlan[0].mac packetDropNotAddressedToUs:sum(packetBytes) 0
+attr interpolationmode none
+attr source packetDropReasonIsNotAddressedToUs(packetDropped)
+attr title "packet drops: not addressed to us, sum(packetBytes)"
+scalar ToyEVDoSScenario.ev[0].wlan[0].mac packetDropQueueOverflow:count 0
+attr interpolationmode none
+attr source packetDropReasonIsQueueOverflow(packetDropped)
+attr title "packet drops: queue overflow, count"
+scalar ToyEVDoSScenario.ev[0].wlan[0].mac packetDropQueueOverflow:sum(packetBytes) 0
+attr interpolationmode none
+attr source packetDropReasonIsQueueOverflow(packetDropped)
+attr title "packet drops: queue overflow, sum(packetBytes)"
+scalar ToyEVDoSScenario.ev[0].wlan[0].mac packetDropRetryLimitReached:count 0
+attr interpolationmode none
+attr source packetDropReasonIsRetryLimitReached(packetDropped)
+attr title "packet drops: retry limit reached, count"
+scalar ToyEVDoSScenario.ev[0].wlan[0].mac packetDropRetryLimitReached:sum(packetBytes) 0
+attr interpolationmode none
+attr source packetDropReasonIsRetryLimitReached(packetDropped)
+attr title "packet drops: retry limit reached, sum(packetBytes)"
+scalar ToyEVDoSScenario.ev[0].wlan[0].mac packetDropDuplicateDetected:count 0
+attr interpolationmode none
+attr source packetDropReasonIsDuplicateDetected(packetDropped)
+attr title "packet drops: duplicate detected, count"
+scalar ToyEVDoSScenario.ev[0].wlan[0].mac packetDropDuplicateDetected:sum(packetBytes) 0
+attr interpolationmode none
+attr source packetDropReasonIsDuplicateDetected(packetDropped)
+attr title "packet drops: duplicate detected, sum(packetBytes)"
+scalar ToyEVDoSScenario.ev[0].wlan[0].mac packetDropOther:count 0
+attr interpolationmode none
+attr source packetDropReasonIsOther(packetDropped)
+attr title "packet drops: other, count"
+scalar ToyEVDoSScenario.ev[0].wlan[0].mac packetDropOther:sum(packetBytes) 0
+attr interpolationmode none
+attr source packetDropReasonIsOther(packetDropped)
+attr title "packet drops: other, sum(packetBytes)"
+scalar ToyEVDoSScenario.ev[0].wlan[0].mac linkBroken:count 0
+attr interpolationmode none
+attr title "link breaks, count"
+statistic ToyEVDoSScenario.ev[0].wlan[0].radio minSnir:histogram
+field count 18
+field mean 9005.7487193617
+field stddev 4124.8482797097
+field min 6691.5080043794
+field max 20759.405186008
+field sum 162103.47694851
+field sqrsum 1749107526.5537
+attr source minimumSnir(packetSentToUpper)
+attr title "Min SNIR, histogram"
+bin	-inf	0
+bin	3000	0
+bin	3500	0
+bin	4000	0
+bin	4500	0
+bin	5000	0
+bin	5500	0
+bin	6000	0
+bin	6500	10
+bin	7000	1
+bin	7500	1
+bin	8000	1
+bin	8500	0
+bin	9000	1
+bin	9500	0
+bin	10000	0
+bin	10500	1
+bin	11000	0
+bin	11500	0
+bin	12000	0
+bin	12500	0
+bin	13000	0
+bin	13500	1
+bin	14000	0
+bin	14500	0
+bin	15000	0
+bin	15500	0
+bin	16000	0
+bin	16500	0
+bin	17000	1
+bin	17500	0
+bin	18000	0
+bin	18500	0
+bin	19000	0
+bin	19500	0
+bin	20000	0
+bin	20500	1
+bin	21000	0
+bin	21500	0
+bin	22000	0
+bin	22500	0
+bin	23000	0
+bin	23500	0
+bin	24000	0
+bin	24500	0
+statistic ToyEVDoSScenario.ev[0].wlan[0].radio packetErrorRate:histogram
+field count 18
+field mean 0
+field stddev 0
+field min 0
+field max 0
+field sum 0
+field sqrsum 0
+attr source packetErrorRate(packetSentToUpper)
+attr title "Packet error rate, histogram"
+bin	-inf	0
+bin	-0.5	0
+bin	-0.48	0
+bin	-0.46	0
+bin	-0.44	0
+bin	-0.42	0
+bin	-0.4	0
+bin	-0.38	0
+bin	-0.36	0
+bin	-0.34	0
+bin	-0.32	0
+bin	-0.3	0
+bin	-0.28	0
+bin	-0.26	0
+bin	-0.24	0
+bin	-0.22	0
+bin	-0.2	0
+bin	-0.18	0
+bin	-0.16	0
+bin	-0.14	0
+bin	-0.12	0
+bin	-0.1	0
+bin	-0.08	0
+bin	-0.06	0
+bin	-0.04	0
+bin	-0.02	0
+bin	0	18
+bin	0.02	0
+bin	0.04	0
+bin	0.06	0
+bin	0.08	0
+bin	0.1	0
+bin	0.12	0
+bin	0.14	0
+bin	0.16	0
+bin	0.18	0
+bin	0.2	0
+bin	0.22	0
+bin	0.24	0
+bin	0.26	0
+bin	0.28	0
+bin	0.3	0
+bin	0.32	0
+bin	0.34	0
+bin	0.36	0
+bin	0.38	0
+bin	0.4	0
+bin	0.42	0
+bin	0.44	0
+bin	0.46	0
+bin	0.48	0
+bin	0.5	0
+statistic ToyEVDoSScenario.ev[0].wlan[0].radio bitErrorRate:histogram
+field count 0
+field mean nan
+field stddev nan
+field min nan
+field max nan
+field sum 0
+field sqrsum 0
+attr source bitErrorRate(packetSentToUpper)
+attr title "Bit error rate, histogram"
+bin	-inf	0
+bin	0	0
+bin	1	0
+statistic ToyEVDoSScenario.ev[0].wlan[0].radio symbolErrorRate:histogram
+field count 0
+field mean nan
+field stddev nan
+field min nan
+field max nan
+field sum 0
+field sqrsum 0
+attr source symbolErrorRate(packetSentToUpper)
+attr title "Symbol error rate, histogram"
+bin	-inf	0
+bin	0	0
+bin	1	0
+scalar ToyEVDoSScenario.ev[0].wlan[0].radio transmissionState:count 956
+attr interpolationmode sample-hold
+attr source transmissionStateChanged
+attr title "Radio transmission state, count"
+scalar ToyEVDoSScenario.ev[0].wlan[0].radio receptionState:count 515
+attr interpolationmode sample-hold
+attr source receptionStateChanged
+attr title "Radio reception state, count"
+scalar ToyEVDoSScenario.ev[0].wlan[0].radio radioMode:count 481
+attr interpolationmode sample-hold
+attr source radioModeChanged
+attr title "Radio mode, count"
+statistic ToyEVDoSScenario.ev[0].wlan[0].radio radioChannel:histogram
+field count 1
+field mean 3
+field stddev nan
+field min 3
+field max 3
+field sum 3
+field sqrsum 9
+attr interpolationmode sample-hold
+attr source radioChannelChanged
+attr title "Radio channel, histogram"
+bin	-inf	0
+bin	2	0
+bin	3	1
+bin	4	0
+scalar ToyEVDoSScenario.ev[0].ipv4.ip packetDropAddressResolutionFailed:count 0
+attr interpolationmode none
+attr source packetDropReasonIsAddressResolutionFailed(packetDropped)
+attr title "packet drop: address resolution failed, count"
+scalar ToyEVDoSScenario.ev[0].ipv4.ip packetDropAddressResolutionFailed:sum(packetBytes) 0
+attr interpolationmode none
+attr source packetDropReasonIsAddressResolutionFailed(packetDropped)
+attr title "packet drop: address resolution failed, sum(packetBytes)"
+scalar ToyEVDoSScenario.ev[0].ipv4.ip packetDropHopLimitReached:count 0
+attr interpolationmode none
+attr source packetDropReasonIsHopLimitReached(packetDropped)
+attr title "packet drop: hop limit reached, count"
+scalar ToyEVDoSScenario.ev[0].ipv4.ip packetDropHopLimitReached:sum(packetBytes) 0
+attr interpolationmode none
+attr source packetDropReasonIsHopLimitReached(packetDropped)
+attr title "packet drop: hop limit reached, sum(packetBytes)"
+scalar ToyEVDoSScenario.ev[0].ipv4.ip packetDropForwardingDisabled:count 0
+attr interpolationmode none
+attr source packetDropReasonIsForwardingDisabled(packetDropped)
+attr title "packet drop: forwarding disabled, count"
+scalar ToyEVDoSScenario.ev[0].ipv4.ip packetDropForwardingDisabled:sum(packetBytes) 0
+attr interpolationmode none
+attr source packetDropReasonIsForwardingDisabled(packetDropped)
+attr title "packet drop: forwarding disabled, sum(packetBytes)"
+scalar ToyEVDoSScenario.ev[0].ipv4.ip packetDropNoInterfaceFound:count 0
+attr interpolationmode none
+attr source packetDropReasonIsNoInterfaceFound(packetDropped)
+attr title "packet drop: no interface found, count"
+scalar ToyEVDoSScenario.ev[0].ipv4.ip packetDropNoInterfaceFound:sum(packetBytes) 0
+attr interpolationmode none
+attr source packetDropReasonIsNoInterfaceFound(packetDropped)
+attr title "packet drop: no interface found, sum(packetBytes)"
+scalar ToyEVDoSScenario.ev[0].ipv4.ip packetDropNoRouteFound:count 0
+attr interpolationmode none
+attr source packetDropReasonIsNoRouteFound(packetDropped)
+attr title "packet drop: no route found, count"
+scalar ToyEVDoSScenario.ev[0].ipv4.ip packetDropNoRouteFound:sum(packetBytes) 0
+attr interpolationmode none
+attr source packetDropReasonIsNoRouteFound(packetDropped)
+attr title "packet drop: no route found, sum(packetBytes)"
+scalar ToyEVDoSScenario.ev[0].ipv4.ip packetDropUndefined:count 0
+attr interpolationmode none
+attr source packetDropReasonIsUndefined(packetDropped)
+attr title "packet drop: undefined, count"
+scalar ToyEVDoSScenario.ev[0].ipv4.ip packetDropUndefined:sum(packetBytes) 0
+attr interpolationmode none
+attr source packetDropReasonIsUndefined(packetDropped)
+attr title "packet drop: undefined, sum(packetBytes)"
+scalar ToyEVDoSScenario.ev[0].ipv4.arp arpReplySent:count 0
+attr source arpReplySent
+attr title "ARP replies sent, count"
+scalar ToyEVDoSScenario.ev[0].ipv4.arp arpReplySent:sum(packetBytes) 0
+attr source arpReplySent
+attr title "ARP replies sent, sum(packetBytes)"
+scalar ToyEVDoSScenario.ev[0].ipv4.arp arpRequestSent:count 0
+attr source arpRequestSent
+attr title "ARP request sent, count"
+scalar ToyEVDoSScenario.ev[0].ipv4.arp arpRequestSent:sum(packetBytes) 0
+attr source arpRequestSent
+attr title "ARP request sent, sum(packetBytes)"
+scalar ToyEVDoSScenario.ev[0].ipv4.arp arpResolutionFailed:count 0
+attr title "ARP failed resolutions, count"
+scalar ToyEVDoSScenario.ev[0].ipv4.arp arpResolutionCompleted:count 0
+attr title "ARP completed resolutions, count"
+scalar ToyEVDoSScenario.ev[0].ipv4.arp arpResolutionInitiated:count 0
+attr title "ARP initiated resolutions, count"
+scalar ToyEVDoSScenario.ev[0].udp packetReceived:count 244
+attr interpolationmode none
+attr source packetReceived
+attr title "packets received, count"
+scalar ToyEVDoSScenario.ev[0].udp packetReceived:sum(packetBytes) 189289
+attr interpolationmode none
+attr source packetReceived
+attr title "packets received, sum(packetBytes)"
+scalar ToyEVDoSScenario.ev[0].udp packetSent:count 226
+attr interpolationmode none
+attr source packetSent
+attr title "packets sent, count"
+scalar ToyEVDoSScenario.ev[0].udp packetSent:sum(packetBytes) 183960
+attr interpolationmode none
+attr source packetSent
+attr title "packets sent, sum(packetBytes)"
+scalar ToyEVDoSScenario.ev[0].udp passedUpPk:count 244
+attr interpolationmode none
+attr source packetSentToUpper
+attr title "packets passed up, count"
+scalar ToyEVDoSScenario.ev[0].udp droppedPkWrongPort:count 0
+attr interpolationmode none
+attr source packetDropReasonIsNoPortFound(packetDropped)
+attr title "packets dropped (wrong port), count"
+scalar ToyEVDoSScenario.ev[0].udp droppedPkBadChecksum:count 0
+attr interpolationmode none
+attr source packetDropReasonIsIncorrectlyReceived(packetDropped)
+attr title "packets dropped (checksum error), count"
+scalar ToyEVDoSScenario.ev[0].app[0] packetsSent 226
+scalar ToyEVDoSScenario.ev[0].app[0] packetsReceived 18
+scalar ToyEVDoSScenario.ev[0].app[0] totalEnergyConsumed 18.716721619548
+scalar ToyEVDoSScenario.ev[0].app[0] finalBatteryWh 141.28327838045
+scalar ToyEVDoSScenario.ev[0].app[0] finalSoC 0.70641639190226
+scalar ToyEVDoSScenario.ev[0].app[0] totalBytesSent 182152
+scalar ToyEVDoSScenario.ev[0].app[0] totalBytesReceived 5185
+scalar ToyEVDoSScenario.ev[0].app[0] packetSendRate 10.226244343891
+scalar ToyEVDoSScenario.ev[0].app[0] packetRecvRate 0.81447963800905
+scalar ToyEVDoSScenario.ev[0].app[0] attackDurationParam 60
+scalar ToyEVDoSScenario.ev[0].app[0] isAttackerParam 1
+statistic ToyEVDoSScenario.ev[0].app[0] senderSpeed:stats
+field count 18
+field mean 13.754223416284
+field stddev 0.22694577451674
+field min 12.866063536496
+field max 13.865531172005
+field sum 247.57602149311
+field sqrsum 3406.0914866688
+statistic ToyEVDoSScenario.ev[0].app[0] soc:stats
+field count 261
+field mean 0.72592734559145
+field stddev 0.02172899141557
+field min 0.70641639190226
+field max 0.8
+field sum 189.46703719937
+field sqrsum 137.66206214888
+attr title "State of Charge, stats"
+statistic ToyEVDoSScenario.ev[0].app[0] batteryLevel:stats
+field count 261
+field mean 145.18546911829
+field stddev 4.3457982831109
+field min 141.28327838045
+field max 160
+field sum 37893.407439874
+field sqrsum 5506482.4859551
+statistic ToyEVDoSScenario.ev[0].app[0] txDuration:stats
+field count 18
+field mean 0.00038407407407407
+field stddev 7.5322709259147e-005
+field min 0.00027066666666667
+field max 0.000512
+field sum 0.0069133333333333
+field sqrsum 2.7516817777778e-006
+statistic ToyEVDoSScenario.ev[0].app[0] energyConsumption:stats
+field count 244
+field mean 2.793497867866e-008
+field stddev 1.7166994329921e-008
+field min 7.3913913606287e-010
+field max 6.4145673210684e-008
+field sum 6.8161347975931e-006
+field sqrsum 2.6202206396226e-013
+statistic ToyEVDoSScenario.ev[0].app[0] interArrivalTime:stats
+field count 244
+field mean 0.18064303602861
+field stddev 0.8647828867947
+field min 0.000809218027
+field max 11.499745414531
+field sum 44.076900790982
+field sqrsum 189.68959941181
+statistic ToyEVDoSScenario.ev[0].app[0] packetSize:stats
+field count 244
+field mean 767.77459016393
+field stddev 420.63931649101
+field min 203
+field max 1496
+field sum 187337
+field sqrsum 186828385
+scalar ToyEVDoSScenario.ev[0].app[0] packetReceived:count 18
+attr interpolationmode none
+attr source packetReceived
+attr title "packets received, count"
+scalar ToyEVDoSScenario.ev[0].app[0] packetReceived:sum 18
+attr interpolationmode none
+attr source packetReceived
+attr title "packets received, sum"
+scalar ToyEVDoSScenario.ev[0].app[0] packetSent:count 226
+attr interpolationmode none
+attr source packetSent
+attr title "packets sent, count"
+scalar ToyEVDoSScenario.ev[0].app[0] packetSent:sum 25651
+attr interpolationmode none
+attr source packetSent
+attr title "packets sent, sum"
+scalar ToyEVDoSScenario.radioMedium.propagation "Arrival computation count" 1167
+scalar ToyEVDoSScenario.radioMedium "transmission count" 458
+scalar ToyEVDoSScenario.radioMedium "signal send count" 1167
+scalar ToyEVDoSScenario.radioMedium "reception computation count" 1167
+scalar ToyEVDoSScenario.radioMedium "interference computation count" 3963
+scalar ToyEVDoSScenario.radioMedium "reception decision computation count" 1167
+scalar ToyEVDoSScenario.radioMedium "listening decision computation count" 1629
+scalar ToyEVDoSScenario.radioMedium "reception cache hit" 85.714285714286
+attr unit %
+scalar ToyEVDoSScenario.radioMedium "interference cache hit" 66.666666666667
+attr unit %
+scalar ToyEVDoSScenario.radioMedium "noise cache hit" 0
+attr unit %
+scalar ToyEVDoSScenario.radioMedium "snir cache hit" 50
+attr unit %
+scalar ToyEVDoSScenario.radioMedium "reception decision cache hit" 50
+attr unit %
+scalar ToyEVDoSScenario.radioMedium "reception result cache hit" 0
+attr unit %
+scalar ToyEVDoSScenario.veinsManager roiArea 0
+scalar ToyEVDoSScenario.cs[0].lo[0].lo rcvdPkFromHl:count 1
+attr interpolationmode none
+attr source packetReceivedFromUpper
+attr title "packets received from higher layer, count"
+scalar ToyEVDoSScenario.cs[0].lo[0].lo rcvdPkFromHl:sum(packetBytes) 128
+attr interpolationmode none
+attr source packetReceivedFromUpper
+attr title "packets received from higher layer, sum(packetBytes)"
+scalar ToyEVDoSScenario.cs[0].lo[0].lo passedUpPk:count 1
+attr interpolationmode none
+attr source packetSentToUpper
+attr title "packets passed to higher layer, count"
+scalar ToyEVDoSScenario.cs[0].lo[0].lo passedUpPk:sum(packetBytes) 128
+attr interpolationmode none
+attr source packetSentToUpper
+attr title "packets passed to higher layer, sum(packetBytes)"
+scalar ToyEVDoSScenario.cs[0].wlan[0].mac.dcf.channelAccess.pendingQueue packetPopped:count 1
+attr interpolationmode none
+attr title "packet popped, count"
+scalar ToyEVDoSScenario.cs[0].wlan[0].mac.dcf.channelAccess.pendingQueue packetPopped:sum(packetBytes) 164
+attr interpolationmode none
+attr title "packet popped, sum(packetBytes)"
+statistic ToyEVDoSScenario.cs[0].wlan[0].mac.dcf.channelAccess.pendingQueue queueingTime:histogram
+field count 1
+field mean 0.00031
+field stddev nan
+field min 0.00031
+field max 0.00031
+field sum 0.00031
+field sqrsum 9.61e-008
+attr interpolationmode none
+attr source queueingTime(packetPopped)
+attr title "queueing times, histogram"
+attr unit s
+bin	-inf	0
+bin	0	1
+bin	0.01	0
+bin	0.02	0
+bin	0.03	0
+bin	0.04	0
+bin	0.05	0
+bin	0.06	0
+bin	0.07	0
+bin	0.08	0
+bin	0.09	0
+bin	0.1	0
+bin	0.11	0
+bin	0.12	0
+bin	0.13	0
+bin	0.14	0
+bin	0.15	0
+bin	0.16	0
+bin	0.17	0
+bin	0.18	0
+bin	0.19	0
+bin	0.2	0
+bin	0.21	0
+bin	0.22	0
+bin	0.23	0
+bin	0.24	0
+bin	0.25	0
+bin	0.26	0
+bin	0.27	0
+bin	0.28	0
+bin	0.29	0
+bin	0.3	0
+bin	0.31	0
+bin	0.32	0
+bin	0.33	0
+bin	0.34	0
+bin	0.35	0
+bin	0.36	0
+bin	0.37	0
+bin	0.38	0
+bin	0.39	0
+bin	0.4	0
+bin	0.41	0
+bin	0.42	0
+bin	0.43	0
+bin	0.44	0
+bin	0.45	0
+bin	0.46	0
+bin	0.47	0
+bin	0.48	0
+bin	0.49	0
+bin	0.5	0
+bin	0.51	0
+scalar ToyEVDoSScenario.cs[0].wlan[0].mac.dcf.channelAccess.pendingQueue queueLength:max 1
+attr interpolationmode sample-hold
+attr source "count(packetPushed) - count(packetPopped) - count(packetRemoved) - count(packetDropped)"
+attr title "queue length, max"
+scalar ToyEVDoSScenario.cs[0].wlan[0].mac.dcf.channelAccess.pendingQueue queueLength:timeavg 1.6498144514226e-006
+attr interpolationmode sample-hold
+attr source "count(packetPushed) - count(packetPopped) - count(packetRemoved) - count(packetDropped)"
+attr title "queue length, timeavg"
+scalar ToyEVDoSScenario.cs[0].wlan[0].mac.dcf.channelAccess.pendingQueue packetPushed:count 1
+attr interpolationmode none
+attr title "packet pushed, count"
+scalar ToyEVDoSScenario.cs[0].wlan[0].mac.dcf.channelAccess.pendingQueue packetPushed:sum(packetBytes) 164
+attr interpolationmode none
+attr title "packet pushed, sum(packetBytes)"
+scalar ToyEVDoSScenario.cs[0].wlan[0].mac.dcf.channelAccess.pendingQueue packetDropQueueOverflow:count 0
+attr interpolationmode none
+attr source packetDropReasonIsQueueOverflow(packetDropped)
+attr title "packet drops: queue overflow, count"
+scalar ToyEVDoSScenario.cs[0].wlan[0].mac.dcf.channelAccess.pendingQueue packetDropQueueOverflow:sum(packetBytes) 0
+attr interpolationmode none
+attr source packetDropReasonIsQueueOverflow(packetDropped)
+attr title "packet drops: queue overflow, sum(packetBytes)"
+scalar ToyEVDoSScenario.cs[0].wlan[0].mac.dcf.channelAccess.pendingQueue packetRemoved:count 0
+attr interpolationmode none
+attr title "packets removed, count"
+scalar ToyEVDoSScenario.cs[0].wlan[0].mac.dcf.channelAccess.pendingQueue packetRemoved:sum(packetBytes) 0
+attr interpolationmode none
+attr title "packets removed, sum(packetBytes)"
+statistic ToyEVDoSScenario.cs[0].wlan[0].mac.dcf.channelAccess.inProgressFrames queueingTime:histogram
+field count 1
+field mean 8.2e-005
+field stddev nan
+field min 8.2e-005
+field max 8.2e-005
+field sum 8.2e-005
+field sqrsum 6.724e-009
+attr interpolationmode none
+attr source queueingTime(packetDequeued)
+attr title "queueing times, histogram"
+bin	-inf	0
+bin	0	1
+bin	0.01	0
+bin	0.02	0
+bin	0.03	0
+bin	0.04	0
+bin	0.05	0
+bin	0.06	0
+bin	0.07	0
+bin	0.08	0
+bin	0.09	0
+bin	0.1	0
+bin	0.11	0
+bin	0.12	0
+bin	0.13	0
+bin	0.14	0
+bin	0.15	0
+bin	0.16	0
+bin	0.17	0
+bin	0.18	0
+bin	0.19	0
+bin	0.2	0
+bin	0.21	0
+bin	0.22	0
+bin	0.23	0
+bin	0.24	0
+bin	0.25	0
+bin	0.26	0
+bin	0.27	0
+bin	0.28	0
+bin	0.29	0
+bin	0.3	0
+bin	0.31	0
+bin	0.32	0
+bin	0.33	0
+bin	0.34	0
+bin	0.35	0
+bin	0.36	0
+bin	0.37	0
+bin	0.38	0
+bin	0.39	0
+bin	0.4	0
+bin	0.41	0
+bin	0.42	0
+bin	0.43	0
+bin	0.44	0
+bin	0.45	0
+bin	0.46	0
+bin	0.47	0
+bin	0.48	0
+bin	0.49	0
+bin	0.5	0
+bin	0.51	0
+scalar ToyEVDoSScenario.cs[0].wlan[0].mac.dcf.channelAccess.inProgressFrames queueLength:max 1
+attr interpolationmode sample-hold
+attr source "count(packetEnqueued) - count(packetDequeued)"
+attr title "queue length, max"
+scalar ToyEVDoSScenario.cs[0].wlan[0].mac.dcf.channelAccess.inProgressFrames queueLength:timeavg 4.3640325229618e-007
+attr interpolationmode sample-hold
+attr source "count(packetEnqueued) - count(packetDequeued)"
+attr title "queue length, timeavg"
+scalar ToyEVDoSScenario.cs[0].wlan[0].mac.dcf.channelAccess.contention stateChanged:count 1838
+attr interpolationmode none
+attr title "contention state changed, count"
+scalar ToyEVDoSScenario.cs[0].wlan[0].mac.dcf.channelAccess.contention channelAccessGranted:count 1
+attr title "channel access granted, count"
+scalar ToyEVDoSScenario.cs[0].wlan[0].mac.dcf.channelAccess channelOwnershipChanged:count 2
+attr interpolationmode sample-hold
+attr title "channel ownership, count"
+scalar ToyEVDoSScenario.cs[0].wlan[0].mac.dcf.originatorMacDataService packetAggregated:count 0
+attr title "packets aggregated, count"
+scalar ToyEVDoSScenario.cs[0].wlan[0].mac.dcf.originatorMacDataService packetFragmented:count 0
+attr title "packets fragmented, count"
+scalar ToyEVDoSScenario.cs[0].wlan[0].mac.dcf.recipientMacDataService packetDropDuplicateDetected:count 0
+attr interpolationmode none
+attr source packetDropReasonIsDuplicateDetected(packetDropped)
+attr title "packet drops: duplicate detected, count"
+scalar ToyEVDoSScenario.cs[0].wlan[0].mac.dcf.recipientMacDataService packetDropDuplicateDetected:sum(packetBytes) 0
+attr interpolationmode none
+attr source packetDropReasonIsDuplicateDetected(packetDropped)
+attr title "packet drops: duplicate detected, sum(packetBytes)"
+scalar ToyEVDoSScenario.cs[0].wlan[0].mac.dcf.recipientMacDataService packetDeaggregated:count 0
+attr title "packets deaggregated, count"
+scalar ToyEVDoSScenario.cs[0].wlan[0].mac.dcf.recipientMacDataService packetDefragmented:count 444
+attr title "packets defragmented, count"
+scalar ToyEVDoSScenario.cs[0].wlan[0].mac.dcf.recoveryProcedure retryLimitReached:count 0
+attr title "retry limit reached, count"
+scalar ToyEVDoSScenario.cs[0].wlan[0].mac.dcf packetReceivedFromPeer:count 457
+attr interpolationmode none
+attr title "packets received, count"
+scalar ToyEVDoSScenario.cs[0].wlan[0].mac.dcf packetReceivedFromPeer:sum(packetBytes) 275013
+attr interpolationmode none
+attr title "packets received, sum(packetBytes)"
+scalar ToyEVDoSScenario.cs[0].wlan[0].mac.dcf packetReceivedFromPeerUnicast:count 0
+attr interpolationmode none
+attr source ieee80211Unicast(packetReceivedFromPeer)
+attr title "packets received: unicast, count"
+scalar ToyEVDoSScenario.cs[0].wlan[0].mac.dcf packetReceivedFromPeerUnicast:sum(packetBytes) 0
+attr interpolationmode none
+attr source ieee80211Unicast(packetReceivedFromPeer)
+attr title "packets received: unicast, sum(packetBytes)"
+scalar ToyEVDoSScenario.cs[0].wlan[0].mac.dcf packetReceivedFromPeerMulticast:count 457
+attr interpolationmode none
+attr source ieee80211Multicast(packetReceivedFromPeer)
+attr title "packets received: multicast, count"
+scalar ToyEVDoSScenario.cs[0].wlan[0].mac.dcf packetReceivedFromPeerMulticast:sum(packetBytes) 275013
+attr interpolationmode none
+attr source ieee80211Multicast(packetReceivedFromPeer)
+attr title "packets received: multicast, sum(packetBytes)"
+scalar ToyEVDoSScenario.cs[0].wlan[0].mac.dcf packetReceivedFromPeerBroadcast:count 0
+attr interpolationmode none
+attr source ieee80211Broadcast(packetReceivedFromPeer)
+attr title "packets received: broadcast, count"
+scalar ToyEVDoSScenario.cs[0].wlan[0].mac.dcf packetReceivedFromPeerBroadcast:sum(packetBytes) 0
+attr interpolationmode none
+attr source ieee80211Broadcast(packetReceivedFromPeer)
+attr title "packets received: broadcast, sum(packetBytes)"
+scalar ToyEVDoSScenario.cs[0].wlan[0].mac.dcf packetReceivedFromPeerWithRetry:count 0
+attr interpolationmode none
+attr source ieee80211Retry(packetReceivedFromPeer)
+attr title "packets received: with retry, count"
+scalar ToyEVDoSScenario.cs[0].wlan[0].mac.dcf packetReceivedFromPeerWithRetry:sum(packetBytes) 0
+attr interpolationmode none
+attr source ieee80211Retry(packetReceivedFromPeer)
+attr title "packets received: with retry, sum(packetBytes)"
+scalar ToyEVDoSScenario.cs[0].wlan[0].mac.dcf packetReceivedFromPeerWithoutRetry:count 457
+attr interpolationmode none
+attr source ieee80211NotRetry(packetReceivedFromPeer)
+attr title "packets received: without retry, count"
+scalar ToyEVDoSScenario.cs[0].wlan[0].mac.dcf packetReceivedFromPeerWithoutRetry:sum(packetBytes) 275013
+attr interpolationmode none
+attr source ieee80211NotRetry(packetReceivedFromPeer)
+attr title "packets received: without retry, sum(packetBytes)"
+scalar ToyEVDoSScenario.cs[0].wlan[0].mac.dcf packetSentToPeer:count 1
+attr interpolationmode none
+attr title "packets sent, count"
+scalar ToyEVDoSScenario.cs[0].wlan[0].mac.dcf packetSentToPeer:sum(packetBytes) 164
+attr interpolationmode none
+attr title "packets sent, sum(packetBytes)"
+scalar ToyEVDoSScenario.cs[0].wlan[0].mac.dcf packetSentToPeerUnicast:count 0
+attr interpolationmode none
+attr source ieee80211Unicast(packetSentToPeer)
+attr title "packets sent: unicast, count"
+scalar ToyEVDoSScenario.cs[0].wlan[0].mac.dcf packetSentToPeerUnicast:sum(packetBytes) 0
+attr interpolationmode none
+attr source ieee80211Unicast(packetSentToPeer)
+attr title "packets sent: unicast, sum(packetBytes)"
+scalar ToyEVDoSScenario.cs[0].wlan[0].mac.dcf packetSentToPeerMulticast:count 1
+attr interpolationmode none
+attr source ieee80211Multicast(packetSentToPeer)
+attr title "packets sent: multicast, count"
+scalar ToyEVDoSScenario.cs[0].wlan[0].mac.dcf packetSentToPeerMulticast:sum(packetBytes) 164
+attr interpolationmode none
+attr source ieee80211Multicast(packetSentToPeer)
+attr title "packets sent: multicast, sum(packetBytes)"
+scalar ToyEVDoSScenario.cs[0].wlan[0].mac.dcf packetSentToPeerBroadcast:count 0
+attr interpolationmode none
+attr source ieee80211Broadcast(packetSentToPeer)
+attr title "packets sent: broadcast , count"
+scalar ToyEVDoSScenario.cs[0].wlan[0].mac.dcf packetSentToPeerBroadcast:sum(packetBytes) 0
+attr interpolationmode none
+attr source ieee80211Broadcast(packetSentToPeer)
+attr title "packets sent: broadcast , sum(packetBytes)"
+scalar ToyEVDoSScenario.cs[0].wlan[0].mac.dcf packetSentToPeerWithRetry:count 0
+attr interpolationmode none
+attr source ieee80211Retry(packetSentToPeer)
+attr title "packets sent: with retry, count"
+scalar ToyEVDoSScenario.cs[0].wlan[0].mac.dcf packetSentToPeerWithRetry:sum(packetBytes) 0
+attr interpolationmode none
+attr source ieee80211Retry(packetSentToPeer)
+attr title "packets sent: with retry, sum(packetBytes)"
+scalar ToyEVDoSScenario.cs[0].wlan[0].mac.dcf packetSentToPeerWithoutRetry:count 1
+attr interpolationmode none
+attr source ieee80211NotRetry(packetSentToPeer)
+attr title "packets sent: without retry, count"
+scalar ToyEVDoSScenario.cs[0].wlan[0].mac.dcf packetSentToPeerWithoutRetry:sum(packetBytes) 164
+attr interpolationmode none
+attr source ieee80211NotRetry(packetSentToPeer)
+attr title "packets sent: without retry, sum(packetBytes)"
+scalar ToyEVDoSScenario.cs[0].wlan[0].mac.dcf packetDrop:count 0
+attr interpolationmode none
+attr source packetDropped
+attr title "packet drops, count"
+scalar ToyEVDoSScenario.cs[0].wlan[0].mac.dcf packetDrop:sum(packetBytes) 0
+attr interpolationmode none
+attr source packetDropped
+attr title "packet drops, sum(packetBytes)"
+scalar ToyEVDoSScenario.cs[0].wlan[0].mac.dcf packetDropNotAddressedToUs:count 0
+attr interpolationmode none
+attr source packetDropReasonIsNotAddressedToUs(packetDropped)
+attr title "packet drops: not addressed to us, count"
+scalar ToyEVDoSScenario.cs[0].wlan[0].mac.dcf packetDropNotAddressedToUs:sum(packetBytes) 0
+attr interpolationmode none
+attr source packetDropReasonIsNotAddressedToUs(packetDropped)
+attr title "packet drops: not addressed to us, sum(packetBytes)"
+scalar ToyEVDoSScenario.cs[0].wlan[0].mac.dcf packetDropQueueOverflow:count 0
+attr interpolationmode none
+attr source packetDropReasonIsQueueOverflow(packetDropped)
+attr title "packet drops: queue overflow, count"
+scalar ToyEVDoSScenario.cs[0].wlan[0].mac.dcf packetDropQueueOverflow:sum(packetBytes) 0
+attr interpolationmode none
+attr source packetDropReasonIsQueueOverflow(packetDropped)
+attr title "packet drops: queue overflow, sum(packetBytes)"
+scalar ToyEVDoSScenario.cs[0].wlan[0].mac.dcf packetDropRetryLimitReached:count 0
+attr interpolationmode none
+attr source packetDropReasonIsRetryLimitReached(packetDropped)
+attr title "packet drops: retry limit reached, count"
+scalar ToyEVDoSScenario.cs[0].wlan[0].mac.dcf packetDropRetryLimitReached:sum(packetBytes) 0
+attr interpolationmode none
+attr source packetDropReasonIsRetryLimitReached(packetDropped)
+attr title "packet drops: retry limit reached, sum(packetBytes)"
+scalar ToyEVDoSScenario.cs[0].wlan[0].mac.dcf linkBroken:count 0
+attr interpolationmode none
+attr title "link breaks, count"
+scalar ToyEVDoSScenario.cs[0].wlan[0].mac.dcf frameSequenceFinished:count 1
+attr title "finished frame sequences, count"
+statistic ToyEVDoSScenario.cs[0].wlan[0].mac.dcf frameSequenceDuration:histogram
+field count 1
+field mean 8.2e-005
+field stddev nan
+field min 8.2e-005
+field max 8.2e-005
+field sum 8.2e-005
+field sqrsum 6.724e-009
+attr source frameSequenceDuration(frameSequenceFinished)
+attr title "frame sequence durations, histogram"
+bin	-inf	0
+bin	0	1
+bin	0.01	0
+bin	0.02	0
+bin	0.03	0
+bin	0.04	0
+bin	0.05	0
+bin	0.06	0
+bin	0.07	0
+bin	0.08	0
+bin	0.09	0
+bin	0.1	0
+bin	0.11	0
+bin	0.12	0
+bin	0.13	0
+bin	0.14	0
+bin	0.15	0
+bin	0.16	0
+bin	0.17	0
+bin	0.18	0
+bin	0.19	0
+bin	0.2	0
+bin	0.21	0
+bin	0.22	0
+bin	0.23	0
+bin	0.24	0
+bin	0.25	0
+bin	0.26	0
+bin	0.27	0
+bin	0.28	0
+bin	0.29	0
+bin	0.3	0
+bin	0.31	0
+bin	0.32	0
+bin	0.33	0
+bin	0.34	0
+bin	0.35	0
+bin	0.36	0
+bin	0.37	0
+bin	0.38	0
+bin	0.39	0
+bin	0.4	0
+bin	0.41	0
+bin	0.42	0
+bin	0.43	0
+bin	0.44	0
+bin	0.45	0
+bin	0.46	0
+bin	0.47	0
+bin	0.48	0
+bin	0.49	0
+bin	0.5	0
+bin	0.51	0
+statistic ToyEVDoSScenario.cs[0].wlan[0].mac.dcf frameSequenceNumPackets:histogram
+field count 1
+field mean 1
+field stddev nan
+field min 1
+field max 1
+field sum 1
+field sqrsum 1
+attr source frameSequenceNumPackets(frameSequenceFinished)
+attr title "frame sequences: number of packets, histogram"
+bin	-inf	0
+bin	0	0
+bin	1	1
+bin	2	0
+scalar ToyEVDoSScenario.cs[0].wlan[0].mac packetReceivedFromLower:count 457
+attr interpolationmode none
+attr title "packets received from lower layer, count"
+scalar ToyEVDoSScenario.cs[0].wlan[0].mac packetReceivedFromLower:sum(packetBytes) 275013
+attr interpolationmode none
+attr title "packets received from lower layer, sum(packetBytes)"
+scalar ToyEVDoSScenario.cs[0].wlan[0].mac packetSentToLower:count 1
+attr interpolationmode none
+attr title "packets sent to lower layer, count"
+scalar ToyEVDoSScenario.cs[0].wlan[0].mac packetSentToLower:sum(packetBytes) 164
+attr interpolationmode none
+attr title "packets sent to lower layer, sum(packetBytes)"
+scalar ToyEVDoSScenario.cs[0].wlan[0].mac packetReceivedFromUpper:count 1
+attr interpolationmode none
+attr title "packets received from upper layer, count"
+scalar ToyEVDoSScenario.cs[0].wlan[0].mac packetReceivedFromUpper:sum(packetBytes) 136
+attr interpolationmode none
+attr title "packets received from upper layer, sum(packetBytes)"
+scalar ToyEVDoSScenario.cs[0].wlan[0].mac packetSentToUpper:count 444
+attr interpolationmode none
+attr title "packets sent to upper layer, count"
+scalar ToyEVDoSScenario.cs[0].wlan[0].mac packetSentToUpper:sum(packetBytes) 262217
+attr interpolationmode none
+attr title "packets sent to upper layer, sum(packetBytes)"
+scalar ToyEVDoSScenario.cs[0].wlan[0].mac packetDrop:count 0
+attr interpolationmode none
+attr source packetDropped
+attr title "packet drops, count"
+scalar ToyEVDoSScenario.cs[0].wlan[0].mac packetDrop:sum(packetBytes) 0
+attr interpolationmode none
+attr source packetDropped
+attr title "packet drops, sum(packetBytes)"
+scalar ToyEVDoSScenario.cs[0].wlan[0].mac packetDropIncorrectlyReceived:count 0
+attr interpolationmode none
+attr source packetDropReasonIsIncorrectlyReceived(packetDropped)
+attr title "packet drops: incorrectly received, count"
+scalar ToyEVDoSScenario.cs[0].wlan[0].mac packetDropIncorrectlyReceived:sum(packetBytes) 0
+attr interpolationmode none
+attr source packetDropReasonIsIncorrectlyReceived(packetDropped)
+attr title "packet drops: incorrectly received, sum(packetBytes)"
+scalar ToyEVDoSScenario.cs[0].wlan[0].mac packetDropNotAddressedToUs:count 0
+attr interpolationmode none
+attr source packetDropReasonIsNotAddressedToUs(packetDropped)
+attr title "packet drops: not addressed to us, count"
+scalar ToyEVDoSScenario.cs[0].wlan[0].mac packetDropNotAddressedToUs:sum(packetBytes) 0
+attr interpolationmode none
+attr source packetDropReasonIsNotAddressedToUs(packetDropped)
+attr title "packet drops: not addressed to us, sum(packetBytes)"
+scalar ToyEVDoSScenario.cs[0].wlan[0].mac packetDropQueueOverflow:count 0
+attr interpolationmode none
+attr source packetDropReasonIsQueueOverflow(packetDropped)
+attr title "packet drops: queue overflow, count"
+scalar ToyEVDoSScenario.cs[0].wlan[0].mac packetDropQueueOverflow:sum(packetBytes) 0
+attr interpolationmode none
+attr source packetDropReasonIsQueueOverflow(packetDropped)
+attr title "packet drops: queue overflow, sum(packetBytes)"
+scalar ToyEVDoSScenario.cs[0].wlan[0].mac packetDropRetryLimitReached:count 0
+attr interpolationmode none
+attr source packetDropReasonIsRetryLimitReached(packetDropped)
+attr title "packet drops: retry limit reached, count"
+scalar ToyEVDoSScenario.cs[0].wlan[0].mac packetDropRetryLimitReached:sum(packetBytes) 0
+attr interpolationmode none
+attr source packetDropReasonIsRetryLimitReached(packetDropped)
+attr title "packet drops: retry limit reached, sum(packetBytes)"
+scalar ToyEVDoSScenario.cs[0].wlan[0].mac packetDropDuplicateDetected:count 0
+attr interpolationmode none
+attr source packetDropReasonIsDuplicateDetected(packetDropped)
+attr title "packet drops: duplicate detected, count"
+scalar ToyEVDoSScenario.cs[0].wlan[0].mac packetDropDuplicateDetected:sum(packetBytes) 0
+attr interpolationmode none
+attr source packetDropReasonIsDuplicateDetected(packetDropped)
+attr title "packet drops: duplicate detected, sum(packetBytes)"
+scalar ToyEVDoSScenario.cs[0].wlan[0].mac packetDropOther:count 0
+attr interpolationmode none
+attr source packetDropReasonIsOther(packetDropped)
+attr title "packet drops: other, count"
+scalar ToyEVDoSScenario.cs[0].wlan[0].mac packetDropOther:sum(packetBytes) 0
+attr interpolationmode none
+attr source packetDropReasonIsOther(packetDropped)
+attr title "packet drops: other, sum(packetBytes)"
+scalar ToyEVDoSScenario.cs[0].wlan[0].mac linkBroken:count 0
+attr interpolationmode none
+attr title "link breaks, count"
+statistic ToyEVDoSScenario.cs[0].wlan[0].radio minSnir:histogram
+field count 457
+field mean 2993.8735130278
+field stddev 8526.1837517848
+field min 402.63100202698
+field max 59771.243638223
+field sum 1368200.1954537
+field sqrsum 37245507398.043
+attr source minimumSnir(packetSentToUpper)
+attr title "Min SNIR, histogram"
+bin	-inf	0
+bin	350	384
+bin	1630	19
+bin	2910	7
+bin	4190	5
+bin	5470	3
+bin	6750	3
+bin	8030	4
+bin	9310	1
+bin	10590	2
+bin	11870	2
+bin	13150	1
+bin	14430	2
+bin	15710	1
+bin	16990	1
+bin	18270	1
+bin	19550	2
+bin	20830	1
+bin	22110	2
+bin	23390	0
+bin	24670	0
+bin	25950	1
+bin	27230	1
+bin	28510	2
+bin	29790	0
+bin	31070	1
+bin	32350	0
+bin	33630	0
+bin	34910	2
+bin	36190	0
+bin	37470	0
+bin	38750	0
+bin	40030	1
+bin	41310	0
+bin	42590	0
+bin	43870	1
+bin	45150	0
+bin	46430	0
+bin	47710	1
+bin	48990	0
+bin	50270	1
+bin	51550	1
+bin	52830	0
+bin	54110	1
+bin	55390	0
+bin	56670	1
+bin	57950	0
+bin	59230	2
+bin	60510	0
+statistic ToyEVDoSScenario.cs[0].wlan[0].radio packetErrorRate:histogram
+field count 457
+field mean 0
+field stddev 0
+field min 0
+field max 0
+field sum 0
+field sqrsum 0
+attr source packetErrorRate(packetSentToUpper)
+attr title "Packet error rate, histogram"
+bin	-inf	0
+bin	-0.5	0
+bin	-0.48	0
+bin	-0.46	0
+bin	-0.44	0
+bin	-0.42	0
+bin	-0.4	0
+bin	-0.38	0
+bin	-0.36	0
+bin	-0.34	0
+bin	-0.32	0
+bin	-0.3	0
+bin	-0.28	0
+bin	-0.26	0
+bin	-0.24	0
+bin	-0.22	0
+bin	-0.2	0
+bin	-0.18	0
+bin	-0.16	0
+bin	-0.14	0
+bin	-0.12	0
+bin	-0.1	0
+bin	-0.08	0
+bin	-0.06	0
+bin	-0.04	0
+bin	-0.02	0
+bin	0	457
+bin	0.02	0
+bin	0.04	0
+bin	0.06	0
+bin	0.08	0
+bin	0.1	0
+bin	0.12	0
+bin	0.14	0
+bin	0.16	0
+bin	0.18	0
+bin	0.2	0
+bin	0.22	0
+bin	0.24	0
+bin	0.26	0
+bin	0.28	0
+bin	0.3	0
+bin	0.32	0
+bin	0.34	0
+bin	0.36	0
+bin	0.38	0
+bin	0.4	0
+bin	0.42	0
+bin	0.44	0
+bin	0.46	0
+bin	0.48	0
+bin	0.5	0
+statistic ToyEVDoSScenario.cs[0].wlan[0].radio bitErrorRate:histogram
+field count 0
+field mean nan
+field stddev nan
+field min nan
+field max nan
+field sum 0
+field sqrsum 0
+attr source bitErrorRate(packetSentToUpper)
+attr title "Bit error rate, histogram"
+bin	-inf	0
+bin	0	0
+bin	1	0
+statistic ToyEVDoSScenario.cs[0].wlan[0].radio symbolErrorRate:histogram
+field count 0
+field mean nan
+field stddev nan
+field min nan
+field max nan
+field sum 0
+field sqrsum 0
+attr source symbolErrorRate(packetSentToUpper)
+attr title "Symbol error rate, histogram"
+bin	-inf	0
+bin	0	0
+bin	1	0
+scalar ToyEVDoSScenario.cs[0].wlan[0].radio transmissionState:count 4
+attr interpolationmode sample-hold
+attr source transmissionStateChanged
+attr title "Radio transmission state, count"
+scalar ToyEVDoSScenario.cs[0].wlan[0].radio receptionState:count 917
+attr interpolationmode sample-hold
+attr source receptionStateChanged
+attr title "Radio reception state, count"
+scalar ToyEVDoSScenario.cs[0].wlan[0].radio radioMode:count 5
+attr interpolationmode sample-hold
+attr source radioModeChanged
+attr title "Radio mode, count"
+statistic ToyEVDoSScenario.cs[0].wlan[0].radio radioChannel:histogram
+field count 1
+field mean 3
+field stddev nan
+field min 3
+field max 3
+field sum 3
+field sqrsum 9
+attr interpolationmode sample-hold
+attr source radioChannelChanged
+attr title "Radio channel, histogram"
+bin	-inf	0
+bin	2	0
+bin	3	1
+bin	4	0
+scalar ToyEVDoSScenario.cs[0].ipv4.ip packetDropAddressResolutionFailed:count 0
+attr interpolationmode none
+attr source packetDropReasonIsAddressResolutionFailed(packetDropped)
+attr title "packet drop: address resolution failed, count"
+scalar ToyEVDoSScenario.cs[0].ipv4.ip packetDropAddressResolutionFailed:sum(packetBytes) 0
+attr interpolationmode none
+attr source packetDropReasonIsAddressResolutionFailed(packetDropped)
+attr title "packet drop: address resolution failed, sum(packetBytes)"
+scalar ToyEVDoSScenario.cs[0].ipv4.ip packetDropHopLimitReached:count 0
+attr interpolationmode none
+attr source packetDropReasonIsHopLimitReached(packetDropped)
+attr title "packet drop: hop limit reached, count"
+scalar ToyEVDoSScenario.cs[0].ipv4.ip packetDropHopLimitReached:sum(packetBytes) 0
+attr interpolationmode none
+attr source packetDropReasonIsHopLimitReached(packetDropped)
+attr title "packet drop: hop limit reached, sum(packetBytes)"
+scalar ToyEVDoSScenario.cs[0].ipv4.ip packetDropForwardingDisabled:count 0
+attr interpolationmode none
+attr source packetDropReasonIsForwardingDisabled(packetDropped)
+attr title "packet drop: forwarding disabled, count"
+scalar ToyEVDoSScenario.cs[0].ipv4.ip packetDropForwardingDisabled:sum(packetBytes) 0
+attr interpolationmode none
+attr source packetDropReasonIsForwardingDisabled(packetDropped)
+attr title "packet drop: forwarding disabled, sum(packetBytes)"
+scalar ToyEVDoSScenario.cs[0].ipv4.ip packetDropNoInterfaceFound:count 0
+attr interpolationmode none
+attr source packetDropReasonIsNoInterfaceFound(packetDropped)
+attr title "packet drop: no interface found, count"
+scalar ToyEVDoSScenario.cs[0].ipv4.ip packetDropNoInterfaceFound:sum(packetBytes) 0
+attr interpolationmode none
+attr source packetDropReasonIsNoInterfaceFound(packetDropped)
+attr title "packet drop: no interface found, sum(packetBytes)"
+scalar ToyEVDoSScenario.cs[0].ipv4.ip packetDropNoRouteFound:count 0
+attr interpolationmode none
+attr source packetDropReasonIsNoRouteFound(packetDropped)
+attr title "packet drop: no route found, count"
+scalar ToyEVDoSScenario.cs[0].ipv4.ip packetDropNoRouteFound:sum(packetBytes) 0
+attr interpolationmode none
+attr source packetDropReasonIsNoRouteFound(packetDropped)
+attr title "packet drop: no route found, sum(packetBytes)"
+scalar ToyEVDoSScenario.cs[0].ipv4.ip packetDropUndefined:count 0
+attr interpolationmode none
+attr source packetDropReasonIsUndefined(packetDropped)
+attr title "packet drop: undefined, count"
+scalar ToyEVDoSScenario.cs[0].ipv4.ip packetDropUndefined:sum(packetBytes) 0
+attr interpolationmode none
+attr source packetDropReasonIsUndefined(packetDropped)
+attr title "packet drop: undefined, sum(packetBytes)"
+scalar ToyEVDoSScenario.cs[0].ipv4.arp arpReplySent:count 0
+attr source arpReplySent
+attr title "ARP replies sent, count"
+scalar ToyEVDoSScenario.cs[0].ipv4.arp arpReplySent:sum(packetBytes) 0
+attr source arpReplySent
+attr title "ARP replies sent, sum(packetBytes)"
+scalar ToyEVDoSScenario.cs[0].ipv4.arp arpRequestSent:count 0
+attr source arpRequestSent
+attr title "ARP request sent, count"
+scalar ToyEVDoSScenario.cs[0].ipv4.arp arpRequestSent:sum(packetBytes) 0
+attr source arpRequestSent
+attr title "ARP request sent, sum(packetBytes)"
+scalar ToyEVDoSScenario.cs[0].ipv4.arp arpResolutionFailed:count 0
+attr title "ARP failed resolutions, count"
+scalar ToyEVDoSScenario.cs[0].ipv4.arp arpResolutionCompleted:count 0
+attr title "ARP completed resolutions, count"
+scalar ToyEVDoSScenario.cs[0].ipv4.arp arpResolutionInitiated:count 0
+attr title "ARP initiated resolutions, count"
+scalar ToyEVDoSScenario.cs[0].udp packetReceived:count 445
+attr interpolationmode none
+attr source packetReceived
+attr title "packets received, count"
+scalar ToyEVDoSScenario.cs[0].udp packetReceived:sum(packetBytes) 249893
+attr interpolationmode none
+attr source packetReceived
+attr title "packets received, sum(packetBytes)"
+scalar ToyEVDoSScenario.cs[0].udp packetSent:count 1
+attr interpolationmode none
+attr source packetSent
+attr title "packets sent, count"
+scalar ToyEVDoSScenario.cs[0].udp packetSent:sum(packetBytes) 108
+attr interpolationmode none
+attr source packetSent
+attr title "packets sent, sum(packetBytes)"
+scalar ToyEVDoSScenario.cs[0].udp passedUpPk:count 445
+attr interpolationmode none
+attr source packetSentToUpper
+attr title "packets passed up, count"
+scalar ToyEVDoSScenario.cs[0].udp droppedPkWrongPort:count 0
+attr interpolationmode none
+attr source packetDropReasonIsNoPortFound(packetDropped)
+attr title "packets dropped (wrong port), count"
+scalar ToyEVDoSScenario.cs[0].udp droppedPkBadChecksum:count 0
+attr interpolationmode none
+attr source packetDropReasonIsIncorrectlyReceived(packetDropped)
+attr title "packets dropped (checksum error), count"
+scalar ToyEVDoSScenario.cs[0].app[0] packetsReceived 347
+scalar ToyEVDoSScenario.cs[0].app[0] chargeRequestsReceived 1
+scalar ToyEVDoSScenario.cs[0].app[0] totalEnergyConsumed 2.9775677773371e-006
+scalar ToyEVDoSScenario.cs[0].app[0] totalEnergyDelivered 376
+scalar ToyEVDoSScenario.cs[0].app[0] finalCSBatteryWh 50000
+scalar ToyEVDoSScenario.cs[0].app[0] finalCSSoC 1
+scalar ToyEVDoSScenario.cs[0].app[0] avgPacketRate 1.1566666666667
+scalar ToyEVDoSScenario.cs[0].app[0] chargeRequestReceived:count 1
+statistic ToyEVDoSScenario.cs[0].app[0] txDuration:stats
+field count 347
+field mean 0.00061922382324688
+field stddev 0.00045345786801997
+field min 0.00013333333333333
+field max 0.0019946666666667
+field sum 0.21487066666667
+field sqrsum 0.00020419895288889
+statistic ToyEVDoSScenario.cs[0].app[0] energyConsumption:stats
+field count 347
+field mean 8.5808869663892e-009
+field stddev 6.373645751031e-009
+field min 1.8651821174987e-009
+field max 3.1705424862679e-008
+field sum 2.9775677773371e-006
+field sqrsum 3.9605855147326e-014
+statistic ToyEVDoSScenario.cs[0].app[0] interArrivalTime:histogram
+field count 347
+field mean 0.41609804922071
+field stddev 0.46581741006438
+field min 0
+field max 6.374541696107
+field sum 144.38602307958
+field sqrsum 135.15584993175
+bin	-inf	0
+bin	0	110
+bin	0.1	10
+bin	0.2	30
+bin	0.3	26
+bin	0.4	35
+bin	0.5	22
+bin	0.6	27
+bin	0.7	27
+bin	0.8	29
+bin	0.9	30
+bin	1	0
+bin	1.1	0
+bin	1.2	0
+bin	1.3	0
+bin	1.4	0
+bin	1.5	0
+bin	1.6	0
+bin	1.7	0
+bin	1.8	0
+bin	1.9	0
+bin	2	0
+bin	2.1	0
+bin	2.2	0
+bin	2.3	0
+bin	2.4	0
+bin	2.5	0
+bin	2.6	0
+bin	2.7	0
+bin	2.8	0
+bin	2.9	0
+bin	3	0
+bin	3.1	0
+bin	3.2	0
+bin	3.3	0
+bin	3.4	0
+bin	3.5	0
+bin	3.6	0
+bin	3.7	0
+bin	3.8	0
+bin	3.9	0
+bin	4	0
+bin	4.1	0
+bin	4.2	0
+bin	4.3	0
+bin	4.4	0
+bin	4.5	0
+bin	4.6	0
+bin	4.7	0
+bin	4.8	0
+bin	4.9	0
+bin	5	0
+bin	5.1	0
+bin	5.2	0
+bin	5.3	0
+bin	5.4	0
+bin	5.5	0
+bin	5.6	0
+bin	5.7	0
+bin	5.8	0
+bin	5.9	0
+bin	6	0
+bin	6.1	0
+bin	6.2	0
+bin	6.3	1
+bin	6.4	0
+bin	6.5	0
+bin	6.6	0
+bin	6.7	0
+bin	6.8	0
+bin	6.9	0
+bin	7	0
+bin	7.1	0
+bin	7.2	0
+bin	7.3	0
+bin	7.4	0
+bin	7.5	0
+bin	7.6	0
+bin	7.7	0
+bin	7.8	0
+bin	7.9	0
+bin	8	0
+statistic ToyEVDoSScenario.cs[0].app[0] packetSize:histogram
+field count 347
+field mean 464.41786743516
+field stddev 340.09340101498
+field min 100
+field max 1496
+field sum 161153
+field sqrsum 114861911
+bin	-inf	0
+bin	0	0
+bin	20	0
+bin	40	0
+bin	60	0
+bin	80	0
+bin	100	2
+bin	120	0
+bin	140	0
+bin	160	0
+bin	180	0
+bin	200	24
+bin	220	29
+bin	240	28
+bin	260	30
+bin	280	28
+bin	300	27
+bin	320	29
+bin	340	24
+bin	360	18
+bin	380	23
+bin	400	1
+bin	420	0
+bin	440	0
+bin	460	0
+bin	480	0
+bin	500	2
+bin	520	2
+bin	540	2
+bin	560	2
+bin	580	2
+bin	600	3
+bin	620	0
+bin	640	3
+bin	660	1
+bin	680	1
+bin	700	3
+bin	720	0
+bin	740	2
+bin	760	1
+bin	780	3
+bin	800	2
+bin	820	2
+bin	840	3
+bin	860	5
+bin	880	1
+bin	900	0
+bin	920	0
+bin	940	0
+bin	960	0
+bin	980	0
+bin	1000	2
+bin	1020	0
+bin	1040	2
+bin	1060	0
+bin	1080	3
+bin	1100	1
+bin	1120	3
+bin	1140	2
+bin	1160	6
+bin	1180	3
+bin	1200	0
+bin	1220	1
+bin	1240	0
+bin	1260	2
+bin	1280	0
+bin	1300	1
+bin	1320	2
+bin	1340	1
+bin	1360	3
+bin	1380	2
+bin	1400	3
+bin	1420	2
+bin	1440	0
+bin	1460	2
+bin	1480	3
+bin	1500	0
+bin	1520	0
+bin	1540	0
+bin	1560	0
+bin	1580	0
+bin	1600	0
+bin	1620	0
+bin	1640	0
+bin	1660	0
+bin	1680	0
+bin	1700	0
+bin	1720	0
+bin	1740	0
+bin	1760	0
+bin	1780	0
+bin	1800	0
+bin	1820	0
+scalar ToyEVDoSScenario.cs[0].app[0] packetReceived:count 347
+scalar ToyEVDoSScenario.rsu[0].lo[0].lo rcvdPkFromHl:count 0
+attr interpolationmode none
+attr source packetReceivedFromUpper
+attr title "packets received from higher layer, count"
+scalar ToyEVDoSScenario.rsu[0].lo[0].lo rcvdPkFromHl:sum(packetBytes) 0
+attr interpolationmode none
+attr source packetReceivedFromUpper
+attr title "packets received from higher layer, sum(packetBytes)"
+scalar ToyEVDoSScenario.rsu[0].lo[0].lo passedUpPk:count 0
+attr interpolationmode none
+attr source packetSentToUpper
+attr title "packets passed to higher layer, count"
+scalar ToyEVDoSScenario.rsu[0].lo[0].lo passedUpPk:sum(packetBytes) 0
+attr interpolationmode none
+attr source packetSentToUpper
+attr title "packets passed to higher layer, sum(packetBytes)"
+scalar ToyEVDoSScenario.rsu[0].wlan[0].mac.dcf.channelAccess.pendingQueue packetPopped:count 0
+attr interpolationmode none
+attr title "packet popped, count"
+scalar ToyEVDoSScenario.rsu[0].wlan[0].mac.dcf.channelAccess.pendingQueue packetPopped:sum(packetBytes) 0
+attr interpolationmode none
+attr title "packet popped, sum(packetBytes)"
+statistic ToyEVDoSScenario.rsu[0].wlan[0].mac.dcf.channelAccess.pendingQueue queueingTime:histogram
+field count 0
+field mean nan
+field stddev nan
+field min nan
+field max nan
+field sum 0
+field sqrsum 0
+attr interpolationmode none
+attr source queueingTime(packetPopped)
+attr title "queueing times, histogram"
+attr unit s
+bin	-inf	0
+bin	0	0
+bin	1	0
+scalar ToyEVDoSScenario.rsu[0].wlan[0].mac.dcf.channelAccess.pendingQueue queueLength:max nan
+attr interpolationmode sample-hold
+attr source "count(packetPushed) - count(packetPopped) - count(packetRemoved) - count(packetDropped)"
+attr title "queue length, max"
+scalar ToyEVDoSScenario.rsu[0].wlan[0].mac.dcf.channelAccess.pendingQueue queueLength:timeavg nan
+attr interpolationmode sample-hold
+attr source "count(packetPushed) - count(packetPopped) - count(packetRemoved) - count(packetDropped)"
+attr title "queue length, timeavg"
+scalar ToyEVDoSScenario.rsu[0].wlan[0].mac.dcf.channelAccess.pendingQueue packetPushed:count 0
+attr interpolationmode none
+attr title "packet pushed, count"
+scalar ToyEVDoSScenario.rsu[0].wlan[0].mac.dcf.channelAccess.pendingQueue packetPushed:sum(packetBytes) 0
+attr interpolationmode none
+attr title "packet pushed, sum(packetBytes)"
+scalar ToyEVDoSScenario.rsu[0].wlan[0].mac.dcf.channelAccess.pendingQueue packetDropQueueOverflow:count 0
+attr interpolationmode none
+attr source packetDropReasonIsQueueOverflow(packetDropped)
+attr title "packet drops: queue overflow, count"
+scalar ToyEVDoSScenario.rsu[0].wlan[0].mac.dcf.channelAccess.pendingQueue packetDropQueueOverflow:sum(packetBytes) 0
+attr interpolationmode none
+attr source packetDropReasonIsQueueOverflow(packetDropped)
+attr title "packet drops: queue overflow, sum(packetBytes)"
+scalar ToyEVDoSScenario.rsu[0].wlan[0].mac.dcf.channelAccess.pendingQueue packetRemoved:count 0
+attr interpolationmode none
+attr title "packets removed, count"
+scalar ToyEVDoSScenario.rsu[0].wlan[0].mac.dcf.channelAccess.pendingQueue packetRemoved:sum(packetBytes) 0
+attr interpolationmode none
+attr title "packets removed, sum(packetBytes)"
+statistic ToyEVDoSScenario.rsu[0].wlan[0].mac.dcf.channelAccess.inProgressFrames queueingTime:histogram
+field count 0
+field mean nan
+field stddev nan
+field min nan
+field max nan
+field sum 0
+field sqrsum 0
+attr interpolationmode none
+attr source queueingTime(packetDequeued)
+attr title "queueing times, histogram"
+bin	-inf	0
+bin	0	0
+bin	1	0
+scalar ToyEVDoSScenario.rsu[0].wlan[0].mac.dcf.channelAccess.inProgressFrames queueLength:max nan
+attr interpolationmode sample-hold
+attr source "count(packetEnqueued) - count(packetDequeued)"
+attr title "queue length, max"
+scalar ToyEVDoSScenario.rsu[0].wlan[0].mac.dcf.channelAccess.inProgressFrames queueLength:timeavg nan
+attr interpolationmode sample-hold
+attr source "count(packetEnqueued) - count(packetDequeued)"
+attr title "queue length, timeavg"
+scalar ToyEVDoSScenario.rsu[0].wlan[0].mac.dcf.channelAccess.contention stateChanged:count 1834
+attr interpolationmode none
+attr title "contention state changed, count"
+scalar ToyEVDoSScenario.rsu[0].wlan[0].mac.dcf.channelAccess.contention channelAccessGranted:count 0
+attr title "channel access granted, count"
+scalar ToyEVDoSScenario.rsu[0].wlan[0].mac.dcf.channelAccess channelOwnershipChanged:count 0
+attr interpolationmode sample-hold
+attr title "channel ownership, count"
+scalar ToyEVDoSScenario.rsu[0].wlan[0].mac.dcf.originatorMacDataService packetAggregated:count 0
+attr title "packets aggregated, count"
+scalar ToyEVDoSScenario.rsu[0].wlan[0].mac.dcf.originatorMacDataService packetFragmented:count 0
+attr title "packets fragmented, count"
+scalar ToyEVDoSScenario.rsu[0].wlan[0].mac.dcf.recipientMacDataService packetDropDuplicateDetected:count 0
+attr interpolationmode none
+attr source packetDropReasonIsDuplicateDetected(packetDropped)
+attr title "packet drops: duplicate detected, count"
+scalar ToyEVDoSScenario.rsu[0].wlan[0].mac.dcf.recipientMacDataService packetDropDuplicateDetected:sum(packetBytes) 0
+attr interpolationmode none
+attr source packetDropReasonIsDuplicateDetected(packetDropped)
+attr title "packet drops: duplicate detected, sum(packetBytes)"
+scalar ToyEVDoSScenario.rsu[0].wlan[0].mac.dcf.recipientMacDataService packetDeaggregated:count 0
+attr title "packets deaggregated, count"
+scalar ToyEVDoSScenario.rsu[0].wlan[0].mac.dcf.recipientMacDataService packetDefragmented:count 445
+attr title "packets defragmented, count"
+scalar ToyEVDoSScenario.rsu[0].wlan[0].mac.dcf.recoveryProcedure retryLimitReached:count 0
+attr title "retry limit reached, count"
+scalar ToyEVDoSScenario.rsu[0].wlan[0].mac.dcf packetReceivedFromPeer:count 458
+attr interpolationmode none
+attr title "packets received, count"
+scalar ToyEVDoSScenario.rsu[0].wlan[0].mac.dcf packetReceivedFromPeer:sum(packetBytes) 275177
+attr interpolationmode none
+attr title "packets received, sum(packetBytes)"
+scalar ToyEVDoSScenario.rsu[0].wlan[0].mac.dcf packetReceivedFromPeerUnicast:count 0
+attr interpolationmode none
+attr source ieee80211Unicast(packetReceivedFromPeer)
+attr title "packets received: unicast, count"
+scalar ToyEVDoSScenario.rsu[0].wlan[0].mac.dcf packetReceivedFromPeerUnicast:sum(packetBytes) 0
+attr interpolationmode none
+attr source ieee80211Unicast(packetReceivedFromPeer)
+attr title "packets received: unicast, sum(packetBytes)"
+scalar ToyEVDoSScenario.rsu[0].wlan[0].mac.dcf packetReceivedFromPeerMulticast:count 458
+attr interpolationmode none
+attr source ieee80211Multicast(packetReceivedFromPeer)
+attr title "packets received: multicast, count"
+scalar ToyEVDoSScenario.rsu[0].wlan[0].mac.dcf packetReceivedFromPeerMulticast:sum(packetBytes) 275177
+attr interpolationmode none
+attr source ieee80211Multicast(packetReceivedFromPeer)
+attr title "packets received: multicast, sum(packetBytes)"
+scalar ToyEVDoSScenario.rsu[0].wlan[0].mac.dcf packetReceivedFromPeerBroadcast:count 0
+attr interpolationmode none
+attr source ieee80211Broadcast(packetReceivedFromPeer)
+attr title "packets received: broadcast, count"
+scalar ToyEVDoSScenario.rsu[0].wlan[0].mac.dcf packetReceivedFromPeerBroadcast:sum(packetBytes) 0
+attr interpolationmode none
+attr source ieee80211Broadcast(packetReceivedFromPeer)
+attr title "packets received: broadcast, sum(packetBytes)"
+scalar ToyEVDoSScenario.rsu[0].wlan[0].mac.dcf packetReceivedFromPeerWithRetry:count 0
+attr interpolationmode none
+attr source ieee80211Retry(packetReceivedFromPeer)
+attr title "packets received: with retry, count"
+scalar ToyEVDoSScenario.rsu[0].wlan[0].mac.dcf packetReceivedFromPeerWithRetry:sum(packetBytes) 0
+attr interpolationmode none
+attr source ieee80211Retry(packetReceivedFromPeer)
+attr title "packets received: with retry, sum(packetBytes)"
+scalar ToyEVDoSScenario.rsu[0].wlan[0].mac.dcf packetReceivedFromPeerWithoutRetry:count 458
+attr interpolationmode none
+attr source ieee80211NotRetry(packetReceivedFromPeer)
+attr title "packets received: without retry, count"
+scalar ToyEVDoSScenario.rsu[0].wlan[0].mac.dcf packetReceivedFromPeerWithoutRetry:sum(packetBytes) 275177
+attr interpolationmode none
+attr source ieee80211NotRetry(packetReceivedFromPeer)
+attr title "packets received: without retry, sum(packetBytes)"
+scalar ToyEVDoSScenario.rsu[0].wlan[0].mac.dcf packetSentToPeer:count 0
+attr interpolationmode none
+attr title "packets sent, count"
+scalar ToyEVDoSScenario.rsu[0].wlan[0].mac.dcf packetSentToPeer:sum(packetBytes) 0
+attr interpolationmode none
+attr title "packets sent, sum(packetBytes)"
+scalar ToyEVDoSScenario.rsu[0].wlan[0].mac.dcf packetSentToPeerUnicast:count 0
+attr interpolationmode none
+attr source ieee80211Unicast(packetSentToPeer)
+attr title "packets sent: unicast, count"
+scalar ToyEVDoSScenario.rsu[0].wlan[0].mac.dcf packetSentToPeerUnicast:sum(packetBytes) 0
+attr interpolationmode none
+attr source ieee80211Unicast(packetSentToPeer)
+attr title "packets sent: unicast, sum(packetBytes)"
+scalar ToyEVDoSScenario.rsu[0].wlan[0].mac.dcf packetSentToPeerMulticast:count 0
+attr interpolationmode none
+attr source ieee80211Multicast(packetSentToPeer)
+attr title "packets sent: multicast, count"
+scalar ToyEVDoSScenario.rsu[0].wlan[0].mac.dcf packetSentToPeerMulticast:sum(packetBytes) 0
+attr interpolationmode none
+attr source ieee80211Multicast(packetSentToPeer)
+attr title "packets sent: multicast, sum(packetBytes)"
+scalar ToyEVDoSScenario.rsu[0].wlan[0].mac.dcf packetSentToPeerBroadcast:count 0
+attr interpolationmode none
+attr source ieee80211Broadcast(packetSentToPeer)
+attr title "packets sent: broadcast , count"
+scalar ToyEVDoSScenario.rsu[0].wlan[0].mac.dcf packetSentToPeerBroadcast:sum(packetBytes) 0
+attr interpolationmode none
+attr source ieee80211Broadcast(packetSentToPeer)
+attr title "packets sent: broadcast , sum(packetBytes)"
+scalar ToyEVDoSScenario.rsu[0].wlan[0].mac.dcf packetSentToPeerWithRetry:count 0
+attr interpolationmode none
+attr source ieee80211Retry(packetSentToPeer)
+attr title "packets sent: with retry, count"
+scalar ToyEVDoSScenario.rsu[0].wlan[0].mac.dcf packetSentToPeerWithRetry:sum(packetBytes) 0
+attr interpolationmode none
+attr source ieee80211Retry(packetSentToPeer)
+attr title "packets sent: with retry, sum(packetBytes)"
+scalar ToyEVDoSScenario.rsu[0].wlan[0].mac.dcf packetSentToPeerWithoutRetry:count 0
+attr interpolationmode none
+attr source ieee80211NotRetry(packetSentToPeer)
+attr title "packets sent: without retry, count"
+scalar ToyEVDoSScenario.rsu[0].wlan[0].mac.dcf packetSentToPeerWithoutRetry:sum(packetBytes) 0
+attr interpolationmode none
+attr source ieee80211NotRetry(packetSentToPeer)
+attr title "packets sent: without retry, sum(packetBytes)"
+scalar ToyEVDoSScenario.rsu[0].wlan[0].mac.dcf packetDrop:count 0
+attr interpolationmode none
+attr source packetDropped
+attr title "packet drops, count"
+scalar ToyEVDoSScenario.rsu[0].wlan[0].mac.dcf packetDrop:sum(packetBytes) 0
+attr interpolationmode none
+attr source packetDropped
+attr title "packet drops, sum(packetBytes)"
+scalar ToyEVDoSScenario.rsu[0].wlan[0].mac.dcf packetDropNotAddressedToUs:count 0
+attr interpolationmode none
+attr source packetDropReasonIsNotAddressedToUs(packetDropped)
+attr title "packet drops: not addressed to us, count"
+scalar ToyEVDoSScenario.rsu[0].wlan[0].mac.dcf packetDropNotAddressedToUs:sum(packetBytes) 0
+attr interpolationmode none
+attr source packetDropReasonIsNotAddressedToUs(packetDropped)
+attr title "packet drops: not addressed to us, sum(packetBytes)"
+scalar ToyEVDoSScenario.rsu[0].wlan[0].mac.dcf packetDropQueueOverflow:count 0
+attr interpolationmode none
+attr source packetDropReasonIsQueueOverflow(packetDropped)
+attr title "packet drops: queue overflow, count"
+scalar ToyEVDoSScenario.rsu[0].wlan[0].mac.dcf packetDropQueueOverflow:sum(packetBytes) 0
+attr interpolationmode none
+attr source packetDropReasonIsQueueOverflow(packetDropped)
+attr title "packet drops: queue overflow, sum(packetBytes)"
+scalar ToyEVDoSScenario.rsu[0].wlan[0].mac.dcf packetDropRetryLimitReached:count 0
+attr interpolationmode none
+attr source packetDropReasonIsRetryLimitReached(packetDropped)
+attr title "packet drops: retry limit reached, count"
+scalar ToyEVDoSScenario.rsu[0].wlan[0].mac.dcf packetDropRetryLimitReached:sum(packetBytes) 0
+attr interpolationmode none
+attr source packetDropReasonIsRetryLimitReached(packetDropped)
+attr title "packet drops: retry limit reached, sum(packetBytes)"
+scalar ToyEVDoSScenario.rsu[0].wlan[0].mac.dcf linkBroken:count 0
+attr interpolationmode none
+attr title "link breaks, count"
+scalar ToyEVDoSScenario.rsu[0].wlan[0].mac.dcf frameSequenceFinished:count 0
+attr title "finished frame sequences, count"
+statistic ToyEVDoSScenario.rsu[0].wlan[0].mac.dcf frameSequenceDuration:histogram
+field count 0
+field mean nan
+field stddev nan
+field min nan
+field max nan
+field sum 0
+field sqrsum 0
+attr source frameSequenceDuration(frameSequenceFinished)
+attr title "frame sequence durations, histogram"
+bin	-inf	0
+bin	0	0
+bin	1	0
+statistic ToyEVDoSScenario.rsu[0].wlan[0].mac.dcf frameSequenceNumPackets:histogram
+field count 0
+field mean nan
+field stddev nan
+field min nan
+field max nan
+field sum 0
+field sqrsum 0
+attr source frameSequenceNumPackets(frameSequenceFinished)
+attr title "frame sequences: number of packets, histogram"
+bin	-inf	0
+bin	0	0
+bin	1	0
+scalar ToyEVDoSScenario.rsu[0].wlan[0].mac packetReceivedFromLower:count 458
+attr interpolationmode none
+attr title "packets received from lower layer, count"
+scalar ToyEVDoSScenario.rsu[0].wlan[0].mac packetReceivedFromLower:sum(packetBytes) 275177
+attr interpolationmode none
+attr title "packets received from lower layer, sum(packetBytes)"
+scalar ToyEVDoSScenario.rsu[0].wlan[0].mac packetSentToLower:count 0
+attr interpolationmode none
+attr title "packets sent to lower layer, count"
+scalar ToyEVDoSScenario.rsu[0].wlan[0].mac packetSentToLower:sum(packetBytes) 0
+attr interpolationmode none
+attr title "packets sent to lower layer, sum(packetBytes)"
+scalar ToyEVDoSScenario.rsu[0].wlan[0].mac packetReceivedFromUpper:count 0
+attr interpolationmode none
+attr title "packets received from upper layer, count"
+scalar ToyEVDoSScenario.rsu[0].wlan[0].mac packetReceivedFromUpper:sum(packetBytes) 0
+attr interpolationmode none
+attr title "packets received from upper layer, sum(packetBytes)"
+scalar ToyEVDoSScenario.rsu[0].wlan[0].mac packetSentToUpper:count 445
+attr interpolationmode none
+attr title "packets sent to upper layer, count"
+scalar ToyEVDoSScenario.rsu[0].wlan[0].mac packetSentToUpper:sum(packetBytes) 262353
+attr interpolationmode none
+attr title "packets sent to upper layer, sum(packetBytes)"
+scalar ToyEVDoSScenario.rsu[0].wlan[0].mac packetDrop:count 0
+attr interpolationmode none
+attr source packetDropped
+attr title "packet drops, count"
+scalar ToyEVDoSScenario.rsu[0].wlan[0].mac packetDrop:sum(packetBytes) 0
+attr interpolationmode none
+attr source packetDropped
+attr title "packet drops, sum(packetBytes)"
+scalar ToyEVDoSScenario.rsu[0].wlan[0].mac packetDropIncorrectlyReceived:count 0
+attr interpolationmode none
+attr source packetDropReasonIsIncorrectlyReceived(packetDropped)
+attr title "packet drops: incorrectly received, count"
+scalar ToyEVDoSScenario.rsu[0].wlan[0].mac packetDropIncorrectlyReceived:sum(packetBytes) 0
+attr interpolationmode none
+attr source packetDropReasonIsIncorrectlyReceived(packetDropped)
+attr title "packet drops: incorrectly received, sum(packetBytes)"
+scalar ToyEVDoSScenario.rsu[0].wlan[0].mac packetDropNotAddressedToUs:count 0
+attr interpolationmode none
+attr source packetDropReasonIsNotAddressedToUs(packetDropped)
+attr title "packet drops: not addressed to us, count"
+scalar ToyEVDoSScenario.rsu[0].wlan[0].mac packetDropNotAddressedToUs:sum(packetBytes) 0
+attr interpolationmode none
+attr source packetDropReasonIsNotAddressedToUs(packetDropped)
+attr title "packet drops: not addressed to us, sum(packetBytes)"
+scalar ToyEVDoSScenario.rsu[0].wlan[0].mac packetDropQueueOverflow:count 0
+attr interpolationmode none
+attr source packetDropReasonIsQueueOverflow(packetDropped)
+attr title "packet drops: queue overflow, count"
+scalar ToyEVDoSScenario.rsu[0].wlan[0].mac packetDropQueueOverflow:sum(packetBytes) 0
+attr interpolationmode none
+attr source packetDropReasonIsQueueOverflow(packetDropped)
+attr title "packet drops: queue overflow, sum(packetBytes)"
+scalar ToyEVDoSScenario.rsu[0].wlan[0].mac packetDropRetryLimitReached:count 0
+attr interpolationmode none
+attr source packetDropReasonIsRetryLimitReached(packetDropped)
+attr title "packet drops: retry limit reached, count"
+scalar ToyEVDoSScenario.rsu[0].wlan[0].mac packetDropRetryLimitReached:sum(packetBytes) 0
+attr interpolationmode none
+attr source packetDropReasonIsRetryLimitReached(packetDropped)
+attr title "packet drops: retry limit reached, sum(packetBytes)"
+scalar ToyEVDoSScenario.rsu[0].wlan[0].mac packetDropDuplicateDetected:count 0
+attr interpolationmode none
+attr source packetDropReasonIsDuplicateDetected(packetDropped)
+attr title "packet drops: duplicate detected, count"
+scalar ToyEVDoSScenario.rsu[0].wlan[0].mac packetDropDuplicateDetected:sum(packetBytes) 0
+attr interpolationmode none
+attr source packetDropReasonIsDuplicateDetected(packetDropped)
+attr title "packet drops: duplicate detected, sum(packetBytes)"
+scalar ToyEVDoSScenario.rsu[0].wlan[0].mac packetDropOther:count 0
+attr interpolationmode none
+attr source packetDropReasonIsOther(packetDropped)
+attr title "packet drops: other, count"
+scalar ToyEVDoSScenario.rsu[0].wlan[0].mac packetDropOther:sum(packetBytes) 0
+attr interpolationmode none
+attr source packetDropReasonIsOther(packetDropped)
+attr title "packet drops: other, sum(packetBytes)"
+scalar ToyEVDoSScenario.rsu[0].wlan[0].mac linkBroken:count 0
+attr interpolationmode none
+attr title "link breaks, count"
+statistic ToyEVDoSScenario.rsu[0].wlan[0].radio minSnir:histogram
+field count 458
+field mean 3118.6736047267
+field stddev 5233.1775073019
+field min 704.44529608957
+field max 40355.211387514
+field sum 1428352.5109648
+field sqrsum 16970034372.27
+attr source minimumSnir(packetSentToUpper)
+attr title "Min SNIR, histogram"
+bin	-inf	0
+bin	400	80
+bin	1040	42
+bin	1680	257
+bin	2320	8
+bin	2960	7
+bin	3600	5
+bin	4240	7
+bin	4880	19
+bin	5520	3
+bin	6160	2
+bin	6800	3
+bin	7440	1
+bin	8080	0
+bin	8720	2
+bin	9360	0
+bin	10000	1
+bin	10640	3
+bin	11280	0
+bin	11920	0
+bin	12560	1
+bin	13200	1
+bin	13840	1
+bin	14480	0
+bin	15120	1
+bin	15760	1
+bin	16400	0
+bin	17040	0
+bin	17680	0
+bin	18320	0
+bin	18960	1
+bin	19600	0
+bin	20240	0
+bin	20880	1
+bin	21520	0
+bin	22160	0
+bin	22800	1
+bin	23440	1
+bin	24080	1
+bin	24720	0
+bin	25360	0
+bin	26000	0
+bin	26640	0
+bin	27280	0
+bin	27920	1
+bin	28560	0
+bin	29200	0
+bin	29840	1
+bin	30480	0
+bin	31120	0
+bin	31760	0
+bin	32400	0
+bin	33040	0
+bin	33680	0
+bin	34320	1
+bin	34960	0
+bin	35600	0
+bin	36240	1
+bin	36880	1
+bin	37520	1
+bin	38160	0
+bin	38800	0
+bin	39440	1
+bin	40080	1
+bin	40720	0
+statistic ToyEVDoSScenario.rsu[0].wlan[0].radio packetErrorRate:histogram
+field count 458
+field mean 0
+field stddev 0
+field min 0
+field max 0
+field sum 0
+field sqrsum 0
+attr source packetErrorRate(packetSentToUpper)
+attr title "Packet error rate, histogram"
+bin	-inf	0
+bin	-0.5	0
+bin	-0.48	0
+bin	-0.46	0
+bin	-0.44	0
+bin	-0.42	0
+bin	-0.4	0
+bin	-0.38	0
+bin	-0.36	0
+bin	-0.34	0
+bin	-0.32	0
+bin	-0.3	0
+bin	-0.28	0
+bin	-0.26	0
+bin	-0.24	0
+bin	-0.22	0
+bin	-0.2	0
+bin	-0.18	0
+bin	-0.16	0
+bin	-0.14	0
+bin	-0.12	0
+bin	-0.1	0
+bin	-0.08	0
+bin	-0.06	0
+bin	-0.04	0
+bin	-0.02	0
+bin	0	458
+bin	0.02	0
+bin	0.04	0
+bin	0.06	0
+bin	0.08	0
+bin	0.1	0
+bin	0.12	0
+bin	0.14	0
+bin	0.16	0
+bin	0.18	0
+bin	0.2	0
+bin	0.22	0
+bin	0.24	0
+bin	0.26	0
+bin	0.28	0
+bin	0.3	0
+bin	0.32	0
+bin	0.34	0
+bin	0.36	0
+bin	0.38	0
+bin	0.4	0
+bin	0.42	0
+bin	0.44	0
+bin	0.46	0
+bin	0.48	0
+bin	0.5	0
+statistic ToyEVDoSScenario.rsu[0].wlan[0].radio bitErrorRate:histogram
+field count 0
+field mean nan
+field stddev nan
+field min nan
+field max nan
+field sum 0
+field sqrsum 0
+attr source bitErrorRate(packetSentToUpper)
+attr title "Bit error rate, histogram"
+bin	-inf	0
+bin	0	0
+bin	1	0
+statistic ToyEVDoSScenario.rsu[0].wlan[0].radio symbolErrorRate:histogram
+field count 0
+field mean nan
+field stddev nan
+field min nan
+field max nan
+field sum 0
+field sqrsum 0
+attr source symbolErrorRate(packetSentToUpper)
+attr title "Symbol error rate, histogram"
+bin	-inf	0
+bin	0	0
+bin	1	0
+scalar ToyEVDoSScenario.rsu[0].wlan[0].radio transmissionState:count 0
+attr interpolationmode sample-hold
+attr source transmissionStateChanged
+attr title "Radio transmission state, count"
+scalar ToyEVDoSScenario.rsu[0].wlan[0].radio receptionState:count 917
+attr interpolationmode sample-hold
+attr source receptionStateChanged
+attr title "Radio reception state, count"
+scalar ToyEVDoSScenario.rsu[0].wlan[0].radio radioMode:count 3
+attr interpolationmode sample-hold
+attr source radioModeChanged
+attr title "Radio mode, count"
+statistic ToyEVDoSScenario.rsu[0].wlan[0].radio radioChannel:histogram
+field count 1
+field mean 3
+field stddev nan
+field min 3
+field max 3
+field sum 3
+field sqrsum 9
+attr interpolationmode sample-hold
+attr source radioChannelChanged
+attr title "Radio channel, histogram"
+bin	-inf	0
+bin	2	0
+bin	3	1
+bin	4	0
+scalar ToyEVDoSScenario.rsu[0].ipv4.ip packetDropAddressResolutionFailed:count 0
+attr interpolationmode none
+attr source packetDropReasonIsAddressResolutionFailed(packetDropped)
+attr title "packet drop: address resolution failed, count"
+scalar ToyEVDoSScenario.rsu[0].ipv4.ip packetDropAddressResolutionFailed:sum(packetBytes) 0
+attr interpolationmode none
+attr source packetDropReasonIsAddressResolutionFailed(packetDropped)
+attr title "packet drop: address resolution failed, sum(packetBytes)"
+scalar ToyEVDoSScenario.rsu[0].ipv4.ip packetDropHopLimitReached:count 0
+attr interpolationmode none
+attr source packetDropReasonIsHopLimitReached(packetDropped)
+attr title "packet drop: hop limit reached, count"
+scalar ToyEVDoSScenario.rsu[0].ipv4.ip packetDropHopLimitReached:sum(packetBytes) 0
+attr interpolationmode none
+attr source packetDropReasonIsHopLimitReached(packetDropped)
+attr title "packet drop: hop limit reached, sum(packetBytes)"
+scalar ToyEVDoSScenario.rsu[0].ipv4.ip packetDropForwardingDisabled:count 0
+attr interpolationmode none
+attr source packetDropReasonIsForwardingDisabled(packetDropped)
+attr title "packet drop: forwarding disabled, count"
+scalar ToyEVDoSScenario.rsu[0].ipv4.ip packetDropForwardingDisabled:sum(packetBytes) 0
+attr interpolationmode none
+attr source packetDropReasonIsForwardingDisabled(packetDropped)
+attr title "packet drop: forwarding disabled, sum(packetBytes)"
+scalar ToyEVDoSScenario.rsu[0].ipv4.ip packetDropNoInterfaceFound:count 0
+attr interpolationmode none
+attr source packetDropReasonIsNoInterfaceFound(packetDropped)
+attr title "packet drop: no interface found, count"
+scalar ToyEVDoSScenario.rsu[0].ipv4.ip packetDropNoInterfaceFound:sum(packetBytes) 0
+attr interpolationmode none
+attr source packetDropReasonIsNoInterfaceFound(packetDropped)
+attr title "packet drop: no interface found, sum(packetBytes)"
+scalar ToyEVDoSScenario.rsu[0].ipv4.ip packetDropNoRouteFound:count 0
+attr interpolationmode none
+attr source packetDropReasonIsNoRouteFound(packetDropped)
+attr title "packet drop: no route found, count"
+scalar ToyEVDoSScenario.rsu[0].ipv4.ip packetDropNoRouteFound:sum(packetBytes) 0
+attr interpolationmode none
+attr source packetDropReasonIsNoRouteFound(packetDropped)
+attr title "packet drop: no route found, sum(packetBytes)"
+scalar ToyEVDoSScenario.rsu[0].ipv4.ip packetDropUndefined:count 0
+attr interpolationmode none
+attr source packetDropReasonIsUndefined(packetDropped)
+attr title "packet drop: undefined, count"
+scalar ToyEVDoSScenario.rsu[0].ipv4.ip packetDropUndefined:sum(packetBytes) 0
+attr interpolationmode none
+attr source packetDropReasonIsUndefined(packetDropped)
+attr title "packet drop: undefined, sum(packetBytes)"
+scalar ToyEVDoSScenario.rsu[0].ipv4.arp arpReplySent:count 0
+attr source arpReplySent
+attr title "ARP replies sent, count"
+scalar ToyEVDoSScenario.rsu[0].ipv4.arp arpReplySent:sum(packetBytes) 0
+attr source arpReplySent
+attr title "ARP replies sent, sum(packetBytes)"
+scalar ToyEVDoSScenario.rsu[0].ipv4.arp arpRequestSent:count 0
+attr source arpRequestSent
+attr title "ARP request sent, count"
+scalar ToyEVDoSScenario.rsu[0].ipv4.arp arpRequestSent:sum(packetBytes) 0
+attr source arpRequestSent
+attr title "ARP request sent, sum(packetBytes)"
+scalar ToyEVDoSScenario.rsu[0].ipv4.arp arpResolutionFailed:count 0
+attr title "ARP failed resolutions, count"
+scalar ToyEVDoSScenario.rsu[0].ipv4.arp arpResolutionCompleted:count 0
+attr title "ARP completed resolutions, count"
+scalar ToyEVDoSScenario.rsu[0].ipv4.arp arpResolutionInitiated:count 0
+attr title "ARP initiated resolutions, count"
+scalar ToyEVDoSScenario.rsu[0].udp packetReceived:count 445
+attr interpolationmode none
+attr source packetReceived
+attr title "packets received, count"
+scalar ToyEVDoSScenario.rsu[0].udp packetReceived:sum(packetBytes) 249893
+attr interpolationmode none
+attr source packetReceived
+attr title "packets received, sum(packetBytes)"
+scalar ToyEVDoSScenario.rsu[0].udp packetSent:count 0
+attr interpolationmode none
+attr source packetSent
+attr title "packets sent, count"
+scalar ToyEVDoSScenario.rsu[0].udp packetSent:sum(packetBytes) 0
+attr interpolationmode none
+attr source packetSent
+attr title "packets sent, sum(packetBytes)"
+scalar ToyEVDoSScenario.rsu[0].udp passedUpPk:count 243
+attr interpolationmode none
+attr source packetSentToUpper
+attr title "packets passed up, count"
+scalar ToyEVDoSScenario.rsu[0].udp droppedPkWrongPort:count 202
+attr interpolationmode none
+attr source packetDropReasonIsNoPortFound(packetDropped)
+attr title "packets dropped (wrong port), count"
+scalar ToyEVDoSScenario.rsu[0].udp droppedPkBadChecksum:count 0
+attr interpolationmode none
+attr source packetDropReasonIsIncorrectlyReceived(packetDropped)
+attr title "packets dropped (checksum error), count"
+scalar ToyEVDoSScenario.rsu[0].app[0] packetsReceived 243
+scalar ToyEVDoSScenario.rsu[0].app[0] packetsSent 0
+scalar ToyEVDoSScenario.rsu[0].app[0] totalEnergyConsumed 0.0047915836262999
+scalar ToyEVDoSScenario.rsu[0].app[0] avgPacketRate 0.81
+scalar ToyEVDoSScenario.rsu[0].app[0] finalBatteryLevel 0
+statistic ToyEVDoSScenario.rsu[0].app[0] txDuration:stats
+field count 243
+field mean 0.00039370644718793
+field stddev 7.6174511893483e-005
+field min 0.00013333333333333
+field max 0.00053333333333333
+field sum 0.095670666666667
+field sqrsum 3.9070376888889e-005
+attr interpolationmode none
+attr title "tx duration estimate, stats"
+attr unit s
+statistic ToyEVDoSScenario.rsu[0].app[0] energyConsumption:stats
+field count 243
+field mean 1.9718451137037e-005
+field stddev 4.3081600338042e-006
+field min 7.4389026892992e-006
+field max 3.0298545711258e-005
+field sum 0.0047915836262999
+field sqrsum 9.897418638042e-008
+attr interpolationmode none
+attr title "energy consumption, stats"
+attr unit J
+statistic ToyEVDoSScenario.rsu[0].app[0] interArrivalTime:histogram
+field count 243
+field mean 0.59418116395143
+field stddev 0.45417147518872
+field min 0.007367912084
+field max 6.374541459011
+field sum 144.3860228402
+field sqrsum 135.70921349728
+attr interpolationmode none
+attr title "inter arrival time, histogram"
+attr unit s
+bin	-inf	0
+bin	0	4
+bin	0.1	9
+bin	0.2	33
+bin	0.3	26
+bin	0.4	33
+bin	0.5	23
+bin	0.6	28
+bin	0.7	27
+bin	0.8	29
+bin	0.9	30
+bin	1	0
+bin	1.1	0
+bin	1.2	0
+bin	1.3	0
+bin	1.4	0
+bin	1.5	0
+bin	1.6	0
+bin	1.7	0
+bin	1.8	0
+bin	1.9	0
+bin	2	0
+bin	2.1	0
+bin	2.2	0
+bin	2.3	0
+bin	2.4	0
+bin	2.5	0
+bin	2.6	0
+bin	2.7	0
+bin	2.8	0
+bin	2.9	0
+bin	3	0
+bin	3.1	0
+bin	3.2	0
+bin	3.3	0
+bin	3.4	0
+bin	3.5	0
+bin	3.6	0
+bin	3.7	0
+bin	3.8	0
+bin	3.9	0
+bin	4	0
+bin	4.1	0
+bin	4.2	0
+bin	4.3	0
+bin	4.4	0
+bin	4.5	0
+bin	4.6	0
+bin	4.7	0
+bin	4.8	0
+bin	4.9	0
+bin	5	0
+bin	5.1	0
+bin	5.2	0
+bin	5.3	0
+bin	5.4	0
+bin	5.5	0
+bin	5.6	0
+bin	5.7	0
+bin	5.8	0
+bin	5.9	0
+bin	6	0
+bin	6.1	0
+bin	6.2	0
+bin	6.3	1
+bin	6.4	0
+bin	6.5	0
+bin	6.6	0
+bin	6.7	0
+bin	6.8	0
+bin	6.9	0
+bin	7	0
+bin	7.1	0
+bin	7.2	0
+bin	7.3	0
+bin	7.4	0
+bin	7.5	0
+bin	7.6	0
+bin	7.7	0
+bin	7.8	0
+bin	7.9	0
+bin	8	0
+statistic ToyEVDoSScenario.rsu[0].app[0] packetSize:histogram
+field count 243
+field mean 295.27983539095
+field stddev 57.130883920113
+field min 100
+field max 400
+field sum 71753
+field sqrsum 21977087
+attr interpolationmode none
+attr title "packet size, histogram"
+attr unit B
+bin	-inf	0
+bin	100	1
+bin	105	0
+bin	110	0
+bin	115	0
+bin	120	0
+bin	125	0
+bin	130	0
+bin	135	0
+bin	140	0
+bin	145	0
+bin	150	0
+bin	155	0
+bin	160	0
+bin	165	0
+bin	170	0
+bin	175	0
+bin	180	0
+bin	185	0
+bin	190	0
+bin	195	0
+bin	200	7
+bin	205	4
+bin	210	7
+bin	215	6
+bin	220	2
+bin	225	6
+bin	230	7
+bin	235	10
+bin	240	6
+bin	245	7
+bin	250	7
+bin	255	6
+bin	260	7
+bin	265	6
+bin	270	6
+bin	275	7
+bin	280	4
+bin	285	10
+bin	290	3
+bin	295	10
+bin	300	9
+bin	305	5
+bin	310	6
+bin	315	4
+bin	320	8
+bin	325	8
+bin	330	7
+bin	335	5
+bin	340	5
+bin	345	4
+bin	350	6
+bin	355	9
+bin	360	4
+bin	365	2
+bin	370	4
+bin	375	7
+bin	380	5
+bin	385	7
+bin	390	3
+bin	395	5
+bin	400	1
+bin	405	0
+bin	410	0
+bin	415	0
+bin	420	0
+bin	425	0
+bin	430	0
+bin	435	0
+bin	440	0
+bin	445	0
+bin	450	0
+scalar ToyEVDoSScenario.rsu[0].app[0] packetReceived:count 243
+attr interpolationmode none
+attr title "packets received, count"
+scalar ToyEVDoSScenario.rsu[0].app[0] packetReceived:sum 29646
+attr interpolationmode none
+attr title "packets received, sum"
+scalar ToyEVDoSScenario.ev[1].lo[0].lo rcvdPkFromHl:count 218
+attr interpolationmode none
+attr source packetReceivedFromUpper
+attr title "packets received from higher layer, count"
+scalar ToyEVDoSScenario.ev[1].lo[0].lo rcvdPkFromHl:sum(packetBytes) 70185
+attr interpolationmode none
+attr source packetReceivedFromUpper
+attr title "packets received from higher layer, sum(packetBytes)"
+scalar ToyEVDoSScenario.ev[1].lo[0].lo passedUpPk:count 218
+attr interpolationmode none
+attr source packetSentToUpper
+attr title "packets passed to higher layer, count"
+scalar ToyEVDoSScenario.ev[1].lo[0].lo passedUpPk:sum(packetBytes) 70185
+attr interpolationmode none
+attr source packetSentToUpper
+attr title "packets passed to higher layer, sum(packetBytes)"
+scalar ToyEVDoSScenario.ev[1].wlan[0].mac.dcf.channelAccess.pendingQueue packetPopped:count 218
+attr interpolationmode none
+attr title "packet popped, count"
+scalar ToyEVDoSScenario.ev[1].wlan[0].mac.dcf.channelAccess.pendingQueue packetPopped:sum(packetBytes) 78033
+attr interpolationmode none
+attr title "packet popped, sum(packetBytes)"
+statistic ToyEVDoSScenario.ev[1].wlan[0].mac.dcf.channelAccess.pendingQueue queueingTime:histogram
+field count 218
+field mean 0
+field stddev 0
+field min 0
+field max 0
+field sum 0
+field sqrsum 0
+attr interpolationmode none
+attr source queueingTime(packetPopped)
+attr title "queueing times, histogram"
+attr unit s
+bin	-inf	0
+bin	-0.5	0
+bin	-0.48	0
+bin	-0.46	0
+bin	-0.44	0
+bin	-0.42	0
+bin	-0.4	0
+bin	-0.38	0
+bin	-0.36	0
+bin	-0.34	0
+bin	-0.32	0
+bin	-0.3	0
+bin	-0.28	0
+bin	-0.26	0
+bin	-0.24	0
+bin	-0.22	0
+bin	-0.2	0
+bin	-0.18	0
+bin	-0.16	0
+bin	-0.14	0
+bin	-0.12	0
+bin	-0.1	0
+bin	-0.08	0
+bin	-0.06	0
+bin	-0.04	0
+bin	-0.02	0
+bin	0	218
+bin	0.02	0
+bin	0.04	0
+bin	0.06	0
+bin	0.08	0
+bin	0.1	0
+bin	0.12	0
+bin	0.14	0
+bin	0.16	0
+bin	0.18	0
+bin	0.2	0
+bin	0.22	0
+bin	0.24	0
+bin	0.26	0
+bin	0.28	0
+bin	0.3	0
+bin	0.32	0
+bin	0.34	0
+bin	0.36	0
+bin	0.38	0
+bin	0.4	0
+bin	0.42	0
+bin	0.44	0
+bin	0.46	0
+bin	0.48	0
+bin	0.5	0
+scalar ToyEVDoSScenario.ev[1].wlan[0].mac.dcf.channelAccess.pendingQueue queueLength:max 1
+attr interpolationmode sample-hold
+attr source "count(packetPushed) - count(packetPopped) - count(packetRemoved) - count(packetDropped)"
+attr title "queue length, max"
+scalar ToyEVDoSScenario.ev[1].wlan[0].mac.dcf.channelAccess.pendingQueue queueLength:timeavg 0
+attr interpolationmode sample-hold
+attr source "count(packetPushed) - count(packetPopped) - count(packetRemoved) - count(packetDropped)"
+attr title "queue length, timeavg"
+scalar ToyEVDoSScenario.ev[1].wlan[0].mac.dcf.channelAccess.pendingQueue packetPushed:count 218
+attr interpolationmode none
+attr title "packet pushed, count"
+scalar ToyEVDoSScenario.ev[1].wlan[0].mac.dcf.channelAccess.pendingQueue packetPushed:sum(packetBytes) 78033
+attr interpolationmode none
+attr title "packet pushed, sum(packetBytes)"
+scalar ToyEVDoSScenario.ev[1].wlan[0].mac.dcf.channelAccess.pendingQueue packetDropQueueOverflow:count 0
+attr interpolationmode none
+attr source packetDropReasonIsQueueOverflow(packetDropped)
+attr title "packet drops: queue overflow, count"
+scalar ToyEVDoSScenario.ev[1].wlan[0].mac.dcf.channelAccess.pendingQueue packetDropQueueOverflow:sum(packetBytes) 0
+attr interpolationmode none
+attr source packetDropReasonIsQueueOverflow(packetDropped)
+attr title "packet drops: queue overflow, sum(packetBytes)"
+scalar ToyEVDoSScenario.ev[1].wlan[0].mac.dcf.channelAccess.pendingQueue packetRemoved:count 0
+attr interpolationmode none
+attr title "packets removed, count"
+scalar ToyEVDoSScenario.ev[1].wlan[0].mac.dcf.channelAccess.pendingQueue packetRemoved:sum(packetBytes) 0
+attr interpolationmode none
+attr title "packets removed, sum(packetBytes)"
+statistic ToyEVDoSScenario.ev[1].wlan[0].mac.dcf.channelAccess.inProgressFrames queueingTime:histogram
+field count 218
+field mean 0.00014818348623853
+field stddev 1.8635561435119e-005
+field min 8.2e-005
+field max 0.000182
+field sum 0.032304
+field sqrsum 4.86228e-006
+attr interpolationmode none
+attr source queueingTime(packetDequeued)
+attr title "queueing times, histogram"
+bin	-inf	0
+bin	8e-005	1
+bin	8.2e-005	0
+bin	8.4e-005	0
+bin	8.6e-005	0
+bin	8.8e-005	0
+bin	9e-005	0
+bin	9.2e-005	0
+bin	9.4e-005	0
+bin	9.6e-005	0
+bin	9.8e-005	0
+bin	0.0001	0
+bin	0.000102	0
+bin	0.000104	0
+bin	0.000106	0
+bin	0.000108	0
+bin	0.00011	0
+bin	0.000112	0
+bin	0.000114	0
+bin	0.000116	10
+bin	0.000118	0
+bin	0.00012	13
+bin	0.000122	0
+bin	0.000124	10
+bin	0.000126	0
+bin	0.000128	19
+bin	0.00013	0
+bin	0.000132	0
+bin	0.000134	10
+bin	0.000136	18
+bin	0.000138	0
+bin	0.00014	13
+bin	0.000142	0
+bin	0.000144	13
+bin	0.000146	0
+bin	0.000148	18
+bin	0.00015	0
+bin	0.000152	12
+bin	0.000154	0
+bin	0.000156	17
+bin	0.000158	0
+bin	0.00016	13
+bin	0.000162	0
+bin	0.000164	13
+bin	0.000166	0
+bin	0.000168	12
+bin	0.00017	0
+bin	0.000172	9
+bin	0.000174	0
+bin	0.000176	10
+bin	0.000178	0
+bin	0.00018	7
+bin	0.000182	0
+bin	0.000184	0
+bin	0.000186	0
+bin	0.000188	0
+bin	0.00019	0
+bin	0.000192	0
+bin	0.000194	0
+bin	0.000196	0
+bin	0.000198	0
+scalar ToyEVDoSScenario.ev[1].wlan[0].mac.dcf.channelAccess.inProgressFrames queueLength:max 1
+attr interpolationmode sample-hold
+attr source "count(packetEnqueued) - count(packetDequeued)"
+attr title "queue length, max"
+scalar ToyEVDoSScenario.ev[1].wlan[0].mac.dcf.channelAccess.inProgressFrames queueLength:timeavg 0.0001119721070756
+attr interpolationmode sample-hold
+attr source "count(packetEnqueued) - count(packetDequeued)"
+attr title "queue length, timeavg"
+scalar ToyEVDoSScenario.ev[1].wlan[0].mac.dcf.channelAccess.contention stateChanged:count 2682
+attr interpolationmode none
+attr title "contention state changed, count"
+scalar ToyEVDoSScenario.ev[1].wlan[0].mac.dcf.channelAccess.contention channelAccessGranted:count 218
+attr title "channel access granted, count"
+scalar ToyEVDoSScenario.ev[1].wlan[0].mac.dcf.channelAccess channelOwnershipChanged:count 436
+attr interpolationmode sample-hold
+attr title "channel ownership, count"
+scalar ToyEVDoSScenario.ev[1].wlan[0].mac.dcf.originatorMacDataService packetAggregated:count 0
+attr title "packets aggregated, count"
+scalar ToyEVDoSScenario.ev[1].wlan[0].mac.dcf.originatorMacDataService packetFragmented:count 0
+attr title "packets fragmented, count"
+scalar ToyEVDoSScenario.ev[1].wlan[0].mac.dcf.recipientMacDataService packetDropDuplicateDetected:count 0
+attr interpolationmode none
+attr source packetDropReasonIsDuplicateDetected(packetDropped)
+attr title "packet drops: duplicate detected, count"
+scalar ToyEVDoSScenario.ev[1].wlan[0].mac.dcf.recipientMacDataService packetDropDuplicateDetected:sum(packetBytes) 0
+attr interpolationmode none
+attr source packetDropReasonIsDuplicateDetected(packetDropped)
+attr title "packet drops: duplicate detected, sum(packetBytes)"
+scalar ToyEVDoSScenario.ev[1].wlan[0].mac.dcf.recipientMacDataService packetDeaggregated:count 0
+attr title "packets deaggregated, count"
+scalar ToyEVDoSScenario.ev[1].wlan[0].mac.dcf.recipientMacDataService packetDefragmented:count 221
+attr title "packets defragmented, count"
+scalar ToyEVDoSScenario.ev[1].wlan[0].mac.dcf.recoveryProcedure retryLimitReached:count 0
+attr title "retry limit reached, count"
+scalar ToyEVDoSScenario.ev[1].wlan[0].mac.dcf packetReceivedFromPeer:count 234
+attr interpolationmode none
+attr title "packets received, count"
+scalar ToyEVDoSScenario.ev[1].wlan[0].mac.dcf packetReceivedFromPeer:sum(packetBytes) 195027
+attr interpolationmode none
+attr title "packets received, sum(packetBytes)"
+scalar ToyEVDoSScenario.ev[1].wlan[0].mac.dcf packetReceivedFromPeerUnicast:count 0
+attr interpolationmode none
+attr source ieee80211Unicast(packetReceivedFromPeer)
+attr title "packets received: unicast, count"
+scalar ToyEVDoSScenario.ev[1].wlan[0].mac.dcf packetReceivedFromPeerUnicast:sum(packetBytes) 0
+attr interpolationmode none
+attr source ieee80211Unicast(packetReceivedFromPeer)
+attr title "packets received: unicast, sum(packetBytes)"
+scalar ToyEVDoSScenario.ev[1].wlan[0].mac.dcf packetReceivedFromPeerMulticast:count 234
+attr interpolationmode none
+attr source ieee80211Multicast(packetReceivedFromPeer)
+attr title "packets received: multicast, count"
+scalar ToyEVDoSScenario.ev[1].wlan[0].mac.dcf packetReceivedFromPeerMulticast:sum(packetBytes) 195027
+attr interpolationmode none
+attr source ieee80211Multicast(packetReceivedFromPeer)
+attr title "packets received: multicast, sum(packetBytes)"
+scalar ToyEVDoSScenario.ev[1].wlan[0].mac.dcf packetReceivedFromPeerBroadcast:count 0
+attr interpolationmode none
+attr source ieee80211Broadcast(packetReceivedFromPeer)
+attr title "packets received: broadcast, count"
+scalar ToyEVDoSScenario.ev[1].wlan[0].mac.dcf packetReceivedFromPeerBroadcast:sum(packetBytes) 0
+attr interpolationmode none
+attr source ieee80211Broadcast(packetReceivedFromPeer)
+attr title "packets received: broadcast, sum(packetBytes)"
+scalar ToyEVDoSScenario.ev[1].wlan[0].mac.dcf packetReceivedFromPeerWithRetry:count 0
+attr interpolationmode none
+attr source ieee80211Retry(packetReceivedFromPeer)
+attr title "packets received: with retry, count"
+scalar ToyEVDoSScenario.ev[1].wlan[0].mac.dcf packetReceivedFromPeerWithRetry:sum(packetBytes) 0
+attr interpolationmode none
+attr source ieee80211Retry(packetReceivedFromPeer)
+attr title "packets received: with retry, sum(packetBytes)"
+scalar ToyEVDoSScenario.ev[1].wlan[0].mac.dcf packetReceivedFromPeerWithoutRetry:count 234
+attr interpolationmode none
+attr source ieee80211NotRetry(packetReceivedFromPeer)
+attr title "packets received: without retry, count"
+scalar ToyEVDoSScenario.ev[1].wlan[0].mac.dcf packetReceivedFromPeerWithoutRetry:sum(packetBytes) 195027
+attr interpolationmode none
+attr source ieee80211NotRetry(packetReceivedFromPeer)
+attr title "packets received: without retry, sum(packetBytes)"
+scalar ToyEVDoSScenario.ev[1].wlan[0].mac.dcf packetSentToPeer:count 218
+attr interpolationmode none
+attr title "packets sent, count"
+scalar ToyEVDoSScenario.ev[1].wlan[0].mac.dcf packetSentToPeer:sum(packetBytes) 78033
+attr interpolationmode none
+attr title "packets sent, sum(packetBytes)"
+scalar ToyEVDoSScenario.ev[1].wlan[0].mac.dcf packetSentToPeerUnicast:count 0
+attr interpolationmode none
+attr source ieee80211Unicast(packetSentToPeer)
+attr title "packets sent: unicast, count"
+scalar ToyEVDoSScenario.ev[1].wlan[0].mac.dcf packetSentToPeerUnicast:sum(packetBytes) 0
+attr interpolationmode none
+attr source ieee80211Unicast(packetSentToPeer)
+attr title "packets sent: unicast, sum(packetBytes)"
+scalar ToyEVDoSScenario.ev[1].wlan[0].mac.dcf packetSentToPeerMulticast:count 218
+attr interpolationmode none
+attr source ieee80211Multicast(packetSentToPeer)
+attr title "packets sent: multicast, count"
+scalar ToyEVDoSScenario.ev[1].wlan[0].mac.dcf packetSentToPeerMulticast:sum(packetBytes) 78033
+attr interpolationmode none
+attr source ieee80211Multicast(packetSentToPeer)
+attr title "packets sent: multicast, sum(packetBytes)"
+scalar ToyEVDoSScenario.ev[1].wlan[0].mac.dcf packetSentToPeerBroadcast:count 0
+attr interpolationmode none
+attr source ieee80211Broadcast(packetSentToPeer)
+attr title "packets sent: broadcast , count"
+scalar ToyEVDoSScenario.ev[1].wlan[0].mac.dcf packetSentToPeerBroadcast:sum(packetBytes) 0
+attr interpolationmode none
+attr source ieee80211Broadcast(packetSentToPeer)
+attr title "packets sent: broadcast , sum(packetBytes)"
+scalar ToyEVDoSScenario.ev[1].wlan[0].mac.dcf packetSentToPeerWithRetry:count 0
+attr interpolationmode none
+attr source ieee80211Retry(packetSentToPeer)
+attr title "packets sent: with retry, count"
+scalar ToyEVDoSScenario.ev[1].wlan[0].mac.dcf packetSentToPeerWithRetry:sum(packetBytes) 0
+attr interpolationmode none
+attr source ieee80211Retry(packetSentToPeer)
+attr title "packets sent: with retry, sum(packetBytes)"
+scalar ToyEVDoSScenario.ev[1].wlan[0].mac.dcf packetSentToPeerWithoutRetry:count 218
+attr interpolationmode none
+attr source ieee80211NotRetry(packetSentToPeer)
+attr title "packets sent: without retry, count"
+scalar ToyEVDoSScenario.ev[1].wlan[0].mac.dcf packetSentToPeerWithoutRetry:sum(packetBytes) 78033
+attr interpolationmode none
+attr source ieee80211NotRetry(packetSentToPeer)
+attr title "packets sent: without retry, sum(packetBytes)"
+scalar ToyEVDoSScenario.ev[1].wlan[0].mac.dcf packetDrop:count 0
+attr interpolationmode none
+attr source packetDropped
+attr title "packet drops, count"
+scalar ToyEVDoSScenario.ev[1].wlan[0].mac.dcf packetDrop:sum(packetBytes) 0
+attr interpolationmode none
+attr source packetDropped
+attr title "packet drops, sum(packetBytes)"
+scalar ToyEVDoSScenario.ev[1].wlan[0].mac.dcf packetDropNotAddressedToUs:count 0
+attr interpolationmode none
+attr source packetDropReasonIsNotAddressedToUs(packetDropped)
+attr title "packet drops: not addressed to us, count"
+scalar ToyEVDoSScenario.ev[1].wlan[0].mac.dcf packetDropNotAddressedToUs:sum(packetBytes) 0
+attr interpolationmode none
+attr source packetDropReasonIsNotAddressedToUs(packetDropped)
+attr title "packet drops: not addressed to us, sum(packetBytes)"
+scalar ToyEVDoSScenario.ev[1].wlan[0].mac.dcf packetDropQueueOverflow:count 0
+attr interpolationmode none
+attr source packetDropReasonIsQueueOverflow(packetDropped)
+attr title "packet drops: queue overflow, count"
+scalar ToyEVDoSScenario.ev[1].wlan[0].mac.dcf packetDropQueueOverflow:sum(packetBytes) 0
+attr interpolationmode none
+attr source packetDropReasonIsQueueOverflow(packetDropped)
+attr title "packet drops: queue overflow, sum(packetBytes)"
+scalar ToyEVDoSScenario.ev[1].wlan[0].mac.dcf packetDropRetryLimitReached:count 0
+attr interpolationmode none
+attr source packetDropReasonIsRetryLimitReached(packetDropped)
+attr title "packet drops: retry limit reached, count"
+scalar ToyEVDoSScenario.ev[1].wlan[0].mac.dcf packetDropRetryLimitReached:sum(packetBytes) 0
+attr interpolationmode none
+attr source packetDropReasonIsRetryLimitReached(packetDropped)
+attr title "packet drops: retry limit reached, sum(packetBytes)"
+scalar ToyEVDoSScenario.ev[1].wlan[0].mac.dcf linkBroken:count 0
+attr interpolationmode none
+attr title "link breaks, count"
+scalar ToyEVDoSScenario.ev[1].wlan[0].mac.dcf frameSequenceFinished:count 218
+attr title "finished frame sequences, count"
+statistic ToyEVDoSScenario.ev[1].wlan[0].mac.dcf frameSequenceDuration:histogram
+field count 218
+field mean 0.00014818348623853
+field stddev 1.8635561435119e-005
+field min 8.2e-005
+field max 0.000182
+field sum 0.032304
+field sqrsum 4.86228e-006
+attr source frameSequenceDuration(frameSequenceFinished)
+attr title "frame sequence durations, histogram"
+bin	-inf	0
+bin	8e-005	1
+bin	8.2e-005	0
+bin	8.4e-005	0
+bin	8.6e-005	0
+bin	8.8e-005	0
+bin	9e-005	0
+bin	9.2e-005	0
+bin	9.4e-005	0
+bin	9.6e-005	0
+bin	9.8e-005	0
+bin	0.0001	0
+bin	0.000102	0
+bin	0.000104	0
+bin	0.000106	0
+bin	0.000108	0
+bin	0.00011	0
+bin	0.000112	0
+bin	0.000114	0
+bin	0.000116	10
+bin	0.000118	0
+bin	0.00012	13
+bin	0.000122	0
+bin	0.000124	10
+bin	0.000126	0
+bin	0.000128	19
+bin	0.00013	0
+bin	0.000132	0
+bin	0.000134	10
+bin	0.000136	18
+bin	0.000138	0
+bin	0.00014	13
+bin	0.000142	0
+bin	0.000144	13
+bin	0.000146	0
+bin	0.000148	18
+bin	0.00015	0
+bin	0.000152	12
+bin	0.000154	0
+bin	0.000156	17
+bin	0.000158	0
+bin	0.00016	13
+bin	0.000162	0
+bin	0.000164	13
+bin	0.000166	0
+bin	0.000168	12
+bin	0.00017	0
+bin	0.000172	9
+bin	0.000174	0
+bin	0.000176	10
+bin	0.000178	0
+bin	0.00018	7
+bin	0.000182	0
+bin	0.000184	0
+bin	0.000186	0
+bin	0.000188	0
+bin	0.00019	0
+bin	0.000192	0
+bin	0.000194	0
+bin	0.000196	0
+bin	0.000198	0
+statistic ToyEVDoSScenario.ev[1].wlan[0].mac.dcf frameSequenceNumPackets:histogram
+field count 218
+field mean 1
+field stddev 0
+field min 1
+field max 1
+field sum 218
+field sqrsum 218
+attr source frameSequenceNumPackets(frameSequenceFinished)
+attr title "frame sequences: number of packets, histogram"
+bin	-inf	0
+bin	0	0
+bin	1	218
+bin	2	0
+scalar ToyEVDoSScenario.ev[1].wlan[0].mac packetReceivedFromLower:count 234
+attr interpolationmode none
+attr title "packets received from lower layer, count"
+scalar ToyEVDoSScenario.ev[1].wlan[0].mac packetReceivedFromLower:sum(packetBytes) 195027
+attr interpolationmode none
+attr title "packets received from lower layer, sum(packetBytes)"
+scalar ToyEVDoSScenario.ev[1].wlan[0].mac packetSentToLower:count 218
+attr interpolationmode none
+attr title "packets sent to lower layer, count"
+scalar ToyEVDoSScenario.ev[1].wlan[0].mac packetSentToLower:sum(packetBytes) 78033
+attr interpolationmode none
+attr title "packets sent to lower layer, sum(packetBytes)"
+scalar ToyEVDoSScenario.ev[1].wlan[0].mac packetReceivedFromUpper:count 218
+attr interpolationmode none
+attr title "packets received from upper layer, count"
+scalar ToyEVDoSScenario.ev[1].wlan[0].mac packetReceivedFromUpper:sum(packetBytes) 71929
+attr interpolationmode none
+attr title "packets received from upper layer, sum(packetBytes)"
+scalar ToyEVDoSScenario.ev[1].wlan[0].mac packetSentToUpper:count 221
+attr interpolationmode none
+attr title "packets sent to upper layer, count"
+scalar ToyEVDoSScenario.ev[1].wlan[0].mac packetSentToUpper:sum(packetBytes) 188475
+attr interpolationmode none
+attr title "packets sent to upper layer, sum(packetBytes)"
+scalar ToyEVDoSScenario.ev[1].wlan[0].mac packetDrop:count 0
+attr interpolationmode none
+attr source packetDropped
+attr title "packet drops, count"
+scalar ToyEVDoSScenario.ev[1].wlan[0].mac packetDrop:sum(packetBytes) 0
+attr interpolationmode none
+attr source packetDropped
+attr title "packet drops, sum(packetBytes)"
+scalar ToyEVDoSScenario.ev[1].wlan[0].mac packetDropIncorrectlyReceived:count 0
+attr interpolationmode none
+attr source packetDropReasonIsIncorrectlyReceived(packetDropped)
+attr title "packet drops: incorrectly received, count"
+scalar ToyEVDoSScenario.ev[1].wlan[0].mac packetDropIncorrectlyReceived:sum(packetBytes) 0
+attr interpolationmode none
+attr source packetDropReasonIsIncorrectlyReceived(packetDropped)
+attr title "packet drops: incorrectly received, sum(packetBytes)"
+scalar ToyEVDoSScenario.ev[1].wlan[0].mac packetDropNotAddressedToUs:count 0
+attr interpolationmode none
+attr source packetDropReasonIsNotAddressedToUs(packetDropped)
+attr title "packet drops: not addressed to us, count"
+scalar ToyEVDoSScenario.ev[1].wlan[0].mac packetDropNotAddressedToUs:sum(packetBytes) 0
+attr interpolationmode none
+attr source packetDropReasonIsNotAddressedToUs(packetDropped)
+attr title "packet drops: not addressed to us, sum(packetBytes)"
+scalar ToyEVDoSScenario.ev[1].wlan[0].mac packetDropQueueOverflow:count 0
+attr interpolationmode none
+attr source packetDropReasonIsQueueOverflow(packetDropped)
+attr title "packet drops: queue overflow, count"
+scalar ToyEVDoSScenario.ev[1].wlan[0].mac packetDropQueueOverflow:sum(packetBytes) 0
+attr interpolationmode none
+attr source packetDropReasonIsQueueOverflow(packetDropped)
+attr title "packet drops: queue overflow, sum(packetBytes)"
+scalar ToyEVDoSScenario.ev[1].wlan[0].mac packetDropRetryLimitReached:count 0
+attr interpolationmode none
+attr source packetDropReasonIsRetryLimitReached(packetDropped)
+attr title "packet drops: retry limit reached, count"
+scalar ToyEVDoSScenario.ev[1].wlan[0].mac packetDropRetryLimitReached:sum(packetBytes) 0
+attr interpolationmode none
+attr source packetDropReasonIsRetryLimitReached(packetDropped)
+attr title "packet drops: retry limit reached, sum(packetBytes)"
+scalar ToyEVDoSScenario.ev[1].wlan[0].mac packetDropDuplicateDetected:count 0
+attr interpolationmode none
+attr source packetDropReasonIsDuplicateDetected(packetDropped)
+attr title "packet drops: duplicate detected, count"
+scalar ToyEVDoSScenario.ev[1].wlan[0].mac packetDropDuplicateDetected:sum(packetBytes) 0
+attr interpolationmode none
+attr source packetDropReasonIsDuplicateDetected(packetDropped)
+attr title "packet drops: duplicate detected, sum(packetBytes)"
+scalar ToyEVDoSScenario.ev[1].wlan[0].mac packetDropOther:count 0
+attr interpolationmode none
+attr source packetDropReasonIsOther(packetDropped)
+attr title "packet drops: other, count"
+scalar ToyEVDoSScenario.ev[1].wlan[0].mac packetDropOther:sum(packetBytes) 0
+attr interpolationmode none
+attr source packetDropReasonIsOther(packetDropped)
+attr title "packet drops: other, sum(packetBytes)"
+scalar ToyEVDoSScenario.ev[1].wlan[0].mac linkBroken:count 0
+attr interpolationmode none
+attr title "link breaks, count"
+statistic ToyEVDoSScenario.ev[1].wlan[0].radio minSnir:histogram
+field count 234
+field mean 7150.6486664224
+field stddev 3574.6525577691
+field min 6691.4286250488
+field max 52538.60253635
+field sum 1673251.7879428
+field sqrsum 14942142497.785
+attr source minimumSnir(packetSentToUpper)
+attr title "Min SNIR, histogram"
+bin	-inf	0
+bin	500	0
+bin	1500	0
+bin	2500	0
+bin	3500	0
+bin	4500	0
+bin	5500	0
+bin	6500	226
+bin	7500	1
+bin	8500	1
+bin	9500	1
+bin	10500	1
+bin	11500	0
+bin	12500	0
+bin	13500	0
+bin	14500	0
+bin	15500	1
+bin	16500	0
+bin	17500	0
+bin	18500	0
+bin	19500	0
+bin	20500	0
+bin	21500	1
+bin	22500	0
+bin	23500	0
+bin	24500	0
+bin	25500	0
+bin	26500	0
+bin	27500	0
+bin	28500	0
+bin	29500	0
+bin	30500	1
+bin	31500	0
+bin	32500	0
+bin	33500	0
+bin	34500	0
+bin	35500	0
+bin	36500	0
+bin	37500	0
+bin	38500	0
+bin	39500	0
+bin	40500	0
+bin	41500	0
+bin	42500	0
+bin	43500	0
+bin	44500	0
+bin	45500	0
+bin	46500	0
+bin	47500	0
+bin	48500	0
+bin	49500	0
+bin	50500	0
+bin	51500	0
+bin	52500	1
+bin	53500	0
+statistic ToyEVDoSScenario.ev[1].wlan[0].radio packetErrorRate:histogram
+field count 234
+field mean 0
+field stddev 0
+field min 0
+field max 0
+field sum 0
+field sqrsum 0
+attr source packetErrorRate(packetSentToUpper)
+attr title "Packet error rate, histogram"
+bin	-inf	0
+bin	-0.5	0
+bin	-0.48	0
+bin	-0.46	0
+bin	-0.44	0
+bin	-0.42	0
+bin	-0.4	0
+bin	-0.38	0
+bin	-0.36	0
+bin	-0.34	0
+bin	-0.32	0
+bin	-0.3	0
+bin	-0.28	0
+bin	-0.26	0
+bin	-0.24	0
+bin	-0.22	0
+bin	-0.2	0
+bin	-0.18	0
+bin	-0.16	0
+bin	-0.14	0
+bin	-0.12	0
+bin	-0.1	0
+bin	-0.08	0
+bin	-0.06	0
+bin	-0.04	0
+bin	-0.02	0
+bin	0	234
+bin	0.02	0
+bin	0.04	0
+bin	0.06	0
+bin	0.08	0
+bin	0.1	0
+bin	0.12	0
+bin	0.14	0
+bin	0.16	0
+bin	0.18	0
+bin	0.2	0
+bin	0.22	0
+bin	0.24	0
+bin	0.26	0
+bin	0.28	0
+bin	0.3	0
+bin	0.32	0
+bin	0.34	0
+bin	0.36	0
+bin	0.38	0
+bin	0.4	0
+bin	0.42	0
+bin	0.44	0
+bin	0.46	0
+bin	0.48	0
+bin	0.5	0
+statistic ToyEVDoSScenario.ev[1].wlan[0].radio bitErrorRate:histogram
+field count 0
+field mean nan
+field stddev nan
+field min nan
+field max nan
+field sum 0
+field sqrsum 0
+attr source bitErrorRate(packetSentToUpper)
+attr title "Bit error rate, histogram"
+bin	-inf	0
+bin	0	0
+bin	1	0
+statistic ToyEVDoSScenario.ev[1].wlan[0].radio symbolErrorRate:histogram
+field count 0
+field mean nan
+field stddev nan
+field min nan
+field max nan
+field sum 0
+field sqrsum 0
+attr source symbolErrorRate(packetSentToUpper)
+attr title "Symbol error rate, histogram"
+bin	-inf	0
+bin	0	0
+bin	1	0
+scalar ToyEVDoSScenario.ev[1].wlan[0].radio transmissionState:count 872
+attr interpolationmode sample-hold
+attr source transmissionStateChanged
+attr title "Radio transmission state, count"
+scalar ToyEVDoSScenario.ev[1].wlan[0].radio receptionState:count 905
+attr interpolationmode sample-hold
+attr source receptionStateChanged
+attr title "Radio reception state, count"
+scalar ToyEVDoSScenario.ev[1].wlan[0].radio radioMode:count 439
+attr interpolationmode sample-hold
+attr source radioModeChanged
+attr title "Radio mode, count"
+statistic ToyEVDoSScenario.ev[1].wlan[0].radio radioChannel:histogram
+field count 1
+field mean 3
+field stddev nan
+field min 3
+field max 3
+field sum 3
+field sqrsum 9
+attr interpolationmode sample-hold
+attr source radioChannelChanged
+attr title "Radio channel, histogram"
+bin	-inf	0
+bin	2	0
+bin	3	1
+bin	4	0
+scalar ToyEVDoSScenario.ev[1].ipv4.ip packetDropAddressResolutionFailed:count 0
+attr interpolationmode none
+attr source packetDropReasonIsAddressResolutionFailed(packetDropped)
+attr title "packet drop: address resolution failed, count"
+scalar ToyEVDoSScenario.ev[1].ipv4.ip packetDropAddressResolutionFailed:sum(packetBytes) 0
+attr interpolationmode none
+attr source packetDropReasonIsAddressResolutionFailed(packetDropped)
+attr title "packet drop: address resolution failed, sum(packetBytes)"
+scalar ToyEVDoSScenario.ev[1].ipv4.ip packetDropHopLimitReached:count 0
+attr interpolationmode none
+attr source packetDropReasonIsHopLimitReached(packetDropped)
+attr title "packet drop: hop limit reached, count"
+scalar ToyEVDoSScenario.ev[1].ipv4.ip packetDropHopLimitReached:sum(packetBytes) 0
+attr interpolationmode none
+attr source packetDropReasonIsHopLimitReached(packetDropped)
+attr title "packet drop: hop limit reached, sum(packetBytes)"
+scalar ToyEVDoSScenario.ev[1].ipv4.ip packetDropForwardingDisabled:count 0
+attr interpolationmode none
+attr source packetDropReasonIsForwardingDisabled(packetDropped)
+attr title "packet drop: forwarding disabled, count"
+scalar ToyEVDoSScenario.ev[1].ipv4.ip packetDropForwardingDisabled:sum(packetBytes) 0
+attr interpolationmode none
+attr source packetDropReasonIsForwardingDisabled(packetDropped)
+attr title "packet drop: forwarding disabled, sum(packetBytes)"
+scalar ToyEVDoSScenario.ev[1].ipv4.ip packetDropNoInterfaceFound:count 0
+attr interpolationmode none
+attr source packetDropReasonIsNoInterfaceFound(packetDropped)
+attr title "packet drop: no interface found, count"
+scalar ToyEVDoSScenario.ev[1].ipv4.ip packetDropNoInterfaceFound:sum(packetBytes) 0
+attr interpolationmode none
+attr source packetDropReasonIsNoInterfaceFound(packetDropped)
+attr title "packet drop: no interface found, sum(packetBytes)"
+scalar ToyEVDoSScenario.ev[1].ipv4.ip packetDropNoRouteFound:count 0
+attr interpolationmode none
+attr source packetDropReasonIsNoRouteFound(packetDropped)
+attr title "packet drop: no route found, count"
+scalar ToyEVDoSScenario.ev[1].ipv4.ip packetDropNoRouteFound:sum(packetBytes) 0
+attr interpolationmode none
+attr source packetDropReasonIsNoRouteFound(packetDropped)
+attr title "packet drop: no route found, sum(packetBytes)"
+scalar ToyEVDoSScenario.ev[1].ipv4.ip packetDropUndefined:count 0
+attr interpolationmode none
+attr source packetDropReasonIsUndefined(packetDropped)
+attr title "packet drop: undefined, count"
+scalar ToyEVDoSScenario.ev[1].ipv4.ip packetDropUndefined:sum(packetBytes) 0
+attr interpolationmode none
+attr source packetDropReasonIsUndefined(packetDropped)
+attr title "packet drop: undefined, sum(packetBytes)"
+scalar ToyEVDoSScenario.ev[1].ipv4.arp arpReplySent:count 0
+attr source arpReplySent
+attr title "ARP replies sent, count"
+scalar ToyEVDoSScenario.ev[1].ipv4.arp arpReplySent:sum(packetBytes) 0
+attr source arpReplySent
+attr title "ARP replies sent, sum(packetBytes)"
+scalar ToyEVDoSScenario.ev[1].ipv4.arp arpRequestSent:count 0
+attr source arpRequestSent
+attr title "ARP request sent, count"
+scalar ToyEVDoSScenario.ev[1].ipv4.arp arpRequestSent:sum(packetBytes) 0
+attr source arpRequestSent
+attr title "ARP request sent, sum(packetBytes)"
+scalar ToyEVDoSScenario.ev[1].ipv4.arp arpResolutionFailed:count 0
+attr title "ARP failed resolutions, count"
+scalar ToyEVDoSScenario.ev[1].ipv4.arp arpResolutionCompleted:count 0
+attr title "ARP completed resolutions, count"
+scalar ToyEVDoSScenario.ev[1].ipv4.arp arpResolutionInitiated:count 0
+attr title "ARP initiated resolutions, count"
+scalar ToyEVDoSScenario.ev[1].udp packetReceived:count 439
+attr interpolationmode none
+attr source packetReceived
+attr title "packets received, count"
+scalar ToyEVDoSScenario.ev[1].udp packetReceived:sum(packetBytes) 248112
+attr interpolationmode none
+attr source packetReceived
+attr title "packets received, sum(packetBytes)"
+scalar ToyEVDoSScenario.ev[1].udp packetSent:count 218
+attr interpolationmode none
+attr source packetSent
+attr title "packets sent, count"
+scalar ToyEVDoSScenario.ev[1].udp packetSent:sum(packetBytes) 65825
+attr interpolationmode none
+attr source packetSent
+attr title "packets sent, sum(packetBytes)"
+scalar ToyEVDoSScenario.ev[1].udp passedUpPk:count 439
+attr interpolationmode none
+attr source packetSentToUpper
+attr title "packets passed up, count"
+scalar ToyEVDoSScenario.ev[1].udp droppedPkWrongPort:count 0
+attr interpolationmode none
+attr source packetDropReasonIsNoPortFound(packetDropped)
+attr title "packets dropped (wrong port), count"
+scalar ToyEVDoSScenario.ev[1].udp droppedPkBadChecksum:count 0
+attr interpolationmode none
+attr source packetDropReasonIsIncorrectlyReceived(packetDropped)
+attr title "packets dropped (checksum error), count"
+scalar ToyEVDoSScenario.ev[1].app[0] packetsSent 218
+scalar ToyEVDoSScenario.ev[1].app[0] packetsReceived 20
+scalar ToyEVDoSScenario.ev[1].app[0] totalEnergyConsumed 161.67035984486
+scalar ToyEVDoSScenario.ev[1].app[0] finalBatteryWh 0
+scalar ToyEVDoSScenario.ev[1].app[0] finalSoC 0
+scalar ToyEVDoSScenario.ev[1].app[0] totalBytesSent 64081
+scalar ToyEVDoSScenario.ev[1].app[0] totalBytesReceived 6039
+scalar ToyEVDoSScenario.ev[1].app[0] packetSendRate 0.72666666666667
+scalar ToyEVDoSScenario.ev[1].app[0] packetRecvRate 0.066666666666667
+scalar ToyEVDoSScenario.ev[1].app[0] attackDurationParam 60
+scalar ToyEVDoSScenario.ev[1].app[0] isAttackerParam 0
+statistic ToyEVDoSScenario.ev[1].app[0] senderSpeed:stats
+field count 20
+field mean 10.18524324119
+field stddev 4.2784132350202
+field min 1.3795628935919
+field max 13.879857265593
+field sum 203.7048648238
+field sqrsum 2422.5751740264
+statistic ToyEVDoSScenario.ev[1].app[0] soc:stats
+field count 371
+field mean 0.42342363578882
+field stddev 0.24249465019073
+field min 0.00053137999706753
+field max 0.79999999999252
+field sum 157.09016887765
+field sqrsum 88.273042940172
+attr title "State of Charge, stats"
+statistic ToyEVDoSScenario.ev[1].app[0] batteryLevel:stats
+field count 371
+field mean 84.684727157765
+field stddev 48.498930038146
+field min 0.10627599941351
+field max 159.9999999985
+field sum 31418.033775531
+field sqrsum 3530921.7176069
+statistic ToyEVDoSScenario.ev[1].app[0] txDuration:stats
+field count 20
+field mean 0.0004026
+field stddev 0.00010953039579194
+field min 0.00013333333333333
+field max 0.00052266666666667
+field sum 0.008052
+field sqrsum 3.4696764444444e-006
+statistic ToyEVDoSScenario.ev[1].app[0] energyConsumption:stats
+field count 237
+field mean 9.9883779417548e-009
+field stddev 3.5144515319785e-009
+field min 3.7679298380735e-010
+field max 1.6960573041777e-008
+field sum 2.3672455721959e-006
+field sqrsum 2.6559866674706e-014
+statistic ToyEVDoSScenario.ev[1].app[0] interArrivalTime:stats
+field count 237
+field mean 1.0822208367431
+field stddev 5.8919269375906
+field min 0.200892946497
+field max 90.11436207693
+field sum 256.48633830811
+field sqrsum 8470.2683766027
+statistic ToyEVDoSScenario.ev[1].app[0] packetSize:stats
+field count 237
+field mean 295.44303797468
+field stddev 57.230891304829
+field min 100
+field max 400
+field sum 70020
+field sqrsum 21459910
+scalar ToyEVDoSScenario.ev[1].app[0] packetReceived:count 20
+attr interpolationmode none
+attr source packetReceived
+attr title "packets received, count"
+scalar ToyEVDoSScenario.ev[1].app[0] packetReceived:sum 20
+attr interpolationmode none
+attr source packetReceived
+attr title "packets received, sum"
+scalar ToyEVDoSScenario.ev[1].app[0] packetSent:count 217
+attr interpolationmode none
+attr source packetSent
+attr title "packets sent, count"
+scalar ToyEVDoSScenario.ev[1].app[0] packetSent:sum 23703
+attr interpolationmode none
+attr source packetSent
+attr title "packets sent, sum"
+

@@ -7,7 +7,10 @@ simple VeinsInetReceiverApp like inet.applications.contract.IApp
     parameters:
         @class(veins::VeinsInetReceiverApp);
         @display("i=block/app");
-        
+
+        // Rate limiting: max packets received per second (0=unlimited)
+        int maxPktPerSecond = default(0);
+
         @signal[packetReceived](type=long);
         @signal[packetSize](type=long);
         @signal[interArrivalTime](type=double);

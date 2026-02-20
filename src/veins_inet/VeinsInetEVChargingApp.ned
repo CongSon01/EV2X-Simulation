@@ -37,6 +37,15 @@ simple VeinsInetEVChargingApp extends VeinsInetApplicationBase
         double ev2csRange @unit(m) = default(500m);
         double ev2rsuRange @unit(m) = default(500m);
 
+        // --- Route continuation after charging ---
+        // Space-separated SUMO edge IDs to visit in order after charging ends.
+        // Prevents vehicle from disappearing when CS edge becomes its terminal.
+        string destinations = default("");  // e.g. "C2C1 A0B0 C0B0"
+
+        // --- Rate limiting ---
+        // Max packets received per second. 0 = unlimited.
+        int maxPktPerSecond = default(0);
+
         // --- Signals ---
         @signal[packetSent](type=long);
         @signal[packetReceived](type=long);

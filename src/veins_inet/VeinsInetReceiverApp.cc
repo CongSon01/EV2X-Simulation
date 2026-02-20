@@ -22,11 +22,13 @@ using namespace veins;
 Define_Module(VeinsInetReceiverApp);
 
 VeinsInetReceiverApp::VeinsInetReceiverApp()
+    : maxPktPerSecond(0), pktsReceivedThisSec(0), rsuSecTimer(nullptr)
 {
 }
 
 VeinsInetReceiverApp::~VeinsInetReceiverApp()
 {
+    cancelAndDelete(rsuSecTimer);
     closeCSVLogging();
 }
 
@@ -38,7 +40,11 @@ void VeinsInetReceiverApp::initialize(int stage)
         packetsReceived = 0;
         lastPacketTime = 0;
         totalEnergyConsumed = 0.0;
-        
+
+        maxPktPerSecond = par("maxPktPerSecond");
+        pktsReceivedThisSec = 0;
+        rsuSecTimer = new cMessage("rsuSecTimer");
+
         packetReceivedSignal = registerSignal("packetReceived");
         packetSizeSignal = registerSignal("packetSize");
         interArrivalTimeSignal = registerSignal("interArrivalTime");
@@ -77,23 +83,33 @@ void VeinsInetReceiverApp::handleStartOperation(inet::LifecycleOperation* operat
     // This is needed for binary classification (attack vs normal)
     inet::L3AddressResolver().tryResolve("224.0.0.1", bsmMulticastGroup);
     socket.joinMulticastGroup(bsmMulticastGroup);
+
+    // Start rate-limit counter reset (1 second interval)
+    scheduleAt(simTime() + 1.0, rsuSecTimer);
 }
 
 void VeinsInetReceiverApp::handleStopOperation(inet::LifecycleOperation* operation)
 {
+    cancelEvent(rsuSecTimer);
     socket.close();
     closeCSVLogging();
 }
 
 void VeinsInetReceiverApp::handleCrashOperation(inet::LifecycleOperation* operation)
 {
+    cancelEvent(rsuSecTimer);
     socket.destroy();
     closeCSVLogging();
 }
 
 void VeinsInetReceiverApp::handleMessageWhenUp(cMessage* msg)
 {
-    if (socket.belongsToSocket(msg)) {
+    if (msg == rsuSecTimer) {
+        // Reset per-second receive counter for rate limiting
+        pktsReceivedThisSec = 0;
+        scheduleAt(simTime() + 1.0, rsuSecTimer);
+    }
+    else if (socket.belongsToSocket(msg)) {
         socket.processMessage(msg);
     }
     else {
@@ -103,6 +119,16 @@ void VeinsInetReceiverApp::handleMessageWhenUp(cMessage* msg)
 
 void VeinsInetReceiverApp::socketDataArrived(inet::UdpSocket* socket, inet::Packet* packet)
 {
+    // Rate limiting: drop packet if over per-second cap
+    if (maxPktPerSecond > 0 && pktsReceivedThisSec >= maxPktPerSecond) {
+        EV_INFO << getParentModule()->getFullName()
+                << " RSU RATE LIMIT: dropping packet (" << pktsReceivedThisSec
+                << " >= " << maxPktPerSecond << " pkts/s)" << endl;
+        delete packet;
+        return;
+    }
+    pktsReceivedThisSec++;
+
     // Accept packets from both the specific multicast group AND BSM group
     auto destAddr = packet->getTag<inet::L3AddressInd>()->getDestAddress();
     if (destAddr != joinedMulticastGroup && destAddr != bsmMulticastGroup) {

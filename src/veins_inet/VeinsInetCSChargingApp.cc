@@ -26,6 +26,7 @@ Define_Module(VeinsInetCSChargingApp);
 VeinsInetCSChargingApp::~VeinsInetCSChargingApp()
 {
     cancelAndDelete(csBatteryTimer);
+    cancelAndDelete(csSecTimer);
     closeCSV();
 }
 
@@ -52,6 +53,11 @@ void VeinsInetCSChargingApp::initialize(int stage)
         // Timer for periodic battery update
         csBatteryTimer = new cMessage("csBatteryTimer");
 
+        // Rate limiting
+        maxPktPerSecond = par("maxPktPerSecond");
+        pktsReceivedThisSec = 0;
+        csSecTimer = new cMessage("csSecTimer");
+
         packetsReceived = 0;
         chargeRequestsReceived = 0;
         lastPacketTime = 0;
@@ -64,6 +70,7 @@ void VeinsInetCSChargingApp::initialize(int stage)
         txDurationSignal = registerSignal("txDuration");
         chargeRequestReceivedSignal = registerSignal("chargeRequestReceived");
         slotsInUseSignal = registerSignal("slotsInUse");
+
 
         initCSV();
     }
@@ -107,11 +114,14 @@ void VeinsInetCSChargingApp::handleStartOperation(inet::LifecycleOperation* op)
 
     // Start periodic battery update (1 second interval)
     scheduleAt(simTime() + 1.0, csBatteryTimer);
+    // Start rate-limit counter reset (1 second interval)
+    scheduleAt(simTime() + 1.0, csSecTimer);
 }
 
 void VeinsInetCSChargingApp::handleStopOperation(inet::LifecycleOperation* op)
 {
     cancelEvent(csBatteryTimer);
+    cancelEvent(csSecTimer);
     socket.close();
     closeCSV();
 }
@@ -119,6 +129,7 @@ void VeinsInetCSChargingApp::handleStopOperation(inet::LifecycleOperation* op)
 void VeinsInetCSChargingApp::handleCrashOperation(inet::LifecycleOperation* op)
 {
     cancelEvent(csBatteryTimer);
+    cancelEvent(csSecTimer);
     socket.destroy();
     closeCSV();
 }
@@ -132,6 +143,11 @@ void VeinsInetCSChargingApp::handleMessageWhenUp(cMessage* msg)
     if (msg == csBatteryTimer) {
         updateCSBattery();
         scheduleAt(simTime() + 1.0, csBatteryTimer);
+    }
+    else if (msg == csSecTimer) {
+        // Reset per-second receive counter for rate limiting
+        pktsReceivedThisSec = 0;
+        scheduleAt(simTime() + 1.0, csSecTimer);
     }
     else if (socket.belongsToSocket(msg)) {
         socket.processMessage(msg);
@@ -148,6 +164,16 @@ void VeinsInetCSChargingApp::handleMessageWhenUp(cMessage* msg)
 void VeinsInetCSChargingApp::socketDataArrived(inet::UdpSocket* sock,
                                                 inet::Packet* packet)
 {
+    // Rate limiting: drop packet if over per-second cap
+    if (maxPktPerSecond > 0 && pktsReceivedThisSec >= maxPktPerSecond) {
+        EV_INFO << getParentModule()->getFullName()
+                << " CS RATE LIMIT: dropping packet (" << pktsReceivedThisSec
+                << " >= " << maxPktPerSecond << " pkts/s)" << endl;
+        delete packet;
+        return;
+    }
+    pktsReceivedThisSec++;
+
     int pktSize = packet->getByteLength();
     simtime_t iat = simTime() - lastPacketTime;
     lastPacketTime = simTime();

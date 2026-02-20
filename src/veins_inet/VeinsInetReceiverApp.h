@@ -32,6 +32,11 @@ class VEINS_INET_API VeinsInetReceiverApp : public inet::ApplicationBase, public
     
     inet::L3Address joinedMulticastGroup;
     inet::L3Address bsmMulticastGroup;  // BSM group 224.0.0.1 for normal traffic
+
+    // Rate limiting
+    int maxPktPerSecond;        // max recv pkts/s (0=unlimited)
+    int pktsReceivedThisSec;    // rolling counter, reset each second
+    cMessage* rsuSecTimer;      // 1-second reset timer
     
   protected:
     virtual void initialize(int stage) override;

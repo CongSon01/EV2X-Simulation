@@ -33,8 +33,12 @@ VeinsInetEVChargingApp::VeinsInetEVChargingApp()
     isCharging = false;
     needsCharging = false;
     chargingRequested = false;
-    chargeResponseAvailable = false; // CS said AVAILABLE but EV not yet in physical range
-    rerouteScheduled = false;          // have not rerouted to CS yet
+    chargeResponseAvailable = false;
+    rerouteScheduled = false;
+    batteryDead = false;
+    destIndex = 0;
+    pktsReceivedThisSec = 0;
+    secTimer = nullptr;
     positionInitialized = false;
     packetsSent = 0;
     packetsReceived = 0;
@@ -52,6 +56,7 @@ VeinsInetEVChargingApp::~VeinsInetEVChargingApp()
     cancelAndDelete(batteryTimer);
     cancelAndDelete(normalTrafficTimer);
     cancelAndDelete(chargeRetryTimer);
+    cancelAndDelete(secTimer);
     closeCSV();
 }
 
@@ -83,6 +88,16 @@ void VeinsInetEVChargingApp::initialize(int stage)
         chargingRange = par("chargingRange").doubleValueInUnit("m");
         physicalChargingRange = par("physicalChargingRange").doubleValueInUnit("m");
         csEdgeId = par("csEdgeId").stdstringValue();
+
+        // Rate limiting
+        maxPktPerSecond = par("maxPktPerSecond");
+        secTimer = new cMessage("secTimer");
+
+        // Parse destinations: space-separated edge IDs to visit after charging
+        std::string destStr = par("destinations").stdstringValue();
+        std::istringstream iss(destStr);
+        std::string edge;
+        while (iss >> edge) destList.push_back(edge);
 
         // Display
         sumoColor = par("sumoColor").stdstringValue();
@@ -122,6 +137,8 @@ void VeinsInetEVChargingApp::initialize(int stage)
         scheduleAt(simTime() + 1.0, batteryTimer);
         // Normal BSM traffic with random offset
         scheduleAt(simTime() + 1.0 + uniform(0.0, 0.5), normalTrafficTimer);
+        // Rate-limit counter reset every 1 second
+        scheduleAt(simTime() + 1.0, secTimer);
     }
 }
 
@@ -180,6 +197,11 @@ void VeinsInetEVChargingApp::handleMessageWhenUp(cMessage* msg)
         chargingRequested = false;
         chargeResponseAvailable = false;
     }
+    else if (msg == secTimer) {
+        // Reset per-second receive counter for rate limiting
+        pktsReceivedThisSec = 0;
+        scheduleAt(simTime() + 1.0, secTimer);
+    }
     else if (msg == batteryTimer) {
         updateBattery();
         checkChargingNeed();
@@ -200,6 +222,18 @@ void VeinsInetEVChargingApp::handleMessageWhenUp(cMessage* msg)
 
 void VeinsInetEVChargingApp::processPacket(std::shared_ptr<inet::Packet> pk)
 {
+    // Stop processing if battery is dead
+    if (batteryDead) return;
+
+    // Rate limiting: drop packet if over the per-second cap
+    if (maxPktPerSecond > 0 && pktsReceivedThisSec >= maxPktPerSecond) {
+        EV_INFO << getParentModule()->getFullName()
+                << " RATE LIMIT: dropping packet (" << pktsReceivedThisSec
+                << " >= " << maxPktPerSecond << " pkts/s)" << endl;
+        return;
+    }
+    pktsReceivedThisSec++;
+
     packetsReceived++;
     int pktSize = pk->getByteLength();
     totalBytesReceived += pktSize;
@@ -270,6 +304,7 @@ void VeinsInetEVChargingApp::stopAttack()
 
 void VeinsInetEVChargingApp::sendAttackPacket()
 {
+    if (batteryDead) return;  // no energy to send
     double energy = calculatePacketEnergy(1024);
     if (currentBatteryWh < energy) return;
 
@@ -374,9 +409,42 @@ void VeinsInetEVChargingApp::updateBattery()
     if (currentBatteryWh < 0) currentBatteryWh = 0;
     currentSoC = currentBatteryWh / batteryCapacity;
 
+    // Dead battery: vehicle stops permanently, no more packets
+    if (!batteryDead && currentBatteryWh <= 0 && !isCharging) {
+        batteryDead = true;
+        if (traciVehicle) traciVehicle->setSpeed(0);
+        cancelEvent(normalTrafficTimer);
+        cancelEvent(attackTimer);
+        cancelEvent(packetTimer);
+        logCSV("BATTERY_DEAD", "NONE", 0, 0.0,
+               getParentModule()->getFullName(), "none", 0, "BatteryDead");
+        EV_INFO << getParentModule()->getFullName() << " BATTERY DEAD at t="
+                << simTime() << endl;
+        return;
+    }
+    if (batteryDead) return;
+
     emit(batteryLevelSignal, currentBatteryWh);
     emit(socSignal, currentSoC);
     emit(isChargingSignal, isCharging);
+
+    // Advance to next destination when route is nearly finished
+    if (!isCharging && !needsCharging && traciVehicle && !destList.empty()) {
+        auto roads = traciVehicle->getPlannedRoadIds();
+        if ((int)roads.size() <= 1) {
+            if (destIndex < (int)destList.size()) {
+                traciVehicle->changeTarget(destList[destIndex]);
+                EV_INFO << getParentModule()->getFullName()
+                        << " advancing to destination " << destList[destIndex] << endl;
+                destIndex++;
+            } else {
+                // Cycle: loop back through destinations
+                destIndex = 0;
+                traciVehicle->changeTarget(destList[destIndex]);
+                destIndex++;
+            }
+        }
+    }
 
     // Stop charging when full
     if (isCharging && currentSoC >= 1.0) {
@@ -529,7 +597,6 @@ void VeinsInetEVChargingApp::endCharging()
     // Resume speed + restore original color
     if (traciVehicle) {
         traciVehicle->setSpeed(-1);
-        traciVehicle->changeTarget("A0B0");
         // Restore color: red for attacker, yellow for normal
         if (isAttacker)
             traciVehicle->setColor(TraCIColor(255, 0, 0, 255));
@@ -540,6 +607,15 @@ void VeinsInetEVChargingApp::endCharging()
     sendChargeComplete();
     EV_INFO << getParentModule()->getFullName() << " DONE charging, SoC="
             << (currentSoC * 100) << "%" << endl;
+
+    // Route to next destination so vehicle doesn't disappear at CS edge
+    if (traciVehicle && !destList.empty()) {
+        if (destIndex >= (int)destList.size()) destIndex = 0;  // cycle
+        traciVehicle->changeTarget(destList[destIndex]);
+        EV_INFO << getParentModule()->getFullName()
+                << " post-charge -> heading to " << destList[destIndex] << endl;
+        destIndex++;
+    }
 }
 
 void VeinsInetEVChargingApp::sendChargeComplete()
@@ -571,6 +647,9 @@ void VeinsInetEVChargingApp::sendChargeComplete()
 
 void VeinsInetEVChargingApp::sendNormalTraffic()
 {
+    // No traffic if battery is dead
+    if (batteryDead) return;
+
     int sz = intuniform(200, 400); // SAE J2735 BSM size range
     double energy = calculatePacketEnergy(sz);
     if (currentBatteryWh < energy) return;

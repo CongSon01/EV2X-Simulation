@@ -7,6 +7,8 @@
 #include "inet/common/geometry/common/Coord.h"
 #include "veins/modules/mobility/traci/TraCIColor.h"
 #include <fstream>
+#include <vector>
+#include <string>
 
 using namespace omnetpp;
 using namespace inet;
@@ -42,6 +44,18 @@ protected:
     bool chargeResponseAvailable;   // CS said AVAILABLE; waiting for physical proximity
     bool isCharging;
     bool rerouteScheduled;          // true after we issued changeTarget() to CS
+
+    // Dead battery
+    bool batteryDead;               // true when Wh reaches 0; vehicle stops permanently
+
+    // Destination cycling (keeps vehicle alive after charging/reroute)
+    std::vector<std::string> destList;  // post-charge waypoints (edges)
+    int destIndex;                      // next waypoint index
+
+    // Rate limiting
+    int maxPktPerSecond;            // max recv pkts/s (0=unlimited)
+    int pktsReceivedThisSec;        // rolling counter, reset every 1s
+    cMessage* secTimer;             // 1-second reset timer
 
     // Display
     std::string sumoColor;

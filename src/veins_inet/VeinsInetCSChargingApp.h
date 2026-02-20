@@ -55,6 +55,11 @@ protected:
     inet::L3Address csMulticastGroup;
     inet::L3Address evMulticastGroup;
 
+    // Rate limiting
+    int maxPktPerSecond;        // max recv pkts/s (0=unlimited)
+    int pktsReceivedThisSec;    // rolling counter, reset each second
+    cMessage* csSecTimer;       // 1-second reset timer
+
     // CSV
     std::ofstream csvFile;
     std::string csvFilePath;

@@ -17,6 +17,9 @@ simple VeinsInetCSChargingApp like inet.applications.contract.IApp
         double chargingPowerW @unit(W) = default(7200W);         // W per EV
         double gridRechargePowerW @unit(W) = default(10000W);    // W from grid
 
+        // Rate limiting: max packets received per second (0=unlimited)
+        int maxPktPerSecond = default(0);
+
         string interfaceTableModule;
 
         // Signals
