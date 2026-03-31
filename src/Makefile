@@ -33,20 +33,16 @@ O = $(PROJECT_OUTPUT_DIR)/$(CONFIGNAME)/$(PROJECTRELATIVE_PATH)
 OBJS = \
     $O/veins_inet/VeinsInetApplicationBase.o \
     $O/veins_inet/VeinsInetCSChargingApp.o \
-    $O/veins_inet/VeinsInetDoSApplication.o \
     $O/veins_inet/VeinsInetEVChargingApp.o \
     $O/veins_inet/VeinsInetEVDoSApplication.o \
     $O/veins_inet/VeinsInetManager.o \
     $O/veins_inet/VeinsInetManagerBase.o \
     $O/veins_inet/VeinsInetManagerForker.o \
     $O/veins_inet/VeinsInetMobility.o \
-    $O/veins_inet/VeinsInetReceiverApp.o \
-    $O/veins_inet/VeinsInetSampleApplication.o \
-    $O/veins_inet/VeinsInetSampleMessage_m.o
+    $O/veins_inet/VeinsInetReceiverApp.o
 
 # Message files
-MSGFILES = \
-    veins_inet/VeinsInetSampleMessage.msg
+MSGFILES =
 
 # SM files
 SMFILES =
